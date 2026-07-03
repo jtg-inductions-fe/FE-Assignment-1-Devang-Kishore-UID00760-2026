@@ -1,4 +1,5 @@
 //Inter
+
 @font-face{
     font-family: "Inter";
     src:url("../../../public/assets/fonts/InterDisplay-Regular.woff2") format("woff2");
@@ -7,9 +8,11 @@
     font-display: swap;
 }
 
+//Icons
+
 @font-face{
     font-family: "Icons";
-    src:url("../../../public/assets/fonts/icomoon.woff") format("woff2");
+    src:url("../../../public/assets/fonts/icomoon.woff") format("woff");
     font-weight: normal;
     font-style:normal;
     font-display: block;
