@@ -1,0 +1,60 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+$font-primary:"Roboto", sans-serif;
+$font-secodary:"Inter",sans-serif;
+
+//Font Weights
+$fw-regular: 400;
+$fw-medium: 450;
+$fw-semibold: 700;
+$fw-bold: 900;
+
+//Font Size
+$fs-xs:0.875rem;
+$fs-sm:1.125rem;
+$fs-md:1.4375rem;
+$fs-lg:1.75rem;
+$fs-xl:2.75rem;
+$fs-2xl:4.3125rem;
+
+//Line Heights
+$lh-body:1.6;
+$lh-heading:1.2;
+$lh-title:1.8;
+
+//Colours
+$clr-primary:#F85E9F;
+$clr-button:#5D50C6;
+$clr-heading:#191825;
+$clr-white:#ffffff;
+$clr-black:#000000;
+$clr-orange:#FF5722;
+
+//Border Radius
+$radius-sm:6.25rem;
+$radius-md:2rem;
+$radius-lg:50%;
+
+
+//tablet
+$bp-tablet:26.9375rem;
+
+//Desktop
+$bp-desktop:64.0625rem;
+
+//icons
+$icon-map: (
+  'left-arrow': '\e903',
+  'right-arrow': '\e904',
+  'star': '\e905',
+  'hamburger': '\906',
+  'hero-badge':'\e907',
+  'hero-place':'\e908',
+  'hero-play':'\e909',
+  'hero-send':'\e90a',
+  'hero-user':'\e90b',
+  'facebook':'\e900',
+  'instagram':'\e901',
+  'twiter':'\e902'
+);
+

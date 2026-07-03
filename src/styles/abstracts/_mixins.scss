@@ -1,0 +1,60 @@
+@use "variables" as *;
+
+//Flexbox
+
+@mixin flex($justify:flex-start,$align:center,$direction:row,$gap:0){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+//Grid
+
+@mixin grid($colums,$gap:1rem){
+    display: grid;
+    grid-template-columns: $colums;
+    gap: $gap;
+}
+
+//Tablet Breakpoint
+
+@mixin tablet{
+    @media(min-width:$bp-tablet){
+        @content;
+    }
+}
+
+//Desktop Breakpoint
+
+@mixin desktop{
+    @media(min-width:$bp-desktop){
+        @content;
+    }
+}
+
+@mixin typography($size,$weight:$fw-regular,$line-height:$lh-body){
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}
+
+@mixin hover{
+    @media(hover: hover){
+        &:hover{
+            @content ;
+        }
+    }
+}
+
+@mixin insert-icon($name) {
+    font-family: 'Icons';
+    speak: none; 
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    content: map-get($icon-map, $name);
+}
+

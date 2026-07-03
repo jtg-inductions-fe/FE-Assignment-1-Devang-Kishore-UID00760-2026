@@ -1,0 +1,16 @@
+
+//px to rem
+@function rem($value){
+    @return ($value/16)*1rem;
+}
+
+//z index
+$z-layers:(
+    "base":1,
+    "dropdown":100,
+    "sticky":900,
+);
+@function z($layer){
+    @return map-get($z-layers,$layer);
+}
+
