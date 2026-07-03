@@ -1,6 +1,7 @@
+@use 'sass:math';
 //px to rem
 @function rem($value){
-    @return ($value/16)*1rem;
+    @return math.div($value,16)*1rem;
 }
 
 //z index

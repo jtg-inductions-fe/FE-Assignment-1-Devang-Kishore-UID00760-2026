@@ -1,5 +1,4 @@
 //Fonts
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 $font-primary:"Roboto", sans-serif;
 $font-secodary:"Inter",sans-serif;
 
@@ -29,7 +28,7 @@ $clr-heading:#191825;
 $clr-white:#ffffff;
 $clr-black:#000000;
 $clr-orange:#FF5722;
-
+$clr-white:#ffffff;
 //Border Radius
 $radius-sm:6.25rem;
 $radius-md:2rem;
@@ -55,6 +54,6 @@ $icon-map: (
   'hero-user':'\e90b',
   'facebook':'\e900',
   'instagram':'\e901',
-  'twiter':'\e902'
+  'twitter':'\e902'
 );
 

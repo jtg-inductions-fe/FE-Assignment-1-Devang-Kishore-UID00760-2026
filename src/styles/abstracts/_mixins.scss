@@ -12,9 +12,9 @@
 
 //Grid
 
-@mixin grid($colums,$gap:1rem){
+@mixin grid($columns,$gap:1rem){
     display: grid;
-    grid-template-columns: $colums;
+    grid-template-columns: $columns;
     gap: $gap;
 }
 
@@ -49,12 +49,12 @@
 }
 
 @mixin insert-icon($name) {
-    font-family: 'Icons';
+    font-family: Icons;
     speak: none; 
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    content: map-get($icon-map, $name);
+    content: map.get($icon-map, $name);
 }
 
