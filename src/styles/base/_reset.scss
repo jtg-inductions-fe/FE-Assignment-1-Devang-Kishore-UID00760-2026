@@ -10,12 +10,17 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
+a{
+    text-decoration: none;
+     white-space: nowrap;
+}
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-
+button{
+    background-color: transparent;
+}
 body {
 	line-height: 1.5;
     -webkit-font-smoothing: antialiased;
@@ -52,3 +57,6 @@ q:before, q:after {
 	content: none;
 }
 
+a{
+    color: inherit;
+}

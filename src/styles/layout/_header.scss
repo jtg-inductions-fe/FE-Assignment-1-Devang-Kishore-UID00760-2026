@@ -1,1 +1,423 @@
+@use "../abstracts/" as *;
 
+//mobile view 
+.header {
+    padding: 2rem 1rem;
+    position: fixed;
+    top: 0rem;
+    width: 100%;
+    z-index: z("sticky");
+}
+
+.navbar {
+    @include flex(space-between,center);
+   
+    position: relative;
+    
+}
+
+.navbar__left {
+    @include flex(space-between,center);
+    width: 100%;
+    height: 100%;
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    & img {
+        display: block;
+        width: 2.5rem;
+        height: auto;
+    }
+}
+
+.navbar__toggle {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    transition: transform .3s ease;
+
+    @include insert-icon(
+        "hamburger",
+        "after",
+        $clr-button,
+        transparent
+    );
+
+    &:focus-visible {
+        outline: .15rem solid $clr-button;
+        outline-offset: .2rem;
+    }
+}
+
+.navbar__toggle--active {
+    transform: rotate(90deg);
+}
+
+.navbar__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1000%;;
+    display: none;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border-radius: 0 0 $radius-md $radius-md;
+    background: radial-gradient(
+        circle at top left,
+        $clr-orange-light,
+        $clr-white
+    );
+    animation: navbar-slide 0.3s ease;
+    box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .08);
+    justify-content: space-between;
+    & .navbar__list{
+        gap: 2rem;
+        align-items:start;
+        & .navbar__item{
+            font: $fs-sm;
+            
+        }
+        
+    }
+}
+.navbar__list{
+    animation: content-opacity  1s ease;
+}
+.navbar__content--open {
+    display: flex;
+}
+
+.navbar__list {
+    display: flex;
+    color: $clr-black;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.navbar__item {
+    list-style: none;
+    color: $clr-black;
+}
+
+.navbar__link {
+    color: $clr-links;
+    text-decoration: none;
+    font-size: $fs-md;
+    font-weight: 500;
+    transition: color .3s ease;
+
+    &:hover,
+    &:focus-visible {
+        color: $clr-button;
+    }
+
+    &--active {
+        color: $clr-active;
+    }
+}
+
+.navbar__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.navbar__login,
+.navbar__signup {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: $radius-md;
+    text-decoration: none;
+    font-size: $fs-sm;
+    font-weight: $fw-semibold;
+}
+
+.navbar__login {
+    color: $clr-black;
+
+    &:hover,
+    &:focus-visible {
+        color: $clr-button;
+    }
+}
+.navbar__actions{
+    animation: content-opacity  1.5s ease;
+}
+.navbar__signup {
+    background: $clr-button;
+    color: $clr-white;
+
+    &:hover,
+    &:focus-visible {
+        opacity: .9;
+    }
+}
+
+:focus-visible {
+    outline: .15rem solid $clr-button;
+    outline-offset: .2rem;
+}
+
+
+//tablet view
+
+@include tablet {
+
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar__left {
+        width: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .navbar__toggle {
+        order: 1;
+    }
+
+    .navbar__logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .navbar__content {
+        display: flex;
+        position: static;
+        margin-left: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        width: auto;
+    }
+
+    .navbar__list {
+        display: none;
+    }
+
+    .navbar__actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .navbar__login {
+        padding: 0;
+        min-height: auto;
+
+        &:hover,
+        &:focus-visible {
+            color: $clr-button;
+            background: transparent;
+        }
+    }
+
+    .navbar__signup {
+        font-size: $fs-xs;
+        padding: 1rem 2rem;
+    }
+
+    .navbar__content--open {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 1000%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 2rem;
+        padding: 2rem;
+        border-radius: 0 0 $radius-md $radius-md;
+        animation: navbar-slide 0.3s ease;
+        height: calc(100% + 30rem);
+        background: radial-gradient(
+            circle at top left,
+            $clr-orange-light,
+            $clr-white
+        );
+        box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .08);
+        & .navbar__list {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            gap: 4rem;
+            font-size: $fs-md;
+        }
+        
+
+        & .navbar__actions {
+            
+            position: absolute;
+            width: auto;
+            top:-1%;
+            right:0;
+            transform: translatey(-80%);
+            & .navbar__signup{
+                padding: 1rem 2rem;
+            }
+            & .navbar__login{
+                white-space: nowrap;
+            }
+        }
+        .navbar__content--open{
+            animation:navbar-slide  0.3s ease;
+        }
+        .navbar__login,.navbar__signup {
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 1rem;
+        }
+    }
+}
+
+//Desktop view
+
+@include desktop{
+
+    .header {
+        padding: 4rem 8rem;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30%;
+    }
+
+    .navbar__left {
+        width: auto;
+        justify-content: end;
+        flex-shrink: 0;
+    }
+
+    .navbar__logo {
+        position: static;
+        transform: none;
+    }
+
+    .navbar__toggle {
+        display: none;
+    }
+
+    .navbar__content {
+        position: static;
+        display: flex;
+        justify-content:space-between;
+        align-items: center;
+        // gap: 30rem;
+        padding-left:4rem;
+        align-items: center;
+        flex-direction: row;
+        flex: 1;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0 ;
+        width: auto;
+    }
+
+    .navbar__list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+    }
+    .navbar__link {
+        font-size: $fs-sm;
+        color: $clr-links;
+        font-weight: 500;
+
+        &:hover{
+            color: $clr-active;
+        }
+        &:focus-visible {
+            color: $clr-button;
+        }
+
+        &--active {
+            color: $clr-active;
+            font-weight: 700;
+        }
+
+    }
+
+    .navbar__actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+        width: auto;
+    }
+
+    .navbar__login {
+        padding: 0;
+        min-height: auto;
+        color: $clr-black;
+    }
+
+    .navbar__signup {
+        padding: 1rem 2rem;
+    }
+}
+
+//Transitions and Animations
+.navbar__toggle,
+.navbar__content,
+.navbar__link,
+.navbar__login,
+.navbar__signup {
+    transition: all .3s ease;
+}
+@keyframes navbar-slide {
+
+    from {
+        opacity: 0;
+        height: 0;
+    }
+
+    to {
+        opacity: 1;
+        height: 1000%; 
+    }
+}
+
+@keyframes content-opacity {
+
+    from {
+        opacity: 0;
+        
+    }
+
+    to {
+        opacity: 1;
+        
+    }
+}

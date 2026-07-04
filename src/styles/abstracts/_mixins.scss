@@ -1,5 +1,5 @@
 @use "variables" as *;
-
+@use 'sass:map';
 //Flexbox
 
 @mixin flex($justify:flex-start,$align:center,$direction:row,$gap:0){
@@ -48,13 +48,17 @@
     }
 }
 
-@mixin insert-icon($name) {
-    font-family: Icons;
-    speak: none; 
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    content: map.get($icon-map, $name);
+@mixin insert-icon($name,$position,$colour,$backgroundColour) {
+    &::#{$position}{
+        font-family: Icons;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        font-size:2.45rem ;
+        color: $colour;
+        background-color: $backgroundColour;
+        content: map.get($icon-map, $name);
+    }
 }
 
