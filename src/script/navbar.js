@@ -1,35 +1,80 @@
-
 const navbarToggle = document.querySelector(".navbar__toggle");
 const navbarContent = document.querySelector(".navbar__content");
-const navbarLinks = document.querySelectorAll(".navbar__link");
-const navbarList=document.querySelector(".navbar__list");
-const logo=document.querySelector(".navbar__logo");
-const navbarActions=document.querySelector(".navbar__actions");
-const fetchNavData=async()=>{
-    let response=await fetch("./data/content.json");
-    let data= await response.json();
-    let linkData=""
-    for(let i of data.header.links){
-        if(i.isActive){
-            linkData=linkData+`<li class="navbar__item"> <a href="${i.href}" class="navbar__link navbar__link--active ",  >${i.content} </a> </li>`;
-        }else{
-            linkData=linkData+`<li class="navbar__item"> <a href="${i.href}" class="navbar__link",  >${i.content} </a> </li>`;
+const navbarList = document.querySelector(".navbar__list");
+const logo = document.querySelector(".navbar__logo");
+const navbarActions = document.querySelector(".navbar__actions");
+const desktopBreakPoint=1025;
+/**
+ * Fetch navigation data 
+ */
+const fetchNavData = async () => {
+    try {
+        const response = await fetch("./data/content.json");
+        if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
         }
+        const { header } = await response.json();
+        renderLogo(header.logo);
+        renderLinks(header.links);
+        renderActions(header.login, header.signup);
+    } catch (error) {
+        console.error("Failed to load navbar data:", error);
     }
-    navbarList.innerHTML=linkData;
-    logo.innerHTML=`<img src="${data.header.logo.image}" alt="${data.header.logo.alt}">`;
-    const loginContent=`<a href="${data.header.login.href}" class="navbar__login">${data.header.login.content}</a>`;
-    const signupContent=`<a href="${data.header.signup.href}" class="navbar__signup">${data.header.signup.content}</a>`;
+};
 
-    navbarActions.innerHTML=loginContent+signupContent;
-}
+/**
+ * Render logo
+ */
+const renderLogo = ({ image, alt }) => {
+    logo.innerHTML = `<img src="${image}" alt="${alt}">`;
+};
 
-const toggle=()=>{
-        navbarToggle.addEventListener("click", () => {
-        navbarContent.classList.toggle("navbar__content--open");
+/**
+ * Render navigation links
+ */
+const renderLinks = (links) => {
+    navbarList.innerHTML = links.map(({ href, content, isActive }) => `
+                <li class="navbar__item">
+                    <a href="${href}" class="navbar__link ${isActive ? "navbar__link--active" : ""}" ${isActive ? 'aria-current="page"' : ""}>
+                        ${content}
+                    </a>
+                </li>`).join("");
+};
+
+/**
+ * Render login/signup button
+ */
+const renderActions = (login, signup) => {
+    navbarActions.innerHTML = `
+        <a href="${login.href}" class="navbar__login">
+            ${login.content}
+        </a>
+        <a href="${signup.href}" class="navbar__signup">
+            ${signup.content}
+        </a>
+    `;
+};
+
+/**
+ * Toggle mobile navigation
+ */
+const toggle = () => {
+    if (!navbarToggle || !navbarContent) return;
+    navbarToggle.addEventListener("click", () => {
+        const isOpen = navbarContent.classList.toggle("navbar__content--open");
         navbarToggle.classList.toggle("navbar__toggle--active");
+        navbarToggle.setAttribute("aria-expanded", isOpen);
     });
-}
+};
 
-
-export {toggle,fetchNavData};
+/**
+ * Content--open class remove  
+ */
+window.addEventListener("resize",()=>{
+    if(window.innerWidth>=desktopBreakPoint && navbarContent.classList.contains("navbar__content--open")){
+        navbarContent.classList.remove("navbar__content--open");
+        navbarToggle.classList.remove("navbar__toggle--active");
+        navbarToggle.setAttribute("aria-expanded","false");
+    }
+})
+export { fetchNavData, toggle };

@@ -1,14 +1,20 @@
-//Fonts
+/**
+*Fonts
+*/
 $font-primary:"Roboto", sans-serif;
-$font-secodary:"Inter",sans-serif;
+$font-secondary:"Inter",sans-serif;
 
-//Font Weights
+/**
+*Font Weights
+*/
 $fw-regular: 400;
 $fw-medium: 450;
 $fw-semibold: 700;
 $fw-bold: 900;
 
-//Font Size
+/**
+*Font Size
+*/
 $fs-xs:0.875rem;
 $fs-sm:1.125rem;
 $fs-md:1.4375rem;
@@ -16,12 +22,16 @@ $fs-lg:1.75rem;
 $fs-xl:2.75rem;
 $fs-2xl:4.3125rem;
 
-//Line Heights
+/**
+*Line Heights
+*/
 $lh-body:1.6;
 $lh-heading:1.2;
 $lh-title:1.8;
 
-//Colours
+/**
+*Colours
+*/
 $clr-primary:#F85E9F;
 $clr-button:#5D50C6;
 $clr-heading:#191825;
@@ -31,21 +41,31 @@ $clr-white:#ffffff;
 $clr-black:#000000;
 $clr-orange:#FF5722;
 $clr-orange-light:#ff562241;
-$clr-white:#ffffff;
 $clr-gray:#EEEEEE;
-//Border Radius
+$clr-navbar-bg-start:#FFE6DF;
+$clr-navbar-bg-end:#FFF2ED;
+
+/**
+*Border Radius
+*/
 $radius-md:6.25rem;
 $radius-sm:2rem;
 $radius-lg:50%;
 
 
-//tablet
+/**
+*Tablet view size
+*/
 $bp-tablet:26.9375rem;
 
-//Desktop
+/**
+*Desktop view size
+*/
 $bp-desktop:64.0625rem;
-
-//icons
+ 
+/**
+*Icons
+*/
 $icon-map: (
   'left-arrow': '\e903',
   'right-arrow': '\e904',
@@ -60,7 +80,8 @@ $icon-map: (
   'instagram':'\e901',
   'twitter':'\e902'
 );
-.test{
-    height: 200vh;
-    background-color: #F85E9F;
-}
+
+/**
+*Gradients
+*/
+$navbar-gradient:radial-gradient(160% 180% at left center,$clr-navbar-bg-start 0%,$clr-navbar-bg-end 35%,transparent 60%),$clr-white;

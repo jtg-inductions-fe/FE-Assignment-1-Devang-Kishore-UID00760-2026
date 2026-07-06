@@ -1,3 +1,11 @@
 @use "../abstracts/" as *;
 
+/**
+*accessibility
+*/
+
+:focus-visible {
+    outline: .15rem solid $clr-button;
+    outline-offset: .2rem;
+}
 

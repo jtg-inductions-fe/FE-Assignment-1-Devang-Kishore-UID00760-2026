@@ -1,7 +1,13 @@
 @use "variables" as *;
 @use 'sass:map';
-//Flexbox
 
+/**
+*Flexbox
+* @param {string} $justify - value of justify content.
+* @param {string} $align - value of align item.
+* @param {string} $direction - value of flex-deirection.
+* @param {number} $justify - value of gap.
+*/
 @mixin flex($justify:flex-start,$align:center,$direction:row,$gap:0){
     display: flex;
     justify-content: $justify;
@@ -10,7 +16,11 @@
     gap: $gap;
 }
 
-//Grid
+/**
+*Grid
+* @param {string} $columns - value of grid columns.
+* @param {number} $justify - value of gap.
+*/
 
 @mixin grid($columns,$gap:1rem){
     display: grid;
@@ -18,27 +28,37 @@
     gap: $gap;
 }
 
-//Tablet Breakpoint
-
+/**
+*Tablet Breakpoint
+*/
 @mixin tablet{
     @media(min-width:$bp-tablet){
         @content;
     }
 }
-
-//Desktop Breakpoint
-
+/**
+*Desktop Breakpoint
+*/
 @mixin desktop{
     @media(min-width:$bp-desktop){
         @content;
     }
 }
 
+/**
+*Typography
+* @param {number} $size - value of font-size.
+* @param {number} $weight - value of font-weight.
+* @param {number} $line-height - value of line-height.
+*/
 @mixin typography($size,$weight:$fw-regular,$line-height:$lh-body){
     font-size: $size;
     font-weight: $weight;
     line-height: $line-height;
 }
+/**
+*Hover state
+*/
 
 @mixin hover{
     @media(hover: hover){
@@ -47,15 +67,20 @@
         }
     }
 }
-
-@mixin insert-icon($name,$position,$colour,$backgroundColour) {
+/**
+*Font icon 
+* @param {string} $name - name of icon. 
+* @param {string} $position - postion of icon.
+* @param {string} $backgroundColour - value of background-color.  
+*/
+@mixin insert-icon($name,$position,$colour,$backgroundColour,$font-size:2.45rem) {
     &::#{$position}{
         font-family: Icons;
         font-style: normal;
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
-        font-size:2.45rem ;
+        font-size: $font-size;
         color: $colour;
         background-color: $backgroundColour;
         content: map.get($icon-map, $name);

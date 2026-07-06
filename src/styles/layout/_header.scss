@@ -1,14 +1,24 @@
 @use "../abstracts/" as *;
 
-//mobile view 
-.header {
-    padding: 2rem 1rem;
-    position: fixed;
-    top: 0rem;
-    width: 100%;
-    z-index: z("sticky");
-}
+/**
+*Mobile view 
+*/
 
+.header {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    padding: 2rem 1rem;
+    z-index: z("sticky");
+    background: $navbar-gradient
+}
+.navbar__link,
+.navbar__login,
+.navbar__signup{
+    text-decoration: none;
+    white-space: nowrap;
+}
 .navbar {
     @include flex(space-between,center);
    
@@ -23,11 +33,10 @@
 }
 
 .navbar__logo {
-    display: flex;
-    align-items: center;
+    @include flex($align:center);
     flex-shrink: 0;
 
-    & img {
+    img {
         display: block;
         width: 2.5rem;
         height: auto;
@@ -41,9 +50,7 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center,center);
     flex-shrink: 0;
     transition: transform .3s ease;
 
@@ -53,11 +60,6 @@
         $clr-button,
         transparent
     );
-
-    &:focus-visible {
-        outline: .15rem solid $clr-button;
-        outline-offset: .2rem;
-    }
 }
 
 .navbar__toggle--active {
@@ -66,31 +68,25 @@
 
 .navbar__content {
     position: absolute;
-    top: 100%;
+    top: calc(100% + 2rem);
     left: 0;
     width: 100%;
-    height: 1000%;;
+    height: auto;
     display: none;
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
     border-radius: 0 0 $radius-md $radius-md;
-    background: radial-gradient(
-        circle at top left,
-        $clr-orange-light,
-        $clr-white
-    );
-    animation: navbar-slide 0.3s ease;
+    background: $navbar-gradient;
     box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .08);
     justify-content: space-between;
-    & .navbar__list{
-        gap: 2rem;
+    .navbar__list{
+        gap: 4rem;
         align-items:start;
-        & .navbar__item{
-            font: $fs-sm;
+        .navbar__item{
+            font-size: $fs-sm;
             
         }
-        
     }
 }
 .navbar__list{
@@ -101,11 +97,8 @@
 }
 
 .navbar__list {
-    display: flex;
     color: $clr-black;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.75rem;
+    @include flex($align:center,$direction:column,$gap: 1.75rem);
 }
 
 .navbar__item {
@@ -131,20 +124,16 @@
 }
 
 .navbar__actions {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex($direction:column,$gap:1rem);
 }
 
 .navbar__login,
 .navbar__signup {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center,center);
     padding: 1rem 2rem;
     border-radius: $radius-md;
     text-decoration: none;
-    font-size: $fs-sm;
+    font-size: $fs-xs;
     font-weight: $fw-semibold;
 }
 
@@ -169,30 +158,21 @@
     }
 }
 
-:focus-visible {
-    outline: .15rem solid $clr-button;
-    outline-offset: .2rem;
-}
 
 
-//tablet view
+/**
+*Tablet view
+*/
 
 @include tablet {
 
     .header {
-        padding: 1rem 2rem;
+        padding: 2rem 1rem;
     }
-
-    .navbar {
-        position: relative;
-    }
-
     .navbar__left {
         width: auto;
         height: 100%;
-        display: flex;
-        align-items: center;
-        
+        @include flex($align:center)
     }
 
     .navbar__toggle {
@@ -220,10 +200,8 @@
     }
 
     .navbar__actions {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 1.5rem;
+        @include flex($align:center,$gap:1.5rem);
+        
     }
 
     .navbar__login {
@@ -244,60 +222,45 @@
 
     .navbar__content--open {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 2rem);
         left: 0;
         width: 100%;
-        height: 1000%;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
+        @include flex($align:start,$direction:column);
         gap: 2rem;
         padding: 2rem;
         border-radius: 0 0 $radius-md $radius-md;
         animation: navbar-slide 0.3s ease;
         height: calc(100% + 30rem);
-        background: radial-gradient(
-            circle at top left,
-            $clr-orange-light,
-            $clr-white
-        );
+        background:$navbar-gradient;
         box-shadow: 0 .75rem 2rem rgba(0, 0, 0, .08);
-        & .navbar__list {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            justify-content: start;
-            gap: 4rem;
+        .navbar__list {
+            @include flex(flex-start,flex-start,column,4rem);
             font-size: $fs-md;
         }
         
 
-        & .navbar__actions {
-            
+        .navbar__actions {   
             position: absolute;
             width: auto;
-            top:-1%;
+            top:-7%;
             right:0;
-            transform: translatey(-80%);
-            & .navbar__signup{
+            transform: translateY(-80%);
+            .navbar__signup{
+                font-size: $fs-xs;
                 padding: 1rem 2rem;
             }
-            & .navbar__login{
-                white-space: nowrap;
-            }
-        }
-        .navbar__content--open{
-            animation:navbar-slide  0.3s ease;
+            
         }
         .navbar__login,.navbar__signup {
-            justify-content: center;
-            align-items: center;
+            @include flex(center,center);
             padding: 0.5rem 1rem;
         }
     }
 }
 
-//Desktop view
+/**
+*Desktop view
+*/
 
 @include desktop{
 
@@ -306,15 +269,12 @@
     }
 
     .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 30%;
+        @include flex(space-between,center,row,30%);
     }
 
     .navbar__left {
         width: auto;
-        justify-content: end;
+        justify-content: flex-end;
         flex-shrink: 0;
     }
 
@@ -329,13 +289,7 @@
 
     .navbar__content {
         position: static;
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        // gap: 30rem;
-        padding-left:4rem;
-        align-items: center;
-        flex-direction: row;
+        @include flex(space-between,center,row);
         flex: 1;
         padding: 0;
         background: transparent;
@@ -345,13 +299,10 @@
     }
 
     .navbar__list {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 4rem;
+        @include flex($align:center,$gap:4rem);
     }
     .navbar__link {
-        font-size: $fs-sm;
+        font-size: $fs-xs;
         color: $clr-links;
         font-weight: 500;
 
@@ -370,10 +321,7 @@
     }
 
     .navbar__actions {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 2rem;
+        @include flex($align:center,$gap:2rem);
         width: auto;
     }
 
@@ -381,14 +329,18 @@
         padding: 0;
         min-height: auto;
         color: $clr-black;
+        font-size: $fs-xs;
     }
 
     .navbar__signup {
         padding: 1rem 2rem;
+
     }
 }
 
-//Transitions and Animations
+/**
+*Transitions and Animations
+*/
 .navbar__toggle,
 .navbar__content,
 .navbar__link,
@@ -396,28 +348,4 @@
 .navbar__signup {
     transition: all .3s ease;
 }
-@keyframes navbar-slide {
 
-    from {
-        opacity: 0;
-        height: 0;
-    }
-
-    to {
-        opacity: 1;
-        height: 1000%; 
-    }
-}
-
-@keyframes content-opacity {
-
-    from {
-        opacity: 0;
-        
-    }
-
-    to {
-        opacity: 1;
-        
-    }
-}
