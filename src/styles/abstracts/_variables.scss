@@ -57,3 +57,9 @@ $icon-map: (
   'twitter':'\e902'
 );
 
+//z-index 
+$z-layers:(
+    "base":1,
+    "dropdown":100,
+    "sticky":900,
+);

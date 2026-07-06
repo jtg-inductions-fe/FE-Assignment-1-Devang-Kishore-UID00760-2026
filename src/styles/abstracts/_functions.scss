@@ -5,11 +5,6 @@
 }
 
 //z index
-$z-layers:(
-    "base":1,
-    "dropdown":100,
-    "sticky":900,
-);
 @function z($layer){
     @return map-get($z-layers,$layer);
 }
