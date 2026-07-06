@@ -1,3 +1,3 @@
-import { toggle,fetchNavData} from "./navbar";
+import { toggle} from "./navbar";
 toggle();
-fetchNavData();
+

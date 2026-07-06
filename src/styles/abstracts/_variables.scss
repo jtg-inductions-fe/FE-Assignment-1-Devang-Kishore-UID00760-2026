@@ -85,3 +85,12 @@ $icon-map: (
 *Gradients
 */
 $navbar-gradient:radial-gradient(160% 180% at left center,$clr-navbar-bg-start 0%,$clr-navbar-bg-end 35%,transparent 60%),$clr-white;
+
+/**
+*z-index
+*/
+$z-layers:(
+    "base":1,
+    "dropdown":100,
+    "sticky":900,
+);
