@@ -1,8 +1,8 @@
 /**
 *Fonts
 */
-$font-primary:"Roboto", sans-serif;
-$font-secondary:"Inter",sans-serif;
+$font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Inter', sans-serif;
 
 /**
 *Font Weights
@@ -15,82 +15,87 @@ $fw-bold: 900;
 /**
 *Font Size
 */
-$fs-xs:0.875rem;
-$fs-sm:1.125rem;
-$fs-md:1.4375rem;
-$fs-lg:1.75rem;
-$fs-xl:2.75rem;
-$fs-2xl:4.3125rem;
+$fs-xs: 0.875rem;
+$fs-sm: 1.125rem;
+$fs-md: 1.4375rem;
+$fs-lg: 1.75rem;
+$fs-xl: 2.75rem;
+$fs-2xl: 4.3125rem;
 
 /**
 *Line Heights
 */
-$lh-body:1.6;
-$lh-heading:1.2;
-$lh-title:1.8;
+$lh-body: 1.6;
+$lh-heading: 1.2;
+$lh-title: 1.8;
 
 /**
 *Colours
 */
-$clr-primary:#F85E9F;
-$clr-button:#5D50C6;
-$clr-heading:#191825;
-$clr-links:#19182581;
-$clr-active:#222831;
-$clr-white:#ffffff;
-$clr-black:#000000;
-$clr-orange:#FF5722;
-$clr-orange-light:#ff562241;
-$clr-gray:#EEEEEE;
-$clr-navbar-bg-start:#FFE6DF;
-$clr-navbar-bg-end:#FFF2ED;
+$clr-primary: #f85e9f;
+$clr-button: #5d50c6;
+$clr-heading: #191825;
+$clr-links: #19182581;
+$clr-active: #222831;
+$clr-white: #ffffff;
+$clr-black: #000000;
+$clr-orange: #ff5722;
+$clr-orange-light: #ff562241;
+$clr-gray: #eeeeee;
+$clr-navbar-bg-start: #ffe6df;
+$clr-navbar-bg-end: #fff2ed;
 
 /**
 *Border Radius
 */
-$radius-md:6.25rem;
-$radius-sm:2rem;
-$radius-lg:50%;
-
+$radius-md: 6.25rem;
+$radius-sm: 2rem;
+$radius-lg: 50%;
 
 /**
 *Tablet view size
 */
-$bp-tablet:26.9375rem;
+$bp-tablet: 26.9375rem;
 
 /**
 *Desktop view size
 */
-$bp-desktop:64.0625rem;
- 
+$bp-desktop: 64.0625rem;
+
 /**
 *Icons
 */
 $icon-map: (
-  'left-arrow': '\e903',
-  'right-arrow': '\e904',
-  'star': '\e905',
-  'hamburger': '\e906',
-  'hero-badge':'\e907',
-  'hero-place':'\e908',
-  'hero-play':'\e909',
-  'hero-send':'\e90a',
-  'hero-user':'\e90b',
-  'facebook':'\e900',
-  'instagram':'\e901',
-  'twitter':'\e902'
+    'left-arrow': '\e903',
+    'right-arrow': '\e904',
+    'star': '\e905',
+    'hamburger': '\e906',
+    'hero-badge': '\e907',
+    'hero-place': '\e908',
+    'hero-play': '\e909',
+    'hero-send': '\e90a',
+    'hero-user': '\e90b',
+    'facebook': '\e900',
+    'instagram': '\e901',
+    'twitter': '\e902',
 );
 
 /**
 *Gradients
 */
-$navbar-gradient:radial-gradient(160% 180% at left center,$clr-navbar-bg-start 0%,$clr-navbar-bg-end 35%,transparent 60%),$clr-white;
+$navbar-gradient: radial-gradient(
+        160% 180% at left center,
+        $clr-navbar-bg-start 0%,
+        $clr-navbar-bg-end 35%,
+        transparent 60%
+    ),
+    $clr-white;
 
 /**
 *z-index
 */
-$z-layers:(
-    "base":1,
-    "dropdown":100,
-    "sticky":900,
+$z-layers: (
+    'base': 1,
+    'dropdown': 100,
+    'sticky': 900,
 );

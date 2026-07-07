@@ -1,11 +1,10 @@
-@use "../abstracts/" as *;
+@use '../abstracts/' as *;
 
 /**
 *accessibility
 */
 
 :focus-visible {
-    outline: .15rem solid $clr-button;
-    outline-offset: .2rem;
+    outline: 0.15rem solid $clr-button;
+    outline-offset: 0.2rem;
 }
-

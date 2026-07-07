@@ -1,3 +1,2 @@
-import { toggle} from "./navbar";
+import { toggle } from './navbar';
 toggle();
-

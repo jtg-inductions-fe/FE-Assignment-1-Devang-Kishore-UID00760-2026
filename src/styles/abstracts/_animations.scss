@@ -2,7 +2,6 @@
 *Animation for navbar menu 
 */
 @keyframes navbar-slide {
-
     from {
         opacity: 0;
         transform: translateY(-1rem);
@@ -17,14 +16,11 @@
 *Animation for Content opacity
 */
 @keyframes content-opacity {
-
     from {
         opacity: 0;
-        
     }
 
     to {
         opacity: 1;
-        
     }
 }
