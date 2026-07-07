@@ -1,8 +1,7 @@
 @use 'sass:math';
-@use 'variables' as *;
 
 /**
-*Converts px to rem
+* Converts px to rem
 * @param {number} $value - value in px.
 */
 @function rem($value) {
@@ -10,7 +9,7 @@
 }
 
 /**
-*Provides z-index value
+* Provides z-index value
 * @param {string} $value - name for z-index.
 */
 @function z($layer) {

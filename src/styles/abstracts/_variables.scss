@@ -1,13 +1,13 @@
-//Fonts
+// Fonts
 $font-primary: 'Roboto', sans-serif;
 $font-secodary: 'Inter', sans-serif;
 
-//Font Weights
+// Font Weights
 $fw-normal: 400;
 $fw-medium: 500;
 $fw-bold: 600;
 
-//Font Size
+// Font Size
 $fs-xs: 0.875rem;
 $fs-sm: 1.125rem;
 $fs-md: 1.4375rem;
@@ -15,12 +15,12 @@ $fs-lg: 1.75rem;
 $fs-xl: 2.75rem;
 $fs-2xl: 4.3125rem;
 
-//Line Heights
+// Line Heights
 $lh-body: 1.6;
 $lh-heading: 1.2;
 $lh-title: 1.8;
 
-//Colours
+// Colors
 $clr-primary: #f85e9f;
 $clr-button: #5d50c6;
 $clr-heading: #191825;
@@ -29,18 +29,18 @@ $clr-black: #000000;
 $clr-orange: #ff5722;
 $clr-white: #ffffff;
 
-//Border Radius
+// Border Radius
 $radius-sm: 6.25rem;
 $radius-md: 2rem;
 $radius-lg: 50%;
 
-//tablet
-$bp-tablet: 26.9375rem;
+// Screen Breakpoints
+$breakpoints: (
+    'desktop': 64.0625rem,
+    'tablet': 26.9375rem,
+);
 
-//Desktop
-$bp-desktop: 64.0625rem;
-
-//icons
+// icons
 $icon-map: (
     'left-arrow': '\e903',
     'right-arrow': '\e904',
@@ -56,7 +56,7 @@ $icon-map: (
     'twitter': '\e902',
 );
 
-//z-index
+// z-index
 $z-layers: (
     'base': 1,
     'dropdown': 100,

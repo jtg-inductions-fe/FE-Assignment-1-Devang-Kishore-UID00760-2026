@@ -1,11 +1,10 @@
-@use 'variables' as *;
 @use 'sass:map';
 
 /**
-*Flexbox
+* Flexbox
 * @param {string} $justify - value of justify content.
 * @param {string} $align - value of align item.
-* @param {string} $direction - value of flex-deirection.
+* @param {string} $direction - value of flex-direction.
 * @param {number} $justify - value of gap.
 */
 @mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
@@ -17,7 +16,7 @@
 }
 
 /**
-*Grid
+* Grid
 * @param {string} $columns - value of grid columns.
 * @param {number} $justify - value of gap.
 */
@@ -28,17 +27,22 @@
 }
 
 /**
-*Media Query
-* @param {number} $size - value of screen size.
+* Media Query
+* @param {string} $size - name of screen size.
 */
-@mixin response($size) {
-    @media (min-width: $size) {
-        @content;
+@mixin reduce($key) {
+    @if map.has-key($breakpoints, $key) {
+        $size: map.get($breakpoints, $key);
+        @media (min-width: $size) {
+            @content;
+        }
+    } @else {
+        @error "The breakpoint key `#{$key}` does not exist.";
     }
 }
 
 /**
-*Typography
+* Typography
 * @param {number} $size - value of font-size.
 * @param {number} $weight - value of font-weight.
 * @param {number} $line-height - value of line-height.
@@ -50,16 +54,16 @@
 }
 
 /**
-*Font icon 
+* Font icon 
 * @param {string} $name - name of icon. 
-* @param {string} $position - postion of icon.
-* @param {string} $backgroundColour - value of background-color.  
+* @param {string} $position - position of icon.
+* @param {string} $background Color - value of background-color.  
 */
 @mixin insert-icon(
     $name,
     $position,
-    $colour,
-    $backgroundColour,
+    $color,
+    $background-color,
     $font-size: 2.45rem
 ) {
     &::#{$position} {
@@ -69,8 +73,8 @@
         font-variant: normal;
         text-transform: none;
         font-size: $font-size;
-        color: $colour;
-        background-color: $backgroundColour;
+        color: $color;
+        background-color: $background-color;
         content: map.get($icon-map, $name);
     }
 }
