@@ -1,0 +1,80 @@
+@use 'sass:map';
+
+/**
+* Flexbox
+* @param {string} $justify - value of justify content.
+* @param {string} $align - value of align item.
+* @param {string} $direction - value of flex-direction.
+* @param {number} $justify - value of gap.
+*/
+@mixin flex($justify: flex-start, $align: stretch, $direction: row, $gap: 0) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+/**
+* Grid
+* @param {string} $columns - value of grid columns.
+* @param {number} $justify - value of gap.
+*/
+@mixin grid($columns, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: $columns;
+    gap: $gap;
+}
+
+/**
+* Media Query
+* @param {string} $size - name of screen size.
+*/
+@mixin reduce($key) {
+    @if map.has-key($breakpoints, $key) {
+        $size: map.get($breakpoints, $key);
+        @media (min-width: $size) {
+            @content;
+        }
+    } @else {
+        @error "The breakpoint key `#{$key}` does not exist.";
+    }
+}
+
+/**
+* Typography
+* @param {number} $size - value of font-size.
+* @param {number} $weight - value of font-weight.
+* @param {number} $line-height - value of line-height.
+*/
+@mixin typography($size, $weight: $fw-regular, $line-height: $lh-body) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $line-height;
+}
+
+/**
+* Font icon 
+* @param {string} $name - name of icon. 
+* @param {string} $position - position of icon.
+* @param {string} $background Color - value of background-color.  
+*/
+@mixin insert-icon(
+    $name,
+    $position,
+    $color,
+    $background-color,
+    $font-size: 2.45rem
+) {
+    &::#{$position} {
+        font-family: Icons;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        font-size: $font-size;
+        color: $color;
+        background-color: $background-color;
+        content: map.get($icon-map, $name);
+    }
+}

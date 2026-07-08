@@ -1,0 +1,64 @@
+// Fonts
+$font-primary: 'Roboto', sans-serif;
+$font-secodary: 'Inter', sans-serif;
+
+// Font Weights
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 600;
+
+// Font Size
+$fs-xs: 0.875rem;
+$fs-sm: 1.125rem;
+$fs-md: 1.4375rem;
+$fs-lg: 1.75rem;
+$fs-xl: 2.75rem;
+$fs-2xl: 4.3125rem;
+
+// Line Heights
+$lh-body: 1.6;
+$lh-heading: 1.2;
+$lh-title: 1.8;
+
+// Colors
+$clr-primary: #f85e9f;
+$clr-button: #5d50c6;
+$clr-heading: #191825;
+$clr-white: #ffffff;
+$clr-black: #000000;
+$clr-orange: #ff5722;
+$clr-white: #ffffff;
+
+// Border Radius
+$radius-sm: 6.25rem;
+$radius-md: 2rem;
+$radius-lg: 50%;
+
+// Screen Breakpoints
+$breakpoints: (
+    'desktop': 64.0625rem,
+    'tablet': 26.9375rem,
+);
+
+// icons
+$icon-map: (
+    'left-arrow': '\e903',
+    'right-arrow': '\e904',
+    'star': '\e905',
+    'hamburger': '\e906',
+    'hero-badge': '\e907',
+    'hero-place': '\e908',
+    'hero-play': '\e909',
+    'hero-send': '\e90a',
+    'hero-user': '\e90b',
+    'facebook': '\e900',
+    'instagram': '\e901',
+    'twitter': '\e902',
+);
+
+// z-index
+$z-layers: (
+    'base': 1,
+    'dropdown': 100,
+    'sticky': 900,
+);
