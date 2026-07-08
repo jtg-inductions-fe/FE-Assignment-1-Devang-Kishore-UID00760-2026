@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
-            rel="shortcut icon"
+            rel="icon"
             href="/assets/images/logo/favicon.ico"
             type="image/x-icon"
         />
@@ -13,56 +13,50 @@
     </head>
     <body>
         <header class="header">
-            <div class="container">
-                <nav class="navbar" aria-label="Primary Navigation">
-                    <div class="navbar__left">
-                        <a
-                            href="/"
-                            class="logo logo--navbar"
-                            aria-label="Travlog Home"
-                            ><img
-                                src="/assets/images/logo/logo.png"
-                                alt="Travlog Logo"
-                            />
-                        </a>
-                        <button
-                            type="button"
-                            class="navbar__toggle"
-                            aria-label="Open navigation menu"
-                        ></button>
-                    </div>
-                    <div class="navbar__content">
-                        <ul class="navbar__list">
-                            <li class="navbar__item">
-                                <a
-                                    href="/"
-                                    class="link link--active"
-                                    aria-current="page"
-                                >
-                                    Home
-                                </a>
-                            </li>
-                            <li class="navbar__item">
-                                <a href="/" class="link"> Discover </a>
-                            </li>
-                            <li class="navbar__item">
-                                <a href="/" class="link"> Special Deals </a>
-                            </li>
-                            <li class="navbar__item">
-                                <a href="/" class="link"> Contact </a>
-                            </li>
-                        </ul>
-                        <div class="navbar__actions">
-                            <a href="/" class="button button--login">
-                                Log In
+            <nav class="navbar">
+                <div class="navbar__left">
+                    <a
+                        href="/"
+                        class="logo logo--navbar"
+                        aria-label="Travlog Home"
+                        ><img
+                            src="/assets/images/logo/logo.png"
+                            alt="Travlog Logo"
+                        />
+                    </a>
+                    <button
+                        type="button"
+                        class="button button--sm"
+                        aria-label="Open navigation menu"
+                    ></button>
+                </div>
+                <div class="navbar__content">
+                    <ul class="navbar__list">
+                        <li class="navbar__item">
+                            <a
+                                href="/"
+                                class="link link--active"
+                                aria-current="page"
+                            >
+                                Home
                             </a>
-                            <a href="/" class="button button--signup">
-                                Sign Up
-                            </a>
-                        </div>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/" class="link"> Discover </a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/" class="link"> Special Deals </a>
+                        </li>
+                        <li class="navbar__item">
+                            <a href="/" class="link"> Contact </a>
+                        </li>
+                    </ul>
+                    <div class="navbar__actions">
+                        <a href="/" class="button button--filled"> Log In </a>
+                        <a href="/" class="button button--empty"> Sign Up </a>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>

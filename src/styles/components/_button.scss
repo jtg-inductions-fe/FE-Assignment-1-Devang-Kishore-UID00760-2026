@@ -11,7 +11,7 @@
     font-weight: $fw-bold;
 }
 
-.button--login {
+.button--filled {
     color: $clr-black;
     padding: 0;
     &:hover {
@@ -19,11 +19,20 @@
     }
 }
 
-.button--signup {
+.button--empty {
     background: $clr-button;
     color: $clr-white;
 
     &:hover {
         opacity: 0.9;
     }
+}
+
+.button--sm {
+    @include flex(center, center);
+    padding: 0;
+    border-radius: $radius-md;
+    text-decoration: none;
+    font-size: $fs-xs;
+    font-weight: $fw-bold;
 }

@@ -3,7 +3,10 @@
 /**
 *accessibility
 */
-a:focus-visible,button:focus-visible {
+a:focus,
+button:focus,
+a:active,
+button:active {
     outline: 0.15rem solid $clr-button;
     outline-offset: 0.2rem;
 }
