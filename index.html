@@ -12,52 +12,143 @@
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <header class="header">
-            <nav class="navbar">
-                <div class="navbar__left">
-                    <a
-                        href="/"
-                        class="logo logo--navbar"
-                        aria-label="Travlog Home"
-                        ><img
-                            src="/assets/images/logo/logo.png"
-                            alt="Travlog Logo"
-                        />
-                    </a>
-                    <button
-                        type="button"
-                        class="button button--sm"
-                        aria-label="Open navigation menu"
-                    ></button>
-                </div>
-                <div class="navbar__content">
-                    <ul class="navbar__list">
-                        <li class="navbar__item">
-                            <a
-                                href="/"
-                                class="link link--active"
-                                aria-current="page"
-                            >
-                                Home
-                            </a>
-                        </li>
-                        <li class="navbar__item">
-                            <a href="/" class="link"> Discover </a>
-                        </li>
-                        <li class="navbar__item">
-                            <a href="/" class="link"> Special Deals </a>
-                        </li>
-                        <li class="navbar__item">
-                            <a href="/" class="link"> Contact </a>
-                        </li>
-                    </ul>
-                    <div class="navbar__actions">
-                        <a href="/" class="button button--filled"> Log In </a>
-                        <a href="/" class="button button--empty"> Sign Up </a>
+        <div class="container">
+            <header class="header">
+                <nav class="navbar">
+                    <div class="navbar__left">
+                        <a
+                            href="/"
+                            class="logo logo--navbar"
+                            aria-label="Travlog Home"
+                            ><img
+                                src="/assets/images/logo/logo.png"
+                                alt="Travlog Logo"
+                            />
+                        </a>
+                        <button
+                            type="button"
+                            class="button button--sm"
+                            aria-label="Open navigation menu"
+                        ></button>
+                    </div>
+                    <div class="navbar__content">
+                        <ul class="navbar__list">
+                            <li class="navbar__item">
+                                <a
+                                    href="/"
+                                    class="link link--active"
+                                    aria-current="page"
+                                >
+                                    Home
+                                </a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="/" class="link"> Discover </a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="/" class="link"> Special Deals </a>
+                            </li>
+                            <li class="navbar__item">
+                                <a href="/" class="link"> Contact </a>
+                            </li>
+                        </ul>
+                        <div class="navbar__actions">
+                            <a href="/" class="button button--empty"> Log In </a>
+                            <a href="/" class="button button--filled"> Sign Up </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="hero__visuals">
+                        <div class="hero__images">
+                            <div class="hero__left">
+                                <div class="hero__image1">
+                                    <img
+                                        src="/assets/images/hero_section/hero_image1.png"
+                                        alt="Sea view"
+                                    />
+                                </div>
+                                <div class="hero__image2">
+                                    <img
+                                        src="/assets/images/hero_section/hero_image2.png"
+                                        alt="Traveller sitting on a mountain"
+                                    />
+                                    <div
+                                        class="image2__badge"
+                                        aria-hidden="true"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="hero__right">
+                                <img
+                                    src="/assets/images/hero_section/hero_image3.png"
+                                    alt="Traveller exploring a city"
+                                />
+                                <div class="image3__badge">Top Places</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero__headings">
+                        <div class="hero__badge">Explore the world!</div>
+
+                        <h1 class="hero__heading">
+                            Travel
+                            <span class="hero__span">
+                                top <span class="break-heading"></span>
+                                destination
+                            </span>
+                            of the world
+                        </h1>
+
+                        <p class="hero__description">
+                            We always make our customer happy by
+                            <span class="break-line">providing</span> as many
+                            choices as possible.
+                        </p>
+
+                        <div class="hero__actions">
+                            <button type="button" class="button--filled">
+                                Get Started
+                            </button>
+
+                            <button type="button" class="button--empty">
+                                Watch Demo
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </nav>
-        </header>
+            </section>
+            <section class="partners">
+                <img
+                    src="/assets/images/partners_logos/tripadvisor.svg"
+                    alt="Tripadvisor"
+                    class="partners__logo partners__logo--tripadvisor"
+                />
+                <img
+                    src="/assets/images/partners_logos/expedia.svg"
+                    alt="Expedia"
+                    class="partners__logo partners__logo--expedia"
+                />
+                <img
+                    src="/assets/images/partners_logos/booking.svg"
+                    alt="Bookings.com"
+                    class="partners__logo partners__logo--booking"
+                />
+                <img
+                    src="/assets/images/partners_logos/airbnb.svg"
+                    alt="Airbnb"
+                    class="partners__logo partners__logo--airbnb"
+                />
+                <img
+                    src="/assets/images/partners_logos/orbitz.svg"
+                    alt="orbitz"
+                    class="partners__logo partners__logo--orbitz"
+                />
+            </section>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

@@ -12,19 +12,20 @@
 }
 
 .button--filled {
-    color: $clr-black;
-    padding: 0;
+    background: $clr-button;
+    color: $clr-white;
+    border-radius: $radius-md;
     &:hover {
-        color: $clr-button;
+        opacity: 0.9;
     }
 }
 
 .button--empty {
-    background: $clr-button;
-    color: $clr-white;
-
+    color: $clr-black;
+    border-radius: $radius-md;
+    padding: 0;
     &:hover {
-        opacity: 0.9;
+        color: $clr-button;
     }
 }
 

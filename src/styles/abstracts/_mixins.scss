@@ -79,3 +79,13 @@
         content: map.get($icon-map, $name);
     }
 }
+
+/**
+*common paragraph
+*/
+@mixin paragraph {
+    letter-spacing: 0.01rem;
+    word-spacing: 0.2rem;
+    color: $clr-links;
+    font-size: 1rem;
+}
