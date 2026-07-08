@@ -1,20 +1,14 @@
-/**
-*Fonts
-*/
+// Fonts
 $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Inter', sans-serif;
 
-/**
-*Font Weights
-*/
+// Font Weights
 $fw-regular: 400;
 $fw-medium: 450;
 $fw-semibold: 700;
 $fw-bold: 900;
 
-/**
-*Font Size
-*/
+// Font Size
 $fs-xs: 0.875rem;
 $fs-sm: 1.125rem;
 $fs-md: 1.4375rem;
@@ -22,16 +16,12 @@ $fs-lg: 1.75rem;
 $fs-xl: 2.75rem;
 $fs-2xl: 4.3125rem;
 
-/**
-*Line Heights
-*/
+// Line Heights
 $lh-body: 1.6;
 $lh-heading: 1.2;
 $lh-title: 1.8;
 
-/**
-*Colours
-*/
+// Colors
 $clr-primary: #f85e9f;
 $clr-button: #5d50c6;
 $clr-heading: #191825;
@@ -45,26 +35,17 @@ $clr-gray: #eeeeee;
 $clr-navbar-bg-start: #ffe6df;
 $clr-navbar-bg-end: #fff2ed;
 
-/**
-*Border Radius
-*/
+// Border Radius
 $radius-md: 6.25rem;
 $radius-sm: 2rem;
 $radius-lg: 50%;
+// Breakpoints
+$breakpoints: (
+    'desktop': 64.0625rem,
+    'tablet': 26.9375rem,
+);
 
-/**
-*Tablet view size
-*/
-$bp-tablet: 26.9375rem;
-
-/**
-*Desktop view size
-*/
-$bp-desktop: 64.0625rem;
-
-/**
-*Icons
-*/
+// Icons
 $icon-map: (
     'left-arrow': '\e903',
     'right-arrow': '\e904',
@@ -80,9 +61,7 @@ $icon-map: (
     'twitter': '\e902',
 );
 
-/**
-*Gradients
-*/
+// Gradients
 $navbar-gradient: radial-gradient(
         160% 180% at left center,
         $clr-navbar-bg-start 0%,
@@ -91,9 +70,7 @@ $navbar-gradient: radial-gradient(
     ),
     $clr-white;
 
-/**
-*z-index
-*/
+// z-index
 $z-layers: (
     'base': 1,
     'dropdown': 100,

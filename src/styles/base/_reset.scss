@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     border: 0;
+    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
 }
@@ -24,15 +25,11 @@ nav,
 section {
     display: block;
 }
-button {
-    background-color: transparent;
-}
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
 }
 
-img,
 picture,
 video,
 canvas,
@@ -51,19 +48,6 @@ h6 {
     overflow-wrap: break-word;
 }
 
-p {
-    text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    text-wrap: balance;
-}
-
 ol,
 ul {
     list-style: none;
@@ -80,8 +64,4 @@ q:before,
 q:after {
     content: '';
     content: none;
-}
-
-a {
-    color: inherit;
 }

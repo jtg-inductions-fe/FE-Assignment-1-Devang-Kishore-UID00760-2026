@@ -1,36 +1,20 @@
 @use '../abstracts/' as *;
 
-/**
-*Body
-*/
 body {
     font-family: $font-primary;
     font-size: 1rem;
-    font-weight: $fw-regular;
-    line-height: $lh-body;
+    font-weight: $fw-normal;
+    color: $clr-white;
 }
 
-/**
-*Headings
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: $clr-heading;
+h1 {
     font-weight: $fw-bold;
-    line-height: $lh-heading;
 }
 
-/*
-*Paragraphs
-*/
-
-p {
-    line-height: $lh-body;
+h2 {
     font-weight: $fw-medium;
-    color: $clr-heading;
+}
+
+h3 {
+    font-weight: $fw-normal;
 }
