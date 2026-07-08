@@ -3,7 +3,6 @@
 /**
 *Mobile view 
 */
-
 .header {
     position: fixed;
     top: 0;
@@ -13,12 +12,7 @@
     z-index: z('sticky');
     background: $navbar-gradient;
 }
-.navbar__link,
-.navbar__login,
-.navbar__signup {
-    text-decoration: none;
-    white-space: nowrap;
-}
+
 .navbar {
     @include flex(space-between, center);
 
@@ -29,17 +23,6 @@
     @include flex(space-between, center);
     width: 100%;
     height: 100%;
-}
-
-.navbar__logo {
-    @include flex($align: center);
-    flex-shrink: 0;
-
-    img {
-        display: block;
-        width: 2.5rem;
-        height: auto;
-    }
 }
 
 .navbar__toggle {
@@ -74,6 +57,7 @@
     background: $navbar-gradient;
     box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
     justify-content: space-between;
+
     .navbar__list {
         gap: 4rem;
         align-items: start;
@@ -82,9 +66,11 @@
         }
     }
 }
+
 .navbar__list {
     animation: content-opacity 1s ease;
 }
+
 .navbar__content--open {
     display: flex;
 }
@@ -99,66 +85,22 @@
     color: $clr-black;
 }
 
-.navbar__link {
-    color: $clr-links;
-    text-decoration: none;
-    font-size: $fs-md;
-    font-weight: 700;
-    transition: color 0.3s ease;
-
-    &:hover,
-    &:focus-visible {
-        color: $clr-button;
-    }
-
-    &--active {
-        color: $clr-active;
-    }
-}
-
 .navbar__actions {
     @include flex($direction: column, $gap: 1rem);
 }
 
-.navbar__login,
-.navbar__signup {
-    @include flex(center, center);
-    padding: 1rem 2rem;
-    border-radius: $radius-md;
-    text-decoration: none;
-    font-size: $fs-xs;
-    font-weight: $fw-semibold;
-}
-
-.navbar__login {
-    color: $clr-black;
-
-    &:hover,
-    &:focus-visible {
-        color: $clr-button;
-    }
-}
 .navbar__actions {
     animation: content-opacity 1.5s ease;
-}
-.navbar__signup {
-    background: $clr-button;
-    color: $clr-white;
-
-    &:hover,
-    &:focus-visible {
-        opacity: 0.9;
-    }
 }
 
 /**
 *Tablet view
 */
-
-@include tablet {
+@include breakpoint-up('tablet') {
     .header {
         padding: 2rem 4rem;
     }
+
     .navbar__left {
         width: auto;
         height: 100%;
@@ -169,7 +111,7 @@
         order: 1;
     }
 
-    .navbar__logo {
+    .logo--navbar {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -193,18 +135,17 @@
         @include flex($align: center, $gap: 2.2rem);
     }
 
-    .navbar__login {
+    .button--login {
         padding: 0;
         min-height: auto;
 
-        &:hover,
-        &:focus-visible {
+        &:hover {
             color: $clr-button;
             background: transparent;
         }
     }
 
-    .navbar__signup {
+    .button--signup {
         font-size: $fs-xs;
         padding: 0.86rem 2.1rem;
     }
@@ -222,6 +163,7 @@
         height: calc(100% + 30rem);
         background: $navbar-gradient;
         box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
+        
         .navbar__list {
             @include flex(flex-start, flex-start, column, 4rem);
             font-size: $fs-md;
@@ -233,13 +175,14 @@
             top: -7%;
             right: 0;
             transform: translateY(-80%);
-            .navbar__signup {
+            .button--signup {
                 font-size: $fs-xs;
                 padding: 1rem 2rem;
             }
         }
-        .navbar__login,
-        .navbar__signup {
+
+        .button--login,
+        .button--signup {
             @include flex(center, center);
             padding: 0.5rem 1rem;
         }
@@ -249,8 +192,7 @@
 /**
 *Desktop view
 */
-
-@include desktop {
+@include breakpoint-up('desktop') {
     .header {
         padding: 4.15rem 8.1rem;
         padding-right: 7.25rem;
@@ -266,7 +208,7 @@
         flex-shrink: 0;
     }
 
-    .navbar__logo {
+    .logo--navbar {
         position: static;
         transform: none;
     }
@@ -286,16 +228,14 @@
     .navbar__list {
         @include flex($justify: space-evenly, $align: center, $gap: 4rem);
     }
-    .navbar__link {
+    .navbar__list .link {
         font-size: $fs-xs;
         color: $clr-links;
         font-weight: 700;
         padding-left: 0.09rem;
+
         &:hover {
             color: $clr-active;
-        }
-        &:focus-visible {
-            color: $clr-button;
         }
 
         &--active {
@@ -310,14 +250,14 @@
         padding-right: 0.08rem;
     }
 
-    .navbar__login {
+    .button--login {
         padding: 0;
         min-height: auto;
         color: $clr-black;
         font-size: $fs-xs;
     }
 
-    .navbar__signup {
+    .button--signup {
         padding: 0.8rem 2.1rem;
     }
 }
@@ -326,7 +266,8 @@
     .header {
         padding: 2rem 3rem;
     }
-    .navbar__logo {
+
+    .logo--navbar {
         position: absolute;
         left: 30%;
         transform: translateX(-30%);
@@ -344,8 +285,8 @@
 */
 .navbar__toggle,
 .navbar__content,
-.navbar__link,
-.navbar__login,
-.navbar__signup {
+.link,
+.button__login,
+.button__signup {
     transition: all 0.3s ease;
 }

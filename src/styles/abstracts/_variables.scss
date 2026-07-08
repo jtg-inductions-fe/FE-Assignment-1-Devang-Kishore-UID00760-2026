@@ -3,10 +3,9 @@ $font-primary: 'Roboto', sans-serif;
 $font-secondary: 'Inter', sans-serif;
 
 // Font Weights
-$fw-regular: 400;
-$fw-medium: 450;
-$fw-semibold: 700;
-$fw-bold: 900;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 600;
 
 // Font Size
 $fs-xs: 0.875rem;
@@ -39,10 +38,11 @@ $clr-navbar-bg-end: #fff2ed;
 $radius-md: 6.25rem;
 $radius-sm: 2rem;
 $radius-lg: 50%;
+
 // Breakpoints
 $breakpoints: (
-    'desktop': 64.0625rem,
-    'tablet': 26.9375rem,
+    'desktop': 1025px,
+    'tablet': 431px,
 );
 
 // Icons

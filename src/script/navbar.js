@@ -1,9 +1,7 @@
 const navbarToggle = document.querySelector('.navbar__toggle');
 const navbarContent = document.querySelector('.navbar__content');
-const navbarList = document.querySelector('.navbar__list');
-const logo = document.querySelector('.navbar__logo');
-const navbarActions = document.querySelector('.navbar__actions');
 const desktopBreakPoint = 1025;
+const navbar = document.querySelector('.header');
 
 /**
  * Toggle mobile navigation
@@ -18,7 +16,7 @@ const toggle = () => {
 };
 
 /**
- * Content--open class remove
+ * Content--open class remove on resize
  */
 window.addEventListener('resize', () => {
     if (
@@ -28,6 +26,17 @@ window.addEventListener('resize', () => {
         navbarContent.classList.remove('navbar__content--open');
         navbarToggle.classList.remove('navbar__toggle--active');
         navbarToggle.setAttribute('aria-expanded', 'false');
+    }
+});
+
+/**
+ * Add header--scrolled
+ */
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+        navbar.classList.add('header--scrolled');
+    } else {
+        navbar.classList.remove('header--scrolled');
     }
 });
 export { toggle };

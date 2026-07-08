@@ -1,0 +1,12 @@
+@use '../abstracts/' as *;
+
+.logo {
+    @include flex($align: center);
+    flex-shrink: 0;
+
+    img {
+        display: block;
+        width: 2.5rem;
+        height: auto;
+    }
+}
