@@ -1,14 +1,25 @@
-import { toggle, events } from './navbar';
+import { toggle, setOpen, setScrolled } from './navbar';
 
 /**
-* QuerySelectors for navbar elements
-*/
-const navbar = document.querySelector('.header');
-const navbarHamburgerButton = document.querySelector('.button--sm');
-const navbarLinksMenu = document.querySelector('.navbar__content');
+ * QuerySelectors for navbar elements
+ */
+const navbar = document.querySelector('#navbar-container');
+const navbarHamburgerButton = document.querySelector('#hamburger');
+const navbarLinksMenu = document.querySelector('#menu');
+const DESKTOP_BREAK_POINT = 1025;
+const Y_SCROLL = 10;
 
 /**
-* function calls for navbar events 
-*/
-toggle(navbarHamburgerButton, navbarLinksMenu);
-events(navbarLinksMenu, navbarHamburgerButton, navbar);
+ * Event Listeners
+ */
+window.addEventListener('resize', () => {
+    setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
+});
+
+window.addEventListener('scroll', () => {
+    setScrolled(navbar, Y_SCROLL);
+});
+
+navbarHamburgerButton.addEventListener('click', () => {
+    toggle(navbarHamburgerButton, navbarLinksMenu);
+});

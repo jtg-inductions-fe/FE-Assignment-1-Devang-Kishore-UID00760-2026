@@ -7,7 +7,6 @@ a:focus,
 button:focus,
 a:active,
 button:active {
-    outline: 0.15rem solid $clr-button;
-    outline-offset: 0.2rem;
+    outline: px_to_rem(3) solid $clr-button;
+    outline-offset: px_to_rem(3);
 }
-
