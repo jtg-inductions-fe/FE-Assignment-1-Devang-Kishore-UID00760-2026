@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 120rem;
     padding: 1rem;
-    padding-top:1rem;
+    padding-top: 1rem;
     overflow-x: hidden;
     background: radial-gradient(
             130% 120% at 10% 28%,
@@ -221,8 +221,6 @@
     color: $clr-primary;
 }
 
-
-
 /**
  * Hero Actions
  */
@@ -243,7 +241,7 @@
     .break-heading {
         display: none;
     }
-    
+
     .hero__content {
         gap: 3rem;
         background: url('/assets/images/hero_section/triangle-design.svg')
@@ -422,7 +420,7 @@
     .hero__headings {
         order: 1;
         flex: 0 0 34.5%;
-        
+
         align-items: flex-start;
         text-align: left;
         padding-top: 6.5rem;
@@ -477,7 +475,7 @@
         padding-left: 5rem;
         padding-right: 5rem;
         justify-content: center;
-        gap:1rem;
+        gap: 1rem;
         max-width: 50rem;
     }
 
@@ -498,6 +496,6 @@
 
     .hero__actions {
         padding: 0;
-        padding-top:2rem ;
+        padding-top: 2rem;
     }
 }

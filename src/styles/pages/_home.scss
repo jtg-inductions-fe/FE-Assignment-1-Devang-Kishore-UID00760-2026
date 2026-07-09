@@ -11,7 +11,7 @@ button:active {
     outline-offset: 0.2rem;
 }
 
-.container{
+.container {
     width: 100%;
     @include flex(center, center, column);
     max-width: 120rem;

@@ -1,4 +1,4 @@
-@use "../abstracts" as *;
+@use '../abstracts' as *;
 
 /**
  * Reusable Stats Card
@@ -9,7 +9,7 @@
     min-height: 4rem;
     padding: 2rem;
 
-    border: .1rem solid rgba(25, 24, 37, .1);
+    border: 0.1rem solid rgba(25, 24, 37, 0.1);
     border-radius: $radius-sm;
     background-color: $clr-white;
 

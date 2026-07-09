@@ -1,4 +1,4 @@
-@use "../abstracts" as *;
+@use '../abstracts' as *;
 
 /**
  * Travel Point Section 
@@ -17,10 +17,10 @@
             height: auto;
         }
     }
-    .section-heading--left{
+    .section-heading--left {
         text-align: center;
     }
-    .description{
+    .description {
         max-width: rem(400);
         padding-left: 2.2rem;
     }
@@ -32,12 +32,12 @@
         @include grid(1fr, 1rem);
         padding: 0 2.5rem;
     }
-    
+
     /**
     * Tablet view
     */
-    @include breakpoint-up("tablet") {
-        &{
+    @include breakpoint-up('tablet') {
+        & {
             padding-top: 3.2rem;
             width: 100%;
         }
@@ -45,24 +45,24 @@
             @include grid(repeat(2, 1fr), 2.4rem);
             padding: 0;
         }
-        &__info{
+        &__info {
             padding: 3rem 2rem;
-            .section-heading__subtitle{
+            .section-heading__subtitle {
                 font-size: 1.5rem;
             }
-            .section-heading__title{
+            .section-heading__title {
                 text-align: center;
                 padding-top: 0.4rem;
                 font-size: 2.5rem;
             }
-            .description{
+            .description {
                 text-align: center;
                 max-width: 58rem;
                 padding-left: 0;
                 font-size: $fs-sm;
             }
         }
-        &__stats{
+        &__stats {
             padding: 2rem 4rem;
             row-gap: 2rem;
         }
@@ -71,60 +71,59 @@
     /**
     * Desktop View
     */
-    @include breakpoint-up("desktop") {
-        .section-heading--left{
+    @include breakpoint-up('desktop') {
+        .section-heading--left {
             text-align: left;
         }
-        &{
+        & {
             padding-top: 6rem;
         }
         &__content {
             @include flex($align: start);
         }
-        &__info{
+        &__info {
             padding-top: 3.5rem;
             padding-right: 2rem;
             padding-left: 0;
         }
-        &__image{
-            padding-top:2rem;
+        &__image {
+            padding-top: 2rem;
             flex: 0 0 60%;
             max-width: 55rem;
-            
         }
-        &__info{
-            flex:0 0 40%;
+        &__info {
+            flex: 0 0 40%;
         }
-        .section-heading__title{
+        .section-heading__title {
             font-size: 3rem;
             margin-bottom: 1.2rem;
             text-align: start;
         }
         .section-heading {
-            .description{
+            .description {
                 text-align: start;
                 margin: 0;
                 padding: 0;
-                padding-right:2rem ;
+                padding-right: 2rem;
             }
         }
-        &__stats{
+        &__stats {
             padding: 0;
             position: relative;
             padding-top: 2rem;
-            padding-right:6rem;
-            .stat-card{
+            padding-right: 6rem;
+            .stat-card {
                 padding: 1.9rem 1rem;
             }
         }
-        &__stats > :nth-child(2)::after{
-            content: "";
-            background: url("/assets/images/travelpoint_section/badge.png");
+        &__stats > :nth-child(2)::after {
+            content: '';
+            background: url('/assets/images/travelpoint_section/badge.png');
             background-repeat: no-repeat;
             width: 12rem;
             height: 12rem;
             position: absolute;
-            top:-1.8rem;
+            top: -1.8rem;
             right: -2.5rem;
         }
     }

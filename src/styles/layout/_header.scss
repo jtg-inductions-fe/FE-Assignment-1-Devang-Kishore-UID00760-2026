@@ -36,19 +36,19 @@
         transition: transform 0.3s ease;
         @include insert-icon('hamburger', 'after', $clr-button, transparent);
         &--active {
-        @include insert-icon(
-            'cross',
-            'after',
-            $clr-white,
-            $clr-button,
-            $font-size: 1.5rem
-        );
+            @include insert-icon(
+                'cross',
+                'after',
+                $clr-white,
+                $clr-button,
+                $font-size: 1.5rem
+            );
 
-        &::after {
-            padding: 0.1rem 0.5rem;
-            border-radius: 0.5rem;
+            &::after {
+                padding: 0.1rem 0.5rem;
+                border-radius: 0.5rem;
+            }
         }
-    }
     }
 }
 
@@ -232,7 +232,7 @@
     .navbar__list {
         @include flex($justify: space-evenly, $align: center);
     }
-    
+
     .navbar__list .link {
         font-size: $fs-xs;
         color: $clr-links;
@@ -258,7 +258,7 @@
     .navbar__left .button--sm {
         display: none;
     }
-    
+
     .button--filled {
         padding: 0;
         min-height: auto;

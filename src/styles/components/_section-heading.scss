@@ -1,4 +1,4 @@
-@use "../abstracts" as *;
+@use '../abstracts' as *;
 
 /**
  * Reusable Heading component 
@@ -7,7 +7,7 @@
     text-align: center;
 
     &--left {
-        text-align:left ;
+        text-align: left;
     }
 
     &__subtitle {
@@ -15,7 +15,7 @@
 
         color: $clr-primary;
         text-transform: uppercase;
-        letter-spacing: .28rem;
+        letter-spacing: 0.28rem;
 
         @include typography(0.9rem, $fw-bold, 0.1);
     }
@@ -29,7 +29,7 @@
         word-spacing: 0.4rem;
     }
 
-    @include breakpoint-up("desktop") {
+    @include breakpoint-up('desktop') {
         &__title,
         &__description {
             max-width: 45rem;
