@@ -7,6 +7,7 @@
     width: 100%;
     max-width: 120rem;
     padding: 1rem;
+    padding-top:1rem;
     overflow-x: hidden;
     background: radial-gradient(
             130% 120% at 10% 28%,
@@ -155,7 +156,7 @@
  */
 .hero__headings {
     @include flex($direction: column, $align: center, $gap: 1.2rem);
-    padding-top: 2.4rem;
+    padding-top: 1.5rem;
     text-align: center;
     .button--empty,
     .button--filled {
@@ -220,15 +221,7 @@
     color: $clr-primary;
 }
 
-/**
- * Hero Description
- */
-.hero__description {
-    @include paragraph;
-    max-width: rem(520);
-    margin: 0;
-    line-height: $lh-body;
-}
+
 
 /**
  * Hero Actions
@@ -246,9 +239,11 @@
     .hero {
         padding: 0rem 0rem;
     }
+
     .break-heading {
         display: none;
     }
+    
     .hero__content {
         gap: 3rem;
         background: url('/assets/images/hero_section/triangle-design.svg')
@@ -336,7 +331,7 @@
     .hero__headings {
         padding: 0 4rem;
         width: 100%;
-        padding-top: 1rem;
+        padding-top: 1.2rem;
         gap: 2.5rem;
     }
 
@@ -348,7 +343,7 @@
         padding-top: 0.5rem;
     }
 
-    .hero__description {
+    .hero .description {
         max-width: rem(440);
         font-size: $fs-sm;
         padding-top: 0.2rem;
@@ -386,7 +381,7 @@
  */
 @include breakpoint-up('desktop') {
     .hero {
-        padding: 1.7rem 8rem;
+        padding: 1rem 3.5rem;
         padding-bottom: 7.4rem;
         background:
             url('/assets/images/hero_section/triangle_design.svg') no-repeat,
@@ -414,9 +409,11 @@
         }
     }
     .hero__content {
-        @include flex($justify: space-between, $align: center, $direction: row);
+        @include flex($justify: flex-start, $align: center, $direction: row);
         background: none;
-        gap: 1rem;
+        gap: 2.5rem;
+        padding-top: 7.5rem;
+        padding-left: 0.5rem;
     }
 
     /**
@@ -425,22 +422,27 @@
     .hero__headings {
         order: 1;
         flex: 0 0 34.5%;
+        
         align-items: flex-start;
         text-align: left;
         padding-top: 6.5rem;
+        padding-right: 0;
+        padding-left: 4rem;
+        gap: 1rem;
     }
 
     .hero__heading {
         padding-top: 0.2rem;
         padding-left: 0.2rem;
         font-weight: $fw-bold;
-        line-height: 5rem;
+        line-height: 5.5rem;
         letter-spacing: 0.25rem;
+        margin-bottom: 0;
     }
 
-    .hero__description {
+    .hero .description {
         max-width: rem(430);
-        padding-top: 0.5rem;
+        padding-top: 1rem;
     }
 
     .break-line {
@@ -461,22 +463,22 @@
      */
     .hero__visuals {
         order: 2;
-        flex: 1;
         padding: 0;
         justify-content: flex-start;
-        flex: 0 0 65%;
+        flex: 0 0 58%;
         width: 100%;
         background-size: 100%;
-        background-position: top left;
+        background-position: 0 1.5rem;
     }
 
     .hero__images {
         width: 100%;
-        padding-top: 4.6rem;
-        padding-left: 4.7rem;
+        padding-top: 6rem;
+        padding-left: 5rem;
         padding-right: 5rem;
         justify-content: center;
-        gap: 1rem;
+        gap:1rem;
+        max-width: 50rem;
     }
 
     .hero__image1,
@@ -485,14 +487,17 @@
     }
 
     .hero__right {
-        max-width: 22rem;
+        max-width: 20rem;
         width: rem(272);
+        padding-bottom: 1rem;
     }
 
     .image3__badge {
         right: -3.5rem;
     }
+
     .hero__actions {
         padding: 0;
+        padding-top:2rem ;
     }
 }

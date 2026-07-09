@@ -48,7 +48,7 @@
 * @param {number} $weight - value of font-weight.
 * @param {number} $line-height - value of line-height.
 */
-@mixin typography($size, $weight: $fw-regular, $line-height: $lh-body) {
+@mixin typography($size, $weight: $fw-normal, $line-height: $lh-body) {
     font-size: $size;
     font-weight: $weight;
     line-height: $line-height;

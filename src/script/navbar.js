@@ -7,11 +7,14 @@ const toggle = (navbarToggle, navbarContent) => {
     if (!navbarToggle || !navbarContent) return;
     navbarToggle.addEventListener('click', () => {
         const isOpen = navbarContent.classList.toggle('navbar__content--open');
-        navbarToggle.classList.toggle('navbar__toggle--active');
+        navbarToggle.classList.toggle('button--sm--active');
         navbarToggle.setAttribute('aria-expanded', isOpen);
     });
 };
 
+/**
+ * Toggle mobile navigation
+ */
 const events = (navbarContent, navbarToggle, navbar) => {
     /**
      * Content--open class remove on resize
@@ -22,7 +25,7 @@ const events = (navbarContent, navbarToggle, navbar) => {
             navbarContent.classList.contains('navbar__content--open')
         ) {
             navbarContent.classList.remove('navbar__content--open');
-            navbarToggle.classList.remove('navbar__toggle--active');
+            navbarToggle.classList.remove('button--sm--active');
             navbarToggle.setAttribute('aria-expanded', 'false');
         }
     });

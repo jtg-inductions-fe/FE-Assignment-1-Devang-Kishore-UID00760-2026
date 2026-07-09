@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+
+/**
+ * Reusable Heading component 
+ */
+.section-heading {
+    text-align: center;
+
+    &--left {
+        text-align:left ;
+    }
+
+    &__subtitle {
+        margin-bottom: 1.6rem;
+
+        color: $clr-primary;
+        text-transform: uppercase;
+        letter-spacing: .28rem;
+
+        @include typography(0.9rem, $fw-bold, 0.1);
+    }
+
+    &__title {
+        margin-bottom: 1.8rem;
+        color: $clr-heading;
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: $fw-bold;
+        line-height: 1.2;
+        word-spacing: 0.4rem;
+    }
+
+    @include breakpoint-up("desktop") {
+        &__title,
+        &__description {
+            max-width: 45rem;
+        }
+    }
+}

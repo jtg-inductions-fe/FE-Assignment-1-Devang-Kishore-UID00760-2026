@@ -6,5 +6,9 @@ body {
 }
 
 .description {
-    font-size: $fs-sm;
+    font-size: $fs-xs;
+    @include paragraph;
+    max-width: rem(520);
+    margin: 0;
+    line-height: $lh-body;
 }
