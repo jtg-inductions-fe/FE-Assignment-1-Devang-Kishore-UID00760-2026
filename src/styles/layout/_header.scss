@@ -11,7 +11,7 @@
     width: 100%;
     padding: 2.2rem 1rem;
     z-index: z('sticky');
-    background: $navbar-gradient;
+    background: transparent;
 }
 
 .navbar {
@@ -22,7 +22,8 @@
         width: 100%;
         height: 100%;
     }
-    &__toggle--active {
+
+    .button--sm--active {
         @include insert-icon(
             'cross',
             'after',
@@ -36,6 +37,10 @@
         }
     }
 }
+.header--scrolled {
+    background: $clr-navbar-bg-start;
+}
+
 .button--sm {
     @include flex(center, center);
     width: 3rem;
@@ -139,17 +144,16 @@
         @include flex($align: center, $gap: 2.2rem);
     }
 
-    .button--filled {
+    .button--contained {
         padding: 0;
         min-height: auto;
-
         &:hover {
             color: $clr-button;
             background: transparent;
         }
     }
 
-    .button--empty {
+    .button--outlined {
         font-size: $fs-xs;
         padding: 0.86rem 2.1rem;
     }
@@ -168,19 +172,21 @@
             width: 100%;
             background: $clr-navbar-bg-start;
         }
+
         .navbar__actions {
             position: fixed;
             top: 4.5rem;
             width: auto;
             gap: 1.5rem;
             transform: translateY(-80%);
-            .button--empty {
+            .button--outlined {
                 font-size: $fs-xs;
                 padding: 1rem 2rem;
             }
         }
-        .button--filled,
-        .button--empty {
+
+        .button--contained,
+        .button--outlined {
             @include flex(center, center);
             padding: 0.5rem 1rem;
         }
@@ -227,7 +233,6 @@
         color: $clr-links;
         font-weight: 700;
         padding-left: 0.09rem;
-
         &:hover {
             color: $clr-active;
         }
@@ -237,22 +242,25 @@
             font-weight: 700;
         }
     }
+
     .navbar__actions {
         @include flex($align: center, $gap: 2.1rem);
         width: auto;
         padding-right: 0.08rem;
     }
+
     .navbar__left .button--sm {
         display: none;
     }
-    .button--filled {
+    
+    .button--contained {
         padding: 0;
         min-height: auto;
         color: $clr-black;
         font-size: $fs-xs;
     }
 
-    .button--empty {
+    .button--outlined {
         padding: 0.8rem 2.1rem;
     }
 }
@@ -260,10 +268,10 @@
 /**
 *Transitions and Animations
 */
-.navbar__toggle,
+.button--sm--active,
 .navbar__content,
 .link,
-.button__filled,
-.button__empty {
+.button__contained,
+.button__outlined {
     transition: all 0.3s ease;
 }
