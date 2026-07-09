@@ -1,12 +1,1 @@
 @use '../abstracts/' as *;
-
-/**
-*accessibility
-*/
-a:focus,
-button:focus,
-a:active,
-button:active {
-    outline: px_to_rem(3) solid $clr-button;
-    outline-offset: px_to_rem(3);
-}

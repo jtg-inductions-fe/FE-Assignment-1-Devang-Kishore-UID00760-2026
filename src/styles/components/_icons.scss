@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+.icon {
+    @include flex(center, center);
+    width: px_to_rem(48);
+    height: px_to_rem(48);
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &--main {
+        transition: transform 0.3s ease;
+        background: transparent;
+        @include insert-icon('hamburger', 'after', $clr-button, transparent);
+    }
+
+    &--cross {
+        @include insert-icon(
+            'cross',
+            'after',
+            $clr-white,
+            $clr-button,
+            $font-size: px-to-rem(24)
+        );
+
+        &::after {
+            padding: px-to-rem(2) px-to-rem(8);
+            border-radius: px-to-rem(8);
+        }
+    }
+}

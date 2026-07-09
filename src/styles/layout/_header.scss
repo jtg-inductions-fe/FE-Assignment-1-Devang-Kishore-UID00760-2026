@@ -9,227 +9,197 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: px_to_rem(35) px_to_rem(16);
+    padding: px-to-rem(35) px-to-rem(16);
     z-index: z('sticky');
     background: transparent;
+
+    &--scrolled {
+        background: $clr-navbar-bg-start;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        & {
+            padding: px-to-rem(32) px-to-rem(64);
+        }
+    }
+
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        & {
+            padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
+        }
+    }
 }
 
 .navbar {
     @include flex(space-between, center);
     position: relative;
+
     &__left {
         @include flex(space-between, center);
         width: 100%;
         height: 100%;
     }
 
-    .icon--cross {
-        @include insert-icon(
-            'cross',
-            'after',
-            $clr-white,
-            $clr-button,
-            $font-size: px_to_rem(24)
-        );
-        &::after {
-            padding: px_to_rem(2) px_to_rem(8);
-            border-radius: px_to_rem(8);
-        }
-    }
-}
-
-.header--scrolled {
-    background: $clr-navbar-bg-start;
-}
-
-.icon--main {
-    @include flex(center, center);
-    width: px_to_rem(48);
-    height: px_to_rem(48);
-    padding: 0;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-    @include insert-icon('hamburger', 'after', $clr-button, transparent);
-}
-
-.navbar__content {
-    position: fixed;
-    top: px_to_rem(119);
-    left: 0;
-    width: 100%;
-    height: auto;
-    display: none;
-    flex-direction: column;
-    gap: px_to_rem(32);
-    padding: px_to_rem(32);
-    background: $clr-navbar-bg-start;
-    box-shadow: 0 px_to_rem(12) px_to_rem(32) rgba(0, 0, 0, 0.08);
-    justify-content: space-between;
-
-    .navbar__list {
-        gap: px_to_rem(64);
-        align-items: start;
-        .navbar__item {
-            @extend .description;
-        }
-    }
-}
-
-.navbar__list {
-    animation: content-opacity 1s ease;
-}
-
-.navbar__content--open {
-    display: flex;
-}
-
-.navbar__list {
-    @include flex($align: center, $direction: column, $gap: px_to_rem(28));
-    color: $clr-black;
-}
-
-.navbar__item {
-    list-style: none;
-    color: $clr-black;
-}
-
-.navbar__actions {
-    @include flex($direction: column, $gap: px_to_rem(16));
-}
-
-.navbar__actions {
-    animation: content-opacity 1.5s ease;
-}
-
-/**
-*Tablet view
-*/
-@include breakpoint-up('tablet') {
-    .header {
-        padding: px_to_rem(32) px_to_rem(64);
-    }
-
-    .navbar__left {
-        @include flex($align: center);
-        width: auto;
-        height: 100%;
-    }
-
-    .button--sm {
-        order: 1;
-    }
-
-    .navbar__left {
-        @include flex(space-between, center, row-reverse);
-        flex: 1;
-    }
-
-    .navbar__content {
-        @include flex(end, center);
-        flex: 1;
-        position: static;
-        margin-left: auto;
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
-        width: auto;
-    }
-
-    .navbar__list {
-        display: none;
-    }
-
-    .navbar__actions {
-        @include flex($align: center, $gap: px_to_rem(35));
-    }
-
-    .navbar__content--open {
-        @include flex($justify: end, $align: bottom, $direction: row);
-        position: relative;
+    &__content {
+        position: fixed;
+        top: px-to-rem(119);
+        left: 0;
         width: 100%;
+        height: auto;
+        display: none;
+        flex-direction: column;
+        gap: px-to-rem(32);
+        padding: px-to-rem(32);
+        background: $clr-navbar-bg-start;
+        justify-content: space-between;
+
+        &--open {
+            display: flex;
+        }
+
         .navbar__list {
-            @include flex(flex-start, flex-start, column, px_to_rem(64));
-            font-size: $fs-md;
-            position: fixed;
-            padding: px_to_rem(32) px_to_rem(64);
-            top: px_to_rem(112);
-            right: 0;
-            width: 100%;
-            background: $clr-navbar-bg-start;
-        }
+            @include flex(
+                $align: center,
+                $direction: column,
+                $gap: px-to-rem(28)
+            );
 
-        .navbar__actions {
-            position: fixed;
-            top: px_to_rem(72);
-            width: auto;
-            gap: px_to_rem(24);
-            transform: translateY(-80%);
-        }
-    }
-}
-
-/**
-*Desktop view
-*/
-@include breakpoint-up('desktop') {
-    .header {
-        padding: px_to_rem(66) px_to_rem(130);
-        padding-right: px_to_rem(116);
-    }
-
-    .navbar__left {
-        width: auto;
-        justify-content: flex-end;
-        flex-shrink: 0;
-    }
-
-    .logo--navbar {
-        position: static;
-        transform: none;
-    }
-
-    .button--sm {
-        display: none;
-    }
-
-    .navbar__content {
-        @include flex(space-between, center, row);
-        position: static;
-        flex: 3;
-        padding: 0;
-        gap: px_to_rem(32);
-    }
-
-    .navbar__list {
-        @include flex($justify: space-evenly, $align: center);
-    }
-    
-    .navbar__list .link {
-        font-size: $fs-xs;
-        color: $clr-links;
-        font-weight: 700;
-        padding-left: px_to_rem(2);
-        &:hover {
-            color: $clr-active;
-        }
-
-        &--active {
-            color: $clr-active;
-            font-weight: 700;
+            color: $clr-black;
+            gap: px-to-rem(64);
+            align-items: start;
+            animation: content-opacity 1s ease;
         }
     }
 
-    .navbar__actions {
-        @include flex($align: center, $gap: px_to_rem(33));
-        width: auto;
-        padding-right: px_to_rem(1);
+    &__item {
+        list-style: none;
+        color: $clr-black;
     }
 
-    .navbar__left .button--sm {
-        display: none;
+    &__actions {
+        @include flex($direction: column, $gap: px-to-rem(16));
+        animation: content-opacity 1.5s ease;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        &__content .navbar__list {
+            display: none;
+        }
+
+        &__left {
+            @include flex(space-between, center, row-reverse);
+            flex: 1;
+            height: 100%;
+        }
+
+        &__content {
+            @include flex(end, center);
+            flex: 1;
+            position: static;
+            margin-left: auto;
+            padding: 0;
+            background: transparent;
+
+            &--open {
+                @include flex($justify: end, $align: bottom, $direction: row);
+                position: relative;
+                width: 100%;
+
+                .navbar__list {
+                    @include flex(
+                        flex-start,
+                        flex-start,
+                        column,
+                        px-to-rem(64)
+                    );
+                    
+                    font-size: $fs-md;
+                    position: fixed;
+                    padding: px-to-rem(112) px-to-rem(64) px-to-rem(32)
+                        px-to-rem(64);
+                    right: 0;
+                    width: 100%;
+                    background: $clr-navbar-bg-start;
+                }
+
+                .navbar__actions {
+                    position: fixed;
+                    top: px-to-rem(72);
+                    gap: px-to-rem(24);
+                    transform: translateY(-80%);
+                }
+            }
+        }
+
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(35));
+        }
+    }
+
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        &__left {
+            justify-content: flex-end;
+            flex-shrink: 0;
+        }
+
+        &__content {
+            @include flex(space-between, center, row);
+            position: static;
+            flex: 3;
+            padding: 0;
+            gap: px-to-rem(32);
+        }
+
+        &__content .navbar__list {
+            width: 50%;
+            @include flex($justify: space-between, $align: center);
+        }
+
+        &__list .link {
+            font-size: $fs-xs;
+            color: $clr-links;
+            font-weight: $fw-bold;
+            padding-left: px-to-rem(2);
+
+            &:hover {
+                color: $clr-active;
+            }
+
+            &--active {
+                color: $clr-active;
+                font-weight: $fw-bold;
+            }
+        }
+
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(33));
+            padding-right: px-to-rem(1);
+        }
+
+        &__left .button--sm {
+            display: none;
+        }
+
+        .logo--navbar {
+            position: static;
+            transform: none;
+        }
+
+        .button--sm {
+            display: none;
+        }
     }
 }
 
