@@ -1,34 +1,42 @@
 const desktopBreakPoint = 1025;
 
 /**
- * Toggle mobile navigation
+ * Toggles classes when user click on hamburger button.
+ * @param {string} navbarHamburgerButton - Navbar Hamburger Button.
+ * @param {string} navbarLinksMenu - Navbar Links Menu Element.
  */
-const toggle = (navbarToggle, navbarContent) => {
-    if (!navbarToggle || !navbarContent) return;
-    navbarToggle.addEventListener('click', () => {
-        const isOpen = navbarContent.classList.toggle('navbar__content--open');
-        navbarToggle.classList.toggle('navbar__toggle--active');
-        navbarToggle.setAttribute('aria-expanded', isOpen);
+const toggle = (navbarHamburgerButton, navbarLinksMenu) => {
+    if (!navbarHamburgerButton || !navbarLinksMenu) return;
+    navbarHamburgerButton.addEventListener('click', () => {
+        const isOpen = navbarLinksMenu.classList.toggle('navbar__content--open');
+        navbarHamburgerButton.classList.toggle('button--sm--active');
+        navbarHamburgerButton.setAttribute('aria-expanded', isOpen);
     });
 };
 
-const events = (navbarContent, navbarToggle, navbar) => {
+/**
+ * Handles events(scroll,resize) for changing the states of navbar.
+ * @param {string} navbarHamburgerButton - Navbar Hamburger Button.
+ * @param {string} navbarLinksMenu - Navbar Links Menu Element.
+ * @param {string} navbar- Navbar Element.
+ */
+const events = (navbarLinksMenu, navbarHamburgerButton, navbar) => {
     /**
      * Content--open class remove on resize
      */
     window.addEventListener('resize', () => {
         if (
             window.innerWidth >= desktopBreakPoint &&
-            navbarContent.classList.contains('navbar__content--open')
+            navbarLinksMenu.classList.contains('navbar__content--open')
         ) {
-            navbarContent.classList.remove('navbar__content--open');
-            navbarToggle.classList.remove('navbar__toggle--active');
-            navbarToggle.setAttribute('aria-expanded', 'false');
+            navbarLinksMenu.classList.remove('navbar__content--open');
+            navbarHamburgerButton.classList.remove('button--sm--active');
+            navbarHamburgerButton.setAttribute('aria-expanded', 'false');
         }
     });
 
     /**
-     * Add header--scrolled
+     * Adds header--scrolled class to navbar when use scrolls 
      */
     window.addEventListener('scroll', () => {
         if (window.scrollY > 10) {

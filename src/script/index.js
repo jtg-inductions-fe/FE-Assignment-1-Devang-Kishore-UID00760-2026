@@ -1,8 +1,14 @@
 import { toggle, events } from './navbar';
 
+/**
+* QuerySelectors for navbar elements
+*/
 const navbar = document.querySelector('.header');
-const navbarToggle = document.querySelector('.button--sm');
-const navbarContent = document.querySelector('.navbar__content');
+const navbarHamburgerButton = document.querySelector('.button--sm');
+const navbarLinksMenu = document.querySelector('.navbar__content');
 
-toggle(navbarToggle, navbarContent);
-events(navbarContent, navbarToggle, navbar);
+/**
+* function calls for navbar events 
+*/
+toggle(navbarHamburgerButton, navbarLinksMenu);
+events(navbarLinksMenu, navbarHamburgerButton, navbar);
