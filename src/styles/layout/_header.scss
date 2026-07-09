@@ -21,18 +21,14 @@
     *Tablet view
     */
     @include breakpoint-up('tablet') {
-        & {
-            padding: px-to-rem(32) px-to-rem(64);
-        }
+        padding: px-to-rem(32) px-to-rem(64);
     }
 
     /**
     *Desktop view
     */
     @include breakpoint-up('desktop') {
-        & {
-            padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
-        }
+        padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
     }
 }
 
