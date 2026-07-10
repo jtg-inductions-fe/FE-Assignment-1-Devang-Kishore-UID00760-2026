@@ -5,14 +5,56 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
-            rel="shortcut icon"
+            rel="icon"
             href="/assets/images/logo/favicon.ico"
             type="image/x-icon"
         />
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div class="demo">Hello World</div>
+        <header class="header">
+            <nav class="navbar" id="navbar-container">
+                <div class="navbar__left">
+                    <a
+                        href="/"
+                        class="logo logo--navbar"
+                        aria-label="Travlog Home"
+                        ><img
+                            src="/assets/images/logo/logo.png"
+                            alt="Travlog Logo"
+                        />
+                    </a>
+                    <button
+                        type="button"
+                        class="button button--sm icon--main"
+                        id="hamburger"
+                        aria-label="Open navigation menu"
+                    ></button>
+                </div>
+                <div class="navbar__content" id="menu">
+                    <ul class="navbar__list">
+                        <li class="description">
+                            <a href="/" class="link link--active"> Home </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Discover </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Special Deals </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Contact </a>
+                        </li>
+                    </ul>
+                    <div class="navbar__actions">
+                        <a href="/" class="button button--outlined"> Log In </a>
+                        <a href="/" class="button button--contained">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

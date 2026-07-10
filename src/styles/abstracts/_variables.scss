@@ -1,6 +1,5 @@
 // Fonts
 $font-primary: 'Roboto', sans-serif;
-$font-secodary: 'Inter', sans-serif;
 
 // Font Weights
 $fw-normal: 400;
@@ -24,23 +23,28 @@ $lh-title: 1.8;
 $clr-primary: #f85e9f;
 $clr-button: #5d50c6;
 $clr-heading: #191825;
+$clr-links: #19182581;
+$clr-active: #222831;
 $clr-white: #ffffff;
 $clr-black: #000000;
 $clr-orange: #ff5722;
-$clr-white: #ffffff;
+$clr-orange-light: #ff562241;
+$clr-gray: #eeeeee;
+$clr-navbar-bg-start: #ffe6df;
+$clr-navbar-bg-end: #fff2ed;
 
 // Border Radius
-$radius-sm: 6.25rem;
-$radius-md: 2rem;
+$radius-md: 6.25rem;
+$radius-sm: 2rem;
 $radius-lg: 50%;
 
-// Screen Breakpoints
+// Breakpoints
 $breakpoints: (
-    'desktop': 64.0625rem,
-    'tablet': 26.9375rem,
+    'desktop': 1024px,
+    'tablet': 768px,
 );
 
-// icons
+// Icons
 $icon-map: (
     'left-arrow': '\e903',
     'right-arrow': '\e904',
@@ -54,7 +58,18 @@ $icon-map: (
     'facebook': '\e900',
     'instagram': '\e901',
     'twitter': '\e902',
+    'arrow-circle-down': '\e90c',
+    'cross': '\ea0f',
 );
+
+// Gradients
+$navbar-gradient: radial-gradient(
+        160% 180% at left center,
+        $clr-navbar-bg-start 0%,
+        $clr-navbar-bg-end 35%,
+        transparent 60%
+    ),
+    $clr-white;
 
 // z-index
 $z-layers: (

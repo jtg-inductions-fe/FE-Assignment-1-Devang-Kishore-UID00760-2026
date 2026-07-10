@@ -1,5 +1,6 @@
 @use 'sass:map';
-
+@use './variables' as *;
+@use './functions' as *;
 /**
 * Flexbox
 * @param {string} $justify - value of justify content.
@@ -20,7 +21,7 @@
 * @param {string} $columns - value of grid columns.
 * @param {number} $justify - value of gap.
 */
-@mixin grid($columns, $gap: 1rem) {
+@mixin grid($columns, $gap: px-to-rem(16)) {
     display: grid;
     grid-template-columns: $columns;
     gap: $gap;
@@ -30,7 +31,7 @@
 * Media Query
 * @param {string} $size - name of screen size.
 */
-@mixin reduce($key) {
+@mixin breakpoint-up($key) {
     @if map.has-key($breakpoints, $key) {
         $size: map.get($breakpoints, $key);
         @media (min-width: $size) {
@@ -64,7 +65,7 @@
     $position,
     $color,
     $background-color,
-    $font-size: 2.45rem
+    $font-size: px-to-rem(40)
 ) {
     &::#{$position} {
         font-family: Icons;

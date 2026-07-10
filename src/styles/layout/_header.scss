@@ -1,0 +1,211 @@
+@use '../abstracts/' as *;
+@use '../base/' as *;
+
+/**
+*Mobile view 
+*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: px-to-rem(35) px-to-rem(16);
+    z-index: z('sticky');
+    background: transparent;
+
+    &--scrolled {
+        background: $clr-navbar-bg-start;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        padding: px-to-rem(32) px-to-rem(64);
+    }
+
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
+    }
+}
+
+.navbar {
+    @include flex(space-between, center);
+    position: relative;
+
+    &__left {
+        @include flex(space-between, center);
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        position: fixed;
+        top: px-to-rem(119);
+        left: 0;
+        width: 100%;
+        height: auto;
+        display: none;
+        flex-direction: column;
+        gap: px-to-rem(32);
+        padding: px-to-rem(32);
+        background: $clr-navbar-bg-start;
+        justify-content: space-between;
+
+        &--open {
+            display: flex;
+        }
+
+        .navbar__list {
+            @include flex(
+                $align: center,
+                $direction: column,
+                $gap: px-to-rem(28)
+            );
+
+            color: $clr-black;
+            gap: px-to-rem(64);
+            align-items: start;
+            animation: content-opacity 1s ease;
+        }
+    }
+
+    &__item {
+        list-style: none;
+        color: $clr-black;
+    }
+
+    &__actions {
+        @include flex($direction: column, $gap: px-to-rem(16));
+        animation: content-opacity 1.5s ease;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        &__content .navbar__list {
+            display: none;
+        }
+
+        &__left {
+            @include flex(space-between, center, row-reverse);
+            flex: 1;
+            height: 100%;
+        }
+
+        &__content {
+            @include flex(end, center);
+            flex: 1;
+            position: static;
+            margin-left: auto;
+            padding: 0;
+            background: transparent;
+
+            &--open {
+                @include flex($justify: end, $align: bottom, $direction: row);
+                position: relative;
+                width: 100%;
+
+                .navbar__list {
+                    @include flex(
+                        flex-start,
+                        flex-start,
+                        column,
+                        px-to-rem(64)
+                    );
+                    top: px-to-rem(119);
+                    font-size: $fs-md;
+                    position: fixed;
+                    padding: px-to-rem(112) px-to-rem(64) px-to-rem(32)
+                        px-to-rem(64);
+                    right: 0;
+                    width: 100%;
+                    background: $clr-navbar-bg-start;
+                }
+
+                .navbar__actions {
+                    position: fixed;
+                    top: px-to-rem(72);
+                    gap: px-to-rem(24);
+                    transform: translateY(-80%);
+                }
+            }
+        }
+
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(35));
+        }
+    }
+
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        &__left {
+            justify-content: flex-end;
+            flex-shrink: 0;
+        }
+
+        &__content {
+            @include flex(space-between, center, row);
+            position: static;
+            flex: 3;
+            padding: 0;
+            gap: px-to-rem(32);
+        }
+
+        &__content .navbar__list {
+            width: 50%;
+            @include flex($justify: space-between, $align: center);
+        }
+
+        &__list .link {
+            font-size: $fs-xs;
+            color: $clr-links;
+            font-weight: $fw-bold;
+            padding-left: px-to-rem(2);
+
+            &:hover {
+                color: $clr-active;
+            }
+
+            &--active {
+                color: $clr-active;
+                font-weight: $fw-bold;
+            }
+        }
+
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(33));
+            padding-right: px-to-rem(1);
+        }
+
+        &__left .button--sm {
+            display: none;
+        }
+
+        .logo--navbar {
+            position: static;
+            transform: none;
+        }
+
+        .button--sm {
+            display: none;
+        }
+    }
+}
+
+/**
+*Transitions and Animations
+*/
+.button--sm--active,
+.navbar__content,
+.link,
+.button__contained,
+.button__outlined {
+    transition: all 0.3s ease;
+}

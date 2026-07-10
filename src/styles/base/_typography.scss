@@ -3,18 +3,8 @@
 body {
     font-family: $font-primary;
     font-size: 1rem;
-    font-weight: $fw-normal;
-    color: $clr-white;
 }
 
-h1 {
-    font-weight: $fw-bold;
-}
-
-h2 {
-    font-weight: $fw-medium;
-}
-
-h3 {
-    font-weight: $fw-normal;
+.description {
+    font-size: $fs-sm;
 }
