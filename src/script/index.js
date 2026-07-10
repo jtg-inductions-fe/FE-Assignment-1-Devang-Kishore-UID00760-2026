@@ -6,7 +6,7 @@ import { toggle, setOpen, setScrolled } from './navbar';
 const navbar = document.querySelector('#navbar-container');
 const navbarHamburgerButton = document.querySelector('#hamburger');
 const navbarLinksMenu = document.querySelector('#menu');
-const DESKTOP_BREAK_POINT = 1025;
+const DESKTOP_BREAK_POINT = 1024;
 const Y_SCROLL = 10;
 
 /**

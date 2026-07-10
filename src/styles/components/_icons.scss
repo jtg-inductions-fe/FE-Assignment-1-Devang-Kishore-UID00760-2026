@@ -1,15 +1,14 @@
 @use '../abstracts/' as *;
 .icon {
     @include flex(center, center);
-    width: px_to_rem(48);
-    height: px_to_rem(48);
+    width: px-to-rem(48);
+    height: px-to-rem(48);
     padding: 0;
     border: 0;
     cursor: pointer;
     flex-shrink: 0;
 
     &--main {
-        transition: transform 0.3s ease;
         background: transparent;
         @include insert-icon('hamburger', 'after', $clr-button, transparent);
     }

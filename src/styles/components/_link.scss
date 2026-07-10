@@ -5,7 +5,7 @@
     color: $clr-links;
     text-decoration: none;
     font-size: $fs-md;
-    font-weight: 700;
+    font-weight: $fw-bold;
     transition: color 0.3s ease;
 
     &:hover {

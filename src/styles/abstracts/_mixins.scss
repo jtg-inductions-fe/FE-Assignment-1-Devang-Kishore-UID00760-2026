@@ -21,7 +21,7 @@
 * @param {string} $columns - value of grid columns.
 * @param {number} $justify - value of gap.
 */
-@mixin grid($columns, $gap: px_to_rem(16)) {
+@mixin grid($columns, $gap: px-to-rem(16)) {
     display: grid;
     grid-template-columns: $columns;
     gap: $gap;
@@ -65,7 +65,7 @@
     $position,
     $color,
     $background-color,
-    $font-size: px_to_rem(40)
+    $font-size: px-to-rem(40)
 ) {
     &::#{$position} {
         font-family: Icons;
