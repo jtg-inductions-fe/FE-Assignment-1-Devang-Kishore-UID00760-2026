@@ -12,52 +12,51 @@
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <div class="container">
-            <header class="header">
-                <nav class="navbar" id="navbar-container">
-                    <div class="navbar__left">
-                        <a
-                            href="/"
-                            class="logo logo--navbar"
-                            aria-label="Travlog Home"
-                            ><img
-                                src="/assets/images/logo/logo.png"
-                                alt="Travlog Logo"
-                            />
+        <header class="header" id="navbar-container">
+            <nav class="navbar">
+                <div class="navbar__left">
+                    <a
+                        href="/"
+                        class="logo logo--navbar"
+                        aria-label="Travlog Home"
+                        ><img
+                            src="/assets/images/logo/logo.png"
+                            alt="Travlog Logo"
+                        />
+                    </a>
+                    <button
+                        type="button"
+                        class="button button--sm icon--main"
+                        id="hamburger"
+                        aria-label="Open navigation menu"
+                    ></button>
+                </div>
+                <div class="navbar__content" id="menu">
+                    <ul class="navbar__list">
+                        <li class="description">
+                            <a href="/" class="link link--active"> Home </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Discover </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Special Deals </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Contact </a>
+                        </li>
+                    </ul>
+                    <div class="navbar__actions">
+                        <a href="/" class="button button--outlined"> Log In </a>
+                        <a href="/" class="button button--contained">
+                            Sign Up
                         </a>
-                        <button
-                            type="button"
-                            class="button button--sm icon--main"
-                            id="hamburger"
-                            aria-label="Open navigation menu"
-                        ></button>
                     </div>
-                    <div class="navbar__content" id="menu">
-                        <ul class="navbar__list">
-                            <li class="description">
-                                <a href="/" class="link link--active"> Home </a>
-                            </li>
-                            <li class="description">
-                                <a href="/" class="link"> Discover </a>
-                            </li>
-                            <li class="description">
-                                <a href="/" class="link"> Special Deals </a>
-                            </li>
-                            <li class="description">
-                                <a href="/" class="link"> Contact </a>
-                            </li>
-                        </ul>
-                        <div class="navbar__actions">
-                            <a href="/" class="button button--outlined">
-                                Log In
-                            </a>
-                            <a href="/" class="button button--contained">
-                                Sign Up
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <!-- Hero Section -->
             <section class="hero">
                 <div class="hero__content">
                     <div class="hero__visuals">
@@ -95,9 +94,8 @@
 
                         <h1 class="hero__heading">
                             Travel
-                            <span class="hero__span">
-                                top <span class="break-heading"></span>
-                                destination
+                            <span class="hero__highlight">
+                                top destination
                             </span>
                             of the world
                         </h1>
@@ -111,14 +109,14 @@
                         <div class="hero__actions">
                             <button
                                 type="button"
-                                class="button button--contained start"
+                                class="button button--contained hero__action-start"
                             >
                                 Get Started
                             </button>
 
                             <button
                                 type="button"
-                                class="button button--outlined demo"
+                                class="button button--outlined hero__action-demo"
                             >
                                 Watch Demo
                             </button>

@@ -65,7 +65,6 @@
                 $direction: column,
                 $gap: px-to-rem(28)
             );
-
             color: $clr-black;
             gap: px-to-rem(64);
             align-items: start;
@@ -168,6 +167,7 @@
             color: $clr-links;
             font-weight: $fw-bold;
             padding-left: px-to-rem(2);
+            width: px-to-rem(100);
 
             &:hover {
                 color: $clr-active;

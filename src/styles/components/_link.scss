@@ -2,7 +2,6 @@
 .link {
     @include ellipsis();
     display: inline-block;
-    width: px-to-rem(100);
     text-decoration: none;
     color: $clr-links;
     text-decoration: none;
