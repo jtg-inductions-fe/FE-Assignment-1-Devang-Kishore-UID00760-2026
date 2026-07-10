@@ -9,9 +9,27 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 2.2rem 1rem;
+    padding: px-to-rem(35) px-to-rem(16);
     z-index: z('sticky');
     background: transparent;
+
+    &--scrolled {
+        background: $clr-navbar-bg-start;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        padding: px-to-rem(32) px-to-rem(64);
+    }
+
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
+    }
 }
 
 .navbar {
@@ -24,260 +42,170 @@
         height: 100%;
     }
 
-    .button--sm {
-        @include flex(center, center);
-        width: 3rem;
-        height: 3rem;
-        padding: 0;
-        border: 0;
-        background: transparent;
-        cursor: pointer;
-        flex-shrink: 0;
-        transition: transform 0.3s ease;
-        @include insert-icon('hamburger', 'after', $clr-button, transparent);
-        &--active {
-            @include insert-icon(
-                'cross',
-                'after',
-                $clr-white,
-                $clr-button,
-                $font-size: 1.5rem
-            );
-
-            &::after {
-                padding: 0.1rem 0.5rem;
-                border-radius: 0.5rem;
-            }
-        }
-    }
-}
-
-.header--scrolled {
-    background: $clr-navbar-bg-start;
-}
-
-.navbar__content {
-    position: fixed;
-    top: 7.4rem;
-    left: 0;
-    width: 100%;
-    height: auto;
-    display: none;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    background: $clr-navbar-bg-start;
-    box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.08);
-    justify-content: space-between;
-
-    .navbar__list {
-        gap: 4rem;
-        align-items: start;
-        .navbar__item {
-            @extend .description;
-        }
-    }
-}
-
-.navbar__list {
-    animation: content-opacity 1s ease;
-}
-
-.navbar__content--open {
-    display: flex;
-}
-
-.navbar__list {
-    @include flex($align: center, $direction: column, $gap: 1.75rem);
-    color: $clr-black;
-}
-
-.navbar__item {
-    list-style: none;
-    color: $clr-black;
-}
-
-.navbar__actions {
-    @include flex($direction: column, $gap: 1rem);
-}
-
-.navbar__actions {
-    animation: content-opacity 1.5s ease;
-}
-
-/**
-*Tablet view
-*/
-@include breakpoint-up('tablet') {
-    .header {
-        padding: 2rem 4rem;
-    }
-
-    .navbar__left {
-        @include flex($align: center);
-        width: auto;
-        height: 100%;
-    }
-
-    .button--sm {
-        order: 1;
-    }
-
-    .navbar__left {
-        @include flex(space-between, center, row-reverse);
-        flex: 1;
-    }
-
-    .navbar__content {
-        @include flex(end, center);
-        flex: 1;
-        position: static;
-        margin-left: auto;
-        padding: 0;
-        background: transparent;
-        box-shadow: none;
-        width: auto;
-    }
-
-    .navbar__list {
-        display: none;
-    }
-
-    .navbar__actions {
-        @include flex($align: center, $gap: 2.2rem);
-    }
-
-    .button--filled {
-        padding: 0;
-        min-height: auto;
-
-        &:hover {
-            color: $clr-button;
-            background: transparent;
-        }
-    }
-
-    .button--empty {
-        font-size: $fs-xs;
-        padding: 0.86rem 2.1rem;
-    }
-
-    .navbar__content--open {
-        @include flex($justify: end, $align: bottom, $direction: row);
-        position: relative;
+    &__content {
+        position: fixed;
+        top: px-to-rem(119);
+        left: 0;
         width: 100%;
-        .navbar__list {
-            @include flex(flex-start, flex-start, column, 4rem);
-            font-size: $fs-md;
-            position: fixed;
-            padding: 2rem 4rem;
-            top: 7rem;
-            right: 0;
-            width: 100%;
-            background: $clr-navbar-bg-start;
+        height: auto;
+        display: none;
+        flex-direction: column;
+        gap: px-to-rem(32);
+        padding: px-to-rem(32);
+        background: $clr-navbar-bg-start;
+        justify-content: space-between;
+
+        &--open {
+            display: flex;
         }
 
-        .navbar__actions {
-            position: fixed;
-            top: 4.5rem;
-            width: auto;
-            gap: 1.5rem;
-            transform: translateY(-80%);
-            .button--empty {
-                font-size: $fs-xs;
-                padding: 1rem 2rem;
+        .navbar__list {
+            @include flex(
+                $align: center,
+                $direction: column,
+                $gap: px-to-rem(28)
+            );
+            color: $clr-black;
+            gap: px-to-rem(64);
+            align-items: start;
+            animation: content-opacity 1s ease;
+        }
+    }
+
+    &__item {
+        list-style: none;
+        color: $clr-black;
+    }
+
+    &__actions {
+        @include flex($direction: column, $gap: px-to-rem(16));
+        animation: content-opacity 1.5s ease;
+    }
+
+    /**
+    *Tablet view
+    */
+    @include breakpoint-up('tablet') {
+        &__content .navbar__list {
+            display: none;
+        }
+
+        &__left {
+            @include flex(space-between, center, row-reverse);
+            flex: 1;
+            height: 100%;
+        }
+
+        &__content {
+            @include flex(end, center);
+            flex: 1;
+            position: static;
+            margin-left: auto;
+            padding: 0;
+            background: transparent;
+
+            &--open {
+                @include flex($justify: end, $align: bottom, $direction: row);
+                position: relative;
+                width: 100%;
+
+                .navbar__list {
+                    @include flex(
+                        flex-start,
+                        flex-start,
+                        column,
+                        px-to-rem(64)
+                    );
+                    top: px-to-rem(119);
+                    font-size: $fs-md;
+                    position: fixed;
+                    padding: px-to-rem(112) px-to-rem(64) px-to-rem(32)
+                        px-to-rem(64);
+                    right: 0;
+                    width: 100%;
+                    background: $clr-navbar-bg-start;
+                }
+
+                .navbar__actions {
+                    position: fixed;
+                    top: px-to-rem(72);
+                    gap: px-to-rem(24);
+                    transform: translateY(-80%);
+                }
             }
         }
 
-        .button--filled,
-        .button--empty {
-            @include flex(center, center);
-            padding: 0.5rem 1rem;
-        }
-    }
-}
-
-/**
-*Desktop view
-*/
-@include breakpoint-up('desktop') {
-    .header {
-        padding: 4.15rem 8.1rem;
-        padding-right: 7.25rem;
-    }
-
-    .navbar__left {
-        width: auto;
-        justify-content: flex-end;
-        flex-shrink: 0;
-    }
-
-    .logo--navbar {
-        position: static;
-        transform: none;
-    }
-
-    .button--sm {
-        display: none;
-    }
-
-    .navbar__content {
-        @include flex(space-between, center, row);
-        position: static;
-        flex: 3;
-        padding: 0;
-        gap: 2rem;
-    }
-
-    .navbar__list {
-        @include flex($justify: space-evenly, $align: center);
-    }
-
-    .navbar__list .link {
-        font-size: $fs-xs;
-        color: $clr-links;
-        font-weight: 700;
-        padding-left: 0.09rem;
-
-        &:hover {
-            color: $clr-active;
-        }
-
-        &--active {
-            color: $clr-active;
-            font-weight: 700;
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(35));
         }
     }
 
-    .navbar__actions {
-        @include flex($align: center, $gap: 2.1rem);
-        width: auto;
-        padding-right: 0.08rem;
-    }
+    /**
+    *Desktop view
+    */
+    @include breakpoint-up('desktop') {
+        &__left {
+            justify-content: flex-end;
+            flex-shrink: 0;
+        }
 
-    .navbar__left .button--sm {
-        display: none;
-    }
+        &__content {
+            @include flex(space-between, center, row);
+            position: static;
+            flex: 3;
+            padding: 0;
+            gap: px-to-rem(32);
+        }
 
-    .button--filled {
-        padding: 0;
-        min-height: auto;
-        color: $clr-black;
-        font-size: $fs-xs;
-    }
+        &__content .navbar__list {
+            width: 50%;
+            @include flex($justify: space-between, $align: center);
+        }
 
-    .button--empty {
-        padding: 0.8rem 2.1rem;
+        &__list .link {
+            font-size: $fs-xs;
+            color: $clr-links;
+            font-weight: $fw-bold;
+            padding-left: px-to-rem(2);
+            width: px-to-rem(100);
+
+            &:hover {
+                color: $clr-active;
+            }
+
+            &--active {
+                color: $clr-active;
+                font-weight: $fw-bold;
+            }
+        }
+
+        &__actions {
+            @include flex($align: center, $gap: px-to-rem(33));
+            padding-right: px-to-rem(1);
+        }
+
+        &__left .button--sm {
+            display: none;
+        }
+
+        .logo--navbar {
+            position: static;
+            transform: none;
+        }
+
+        .button--sm {
+            display: none;
+        }
     }
 }
 
 /**
 *Transitions and Animations
 */
-.navbar__toggle,
+.button--sm--active,
 .navbar__content,
 .link,
-.button__filled,
-.button__empty {
+.button__contained,
+.button__outlined {
     transition: all 0.3s ease;
 }

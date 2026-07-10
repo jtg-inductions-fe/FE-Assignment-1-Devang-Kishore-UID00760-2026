@@ -1,8 +1,5 @@
 @use '../abstracts/' as *;
 
-/**
- * Partners Logo Section
- */
 .partners {
     @include flex(center, center);
     width: 100%;

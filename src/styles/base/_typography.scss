@@ -2,13 +2,9 @@
 
 body {
     font-family: $font-primary;
-    font-size: 1rem;
+    font-size: px-to-rem(16);
 }
 
 .description {
-    font-size: $fs-xs;
-    @include paragraph;
-    max-width: rem(520);
-    margin: 0;
-    line-height: $lh-body;
+    @include typography($fs-xs, $fw-normal, $lh-body);
 }

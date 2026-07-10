@@ -1,15 +1,25 @@
-import data from '../data/content.json';
-import { toggle, events } from './navbar';
-import { renderCards } from './travelpoint';
-/**
- * querySelectors for accessing different elements
- */
-const navbar = document.querySelector('.header');
-const navbarToggle = document.querySelector('.button--sm');
-const navbarContent = document.querySelector('.navbar__content');
-const statsContainer = document.querySelector('.travel-point__stats');
+import { toggle, setOpen, setScrolled } from './navbar';
 
-const stats = data['travel-point'].stats;
-renderCards(stats, statsContainer);
-toggle(navbarToggle, navbarContent);
-events(navbarContent, navbarToggle, navbar);
+/**
+ * QuerySelectors for navbar elements
+ */
+const navbar = document.querySelector('#navbar-container');
+const navbarHamburgerButton = document.querySelector('#hamburger');
+const navbarLinksMenu = document.querySelector('#menu');
+const DESKTOP_BREAK_POINT = 1024;
+const Y_SCROLL = 10;
+
+/**
+ * Event Listeners
+ */
+window.addEventListener('resize', () => {
+    setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
+});
+
+window.addEventListener('scroll', () => {
+    setScrolled(navbar, Y_SCROLL);
+});
+
+navbarHamburgerButton.addEventListener('click', () => {
+    toggle(navbarHamburgerButton, navbarLinksMenu);
+});

@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use './variables' as *;
-
+@use './functions' as *;
 /**
 * Flexbox
 * @param {string} $justify - value of justify content.
@@ -21,7 +21,7 @@
 * @param {string} $columns - value of grid columns.
 * @param {number} $justify - value of gap.
 */
-@mixin grid($columns, $gap: 1rem) {
+@mixin grid($columns, $gap: px-to-rem(16)) {
     display: grid;
     grid-template-columns: $columns;
     gap: $gap;
@@ -65,7 +65,7 @@
     $position,
     $color,
     $background-color,
-    $font-size: 2.45rem
+    $font-size: px-to-rem(40)
 ) {
     &::#{$position} {
         font-family: Icons;
@@ -81,11 +81,19 @@
 }
 
 /**
-*common paragraph
+* Mixin to truncate text with an ellipsis
+* @param {Number} $lines - Number of lines to show before truncating.
 */
-@mixin paragraph {
-    letter-spacing: 0.01rem;
-    word-spacing: 0.2rem;
-    color: $clr-links;
-    font-size: 1rem;
+@mixin ellipsis($lines: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @if $lines == 1 {
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
 }

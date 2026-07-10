@@ -8,7 +8,14 @@
     max-width: px-to-rem(1920);
     padding: px-to-rem(16);
     overflow-x: hidden;
-    background: $hero-gradient;
+    background: radial-gradient(
+            130% 120% at 10% 28%,
+            $clr-navbar-bg-start 0%,
+            $clr-navbar-bg-end 20%,
+            rgba($clr-navbar-bg-end, 0.35) 40%,
+            transparent 65%
+        ),
+        $clr-white;
 
     &__content {
         @include flex($direction: column);
@@ -86,13 +93,13 @@
         padding-top: px-to-rem(24);
         text-align: center;
 
-        .start,
-        .demo {
+        .hero__action-start,
+        .hero__action-demo {
             width: 100%;
             padding: px-to-rem(22);
         }
 
-        .demo {
+        .hero__action-demo {
             @include flex(center, center, row, px-to-rem(12));
             background-color: $clr-white;
             box-shadow: $shadow-subtle;
@@ -106,7 +113,7 @@
             );
         }
 
-        .start {
+        .hero__action-start {
             box-shadow: $shadow-elevated;
         }
     }
@@ -144,7 +151,7 @@
         text-wrap: balance;
     }
 
-    &__span {
+    &__highlight {
         color: $clr-primary;
     }
 
@@ -152,6 +159,29 @@
         @include flex($direction: column, $gap: px-to-rem(24));
         width: 100%;
         margin-top: px-to-rem(13);
+        .start,
+        .demo {
+            width: 100%;
+            padding: px-to-rem(22);
+        }
+
+        .demo {
+            @include flex(center, center, row, px-to-rem(12));
+            background-color: $clr-white;
+            box-shadow: $shadow-subtle;
+
+            @include insert-icon(
+                'hero-play',
+                'before',
+                $clr-button,
+                transparent,
+                $font-size: $fs-sm
+            );
+        }
+
+        .start {
+            box-shadow: $shadow-elevated;
+        }
     }
 
     @include breakpoint-up('tablet') {
@@ -159,7 +189,7 @@
 
         &__content {
             gap: px-to-rem(32);
-            background: url('/assets/images/hero_section/triangle-design.svg')
+            background: url('/assets/images/hero_section/triangle_design.svg')
                 no-repeat;
             background-position: 4% 100%;
         }
@@ -183,7 +213,7 @@
             gap: clamp(px-to-rem(16), 3vw, px-to-rem(32));
         }
 
-        &__span {
+        &__highlight {
             br {
                 display: none;
             }
@@ -223,7 +253,6 @@
         &__heading {
             padding-top: px-to-rem(8);
             font-size: clamp(px-to-rem(48), 6vw, px-to-rem(64));
-            line-height: $lh-title;
             letter-spacing: 0;
             word-spacing: 0;
         }
@@ -232,18 +261,18 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            width: 100%;
+            width: 40%;
             margin-top: 0;
             margin-bottom: px-to-rem(51);
             gap: px-to-rem(18);
 
-            .start {
+            &-start {
                 width: clamp(px-to-rem(20), 22vw, px-to-rem(140));
                 padding: min(px-to-rem(16), 2vw) min(px-to-rem(24), 2vw);
                 white-space: nowrap;
             }
 
-            .done {
+            &-done {
                 width: clamp(px-to-rem(20), 22vw, px-to-rem(180));
                 padding: min(px-to-rem(16), 2vw) min(px-to-rem(64), 40vw);
                 white-space: nowrap;
@@ -256,7 +285,6 @@
 
         .hero__description {
             max-width: px-to-rem(440);
-            padding-top: px-to-rem(3);
             font-size: $fs-sm;
         }
     }
@@ -275,14 +303,14 @@
             $clr-white;
         background-position: 2.9% 100%;
 
-        .start {
+        &__action-start {
             width: clamp(px-to-rem(120), 11vw, px-to-rem(140));
             padding: clamp(px-to-rem(12), 0.84vw, px-to-rem(16))
                 clamp(px-to-rem(18), 1.25vw, px-to-rem(24));
             white-space: nowrap;
         }
 
-        .demo {
+        &__action-demo {
             width: clamp(px-to-rem(152), 13vw, px-to-rem(180));
             padding: clamp(px-to-rem(12), 0.84vw, px-to-rem(16))
                 clamp(px-to-rem(32), 3.33vw, px-to-rem(64));
@@ -329,6 +357,7 @@
         }
 
         &__actions {
+            width: 100%;
             justify-content: flex-start;
             padding: px-to-rem(32) 0 0 px-to-rem(30);
         }
@@ -379,14 +408,6 @@
             max-width: px-to-rem(430);
             padding: px-to-rem(28) 0 0 px-to-rem(40);
         }
-    }
-}
-
-.break-heading {
-    display: block;
-
-    @include breakpoint-up('tablet') {
-        display: none;
     }
 }
 
