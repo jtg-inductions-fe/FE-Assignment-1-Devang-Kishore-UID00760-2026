@@ -1,5 +1,7 @@
 /**
  * Render the cards of travel point
+ * @param {Object} stats - data of stats
+ * @param {string} statsContainer - container in which stats need to rendered.
  */
 const renderCards = (stats, statsContainer) => {
     let data = '';
@@ -13,4 +15,4 @@ const renderCards = (stats, statsContainer) => {
     }
     statsContainer.innerHTML = data;
 };
-export { renderCards };
+export default renderCards;

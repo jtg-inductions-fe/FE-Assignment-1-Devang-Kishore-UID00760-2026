@@ -1,4 +1,6 @@
+import data from '../data/content.json';
 import { toggle, setOpen, setScrolled } from './navbar';
+import renderCards from './travelpoint';
 
 /**
  * QuerySelectors for navbar elements
@@ -6,8 +8,15 @@ import { toggle, setOpen, setScrolled } from './navbar';
 const navbar = document.querySelector('#navbar-container');
 const navbarHamburgerButton = document.querySelector('#hamburger');
 const navbarLinksMenu = document.querySelector('#menu');
+const statsContainer = document.querySelector('.travel-point__stats');
 const DESKTOP_BREAK_POINT = 1024;
 const Y_SCROLL = 10;
+const stats = data['travel-point'].stats;
+
+/**
+ * Function calls
+ */
+renderCards(stats, statsContainer);
 
 /**
  * Event Listeners
