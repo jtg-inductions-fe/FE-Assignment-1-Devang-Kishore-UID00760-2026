@@ -433,7 +433,7 @@
     }
 }
 
-.image3__badge {
+.city__badge {
     @include flex(center, center, row, px-to-rem(6));
     position: absolute;
     right: -30%;
