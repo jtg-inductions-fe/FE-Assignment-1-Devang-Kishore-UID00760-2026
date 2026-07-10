@@ -3,19 +3,16 @@
 .button {
     @include flex(center, center);
     @include typography($fs-xs, $fw-bold, $line-height: $lh-body);
-    @include ellipsis();
-    display: inline-block;
     text-decoration: none;
     white-space: nowrap;
-    padding: px-to-rem(14) px-to-rem(34);
+    padding: px-to-rem(14.4) px-to-rem(33.6);
     border-radius: $radius-md;
     text-decoration: none;
 
     &--outlined {
         color: $clr-black;
         padding: 0;
-        background: transparent;
-
+        
         &:hover {
             color: $clr-button;
         }

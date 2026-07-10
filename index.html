@@ -14,7 +14,7 @@
     <body>
         <div class="container">
             <header class="header">
-                <nav class="navbar" id="navbar-container">
+                <nav class="navbar">
                     <div class="navbar__left">
                         <a
                             href="/"
@@ -24,36 +24,59 @@
                                 src="/assets/images/logo/logo.png"
                                 alt="Travlog Logo"
                             />
+                    </a>
+                    <button
+                        type="button"
+                        class="button button--sm icon--main"
+                        id="hamburger"
+                        aria-label="Open navigation menu"
+                    ></button>
+                </div>
+                <div class="navbar__content" id="menu">
+                    <ul class="navbar__list">
+                        <li class="description">
+                            <a href="/" class="link link--active"> Home </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Discover </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Special Deals </a>
+                        </li>
+                        <li class="description">
+                            <a href="/" class="link"> Contact </a>
+                        </li>
+                    </ul>
+                    <div class="navbar__actions">
+                        <a href="/" class="button button--outlined"> Log In </a>
+                        <a href="/" class="button button--contained">
+                            Sign Up
                         </a>
-                        <button
-                            type="button"
-                            class="button button--sm icon--main"
-                            id="hamburger"
-                            aria-label="Open navigation menu"
-                        ></button>
                     </div>
-                    <div class="navbar__content" id="menu">
+                    <div class="navbar__content">
                         <ul class="navbar__list">
-                            <li class="description">
-                                <a href="/" class="link link--active"> Home </a>
+                            <li class="navbar__item">
+                                <a
+                                    href="/"
+                                    class="link link--active"
+                                    aria-current="page"
+                                >
+                                    Home
+                                </a>
                             </li>
-                            <li class="description">
+                            <li class="navbar__item">
                                 <a href="/" class="link"> Discover </a>
                             </li>
-                            <li class="description">
+                            <li class="navbar__item">
                                 <a href="/" class="link"> Special Deals </a>
                             </li>
-                            <li class="description">
+                            <li class="navbar__item">
                                 <a href="/" class="link"> Contact </a>
                             </li>
                         </ul>
                         <div class="navbar__actions">
-                            <a href="/" class="button button--outlined">
-                                Log In
-                            </a>
-                            <a href="/" class="button button--contained">
-                                Sign Up
-                            </a>
+                            <a href="/" class="button button--contained"> Log In </a>
+                            <a href="/" class="button button--outlined"> Sign Up </a>
                         </div>
                     </div>
                 </nav>
@@ -63,29 +86,29 @@
                     <div class="hero__visuals">
                         <div class="hero__images">
                             <div class="hero__left">
-                                <div class="hero__seaview">
+                                <div class="hero__image1">
                                     <img
                                         src="/assets/images/hero_section/hero_image1.png"
                                         alt="Sea view"
-                                        aria-label="Sea view"
                                     />
                                 </div>
-                                <div class="hero__mountain">
+                                <div class="hero__image2">
                                     <img
                                         src="/assets/images/hero_section/hero_image2.png"
                                         alt="Traveller sitting on a mountain"
-                                        aria-label="Traveller sitting on a mountain"
                                     />
-                                    <div class="mountain__badge"></div>
+                                    <div
+                                        class="image2__badge"
+                                        aria-hidden="true"
+                                    ></div>
                                 </div>
                             </div>
-                            <div class="hero__city">
+                            <div class="hero__right">
                                 <img
                                     src="/assets/images/hero_section/hero_image3.png"
                                     alt="Traveller exploring a city"
-                                    aria-label="Traveller exploring a city"
                                 />
-                                <div class="city__badge">Top Places</div>
+                                <div class="image3__badge">Top Places</div>
                             </div>
                         </div>
                     </div>
@@ -102,24 +125,18 @@
                             of the world
                         </h1>
 
-                        <p class="description hero__description">
+                        <p class="hero__description">
                             We always make our customer happy by
                             <span class="break-line">providing</span> as many
                             choices as possible.
                         </p>
 
                         <div class="hero__actions">
-                            <button
-                                type="button"
-                                class="button button--contained start"
-                            >
+                            <button type="button" class=" button button--outlined">
                                 Get Started
                             </button>
 
-                            <button
-                                type="button"
-                                class="button button--outlined demo"
-                            >
+                            <button type="button" class="button button--contained">
                                 Watch Demo
                             </button>
                         </div>
@@ -130,32 +147,27 @@
                 <img
                     src="/assets/images/partners_logos/tripadvisor.svg"
                     alt="Tripadvisor"
-                    class="partners__logo"
-                    aria-label="Tripadvisor"
+                    class="partners__logo partners__logo--tripadvisor"
                 />
                 <img
                     src="/assets/images/partners_logos/expedia.svg"
                     alt="Expedia"
-                    class="partners__logo"
-                    aria-label="Expedia"
+                    class="partners__logo partners__logo--expedia"
                 />
                 <img
                     src="/assets/images/partners_logos/booking.svg"
                     alt="Bookings.com"
-                    class="partners__logo"
-                    aria-label="Bookings.com"
+                    class="partners__logo partners__logo--booking"
                 />
                 <img
                     src="/assets/images/partners_logos/airbnb.svg"
                     alt="Airbnb"
-                    class="partners__logo"
-                    aria-label="Airbnb"
+                    class="partners__logo partners__logo--airbnb"
                 />
                 <img
                     src="/assets/images/partners_logos/orbitz.svg"
                     alt="orbitz"
-                    class="partners__logo"
-                    aria-label="orbitz"
+                    class="partners__logo partners__logo--orbitz"
                 />
             </section>
         </div>

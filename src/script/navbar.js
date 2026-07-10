@@ -18,7 +18,11 @@ const toggle = (navbarHamburgerButton, navbarLinksMenu) => {
  * @param {string} navbarLinksMenu - Navbar Links Menu Element.
  * @param {string} breakpoint- Minimum value of desktop screen size.
  */
-const setOpen = (navbarLinksMenu, navbarHamburgerButton, breakpoint) => {
+const setOpen = (
+    navbarLinksMenu,
+    navbarHamburgerButton,
+    breakpoint,
+) => {
     if (
         window.innerWidth >= breakpoint &&
         navbarLinksMenu.classList.contains('navbar__content--open')

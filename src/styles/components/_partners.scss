@@ -4,23 +4,23 @@
     @include flex(center, center);
     width: 100%;
     flex-wrap: wrap;
-    padding-top: px-to-rem(48);
-    gap: px-to-rem(35) px-to-rem(29);
-
-    &__logo {
-        height: px-to-rem(19);
+    padding-top: 3rem;
+    gap: 2.2rem 1.8rem;
+}
+.partners__logo {
+    height: 1.2rem;
+}
+@include breakpoint_up('tablet') {
+    .partners {
+        padding: clamp(2rem, 8vw, 4.8rem) 10rem;
     }
-
-    @include breakpoint_up('tablet') {
-        padding: clamp(px-to-rem(32), 8vw, px-to-rem(77)) px-to-rem(160);
-
-        &__logo {
-            height: min(4vw, px-to-rem(32));
-        }
+    .partners__logo {
+        height: min(4vw, 2rem);
     }
-
-    @include breakpoint_up('desktop') {
-        padding: px-to-rem(2) px-to-rem(24);
-        gap: px-to-rem(104);
+}
+@include breakpoint_up('desktop') {
+    .partners {
+        padding: 0.1rem 1.5rem;
+        gap: 6.5rem;
     }
 }
