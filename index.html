@@ -10,6 +10,10 @@
             type="image/x-icon"
         />
         <link rel="stylesheet" href="src/styles/main.scss" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+        />
     </head>
     <body>
         <header class="header" id="navbar-container">
@@ -190,7 +194,26 @@
                     </div>
                 </div>
             </section>
+            <!-- Testimonials Section -->
+            <section class="carousel" id="testimonials">
+                <div class="section-heading">
+                    <p class="section-heading__subtitle carousel__subheading">Testimonials</p>
+                    <h2
+                        class="section-heading__title carousel__heading"
+                        id="testimonials-title"
+                    >
+                        Trust our clients
+                    </h2>
+                </div>
+                <div class="swiper testimonial-swiper">
+                    <div class="swiper-wrapper" id="testimonial-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                    <button type="button" class="swiper-button-prev"></button>
+                    <button type="button" class="swiper-button-next"></button>
+                </div>
+            </section>
         </div>
         <script type="module" src="./src/script/index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     </body>
 </html>

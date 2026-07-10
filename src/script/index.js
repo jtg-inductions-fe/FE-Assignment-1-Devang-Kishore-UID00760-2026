@@ -1,7 +1,7 @@
 import data from '../data/content.json';
 import { toggle, setOpen, setScrolled } from './navbar';
 import renderCards from './travelpoint';
-
+import renderTestimonials from './carousel';
 /**
  * QuerySelectors for navbar elements
  */
@@ -17,7 +17,7 @@ const stats = data['travel-point'].stats;
  * Function calls
  */
 renderCards(stats, statsContainer);
-
+renderTestimonials(data.testimonials);
 /**
  * Event Listeners
  */

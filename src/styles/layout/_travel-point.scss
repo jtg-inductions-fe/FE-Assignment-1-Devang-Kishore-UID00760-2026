@@ -53,12 +53,6 @@
             transform: translate(-20%);
             background: $travel-point-gradient;
         }
-
-        &__stats {
-            @include grid(repeat(2, 1fr), px-to-rem(38));
-            padding: 0;
-        }
-
         .section-heading {
             .travel-point__subtitle{
                font-size: $fs-md;
@@ -74,11 +68,12 @@
         }
 
         &__info {
-            padding: px-to-rem(48) px-to-rem(32);
+            padding: px-to-rem(48) px-to-rem(32) 0 px-to-rem(32);
         }
 
         &__stats {
-            padding: px-to-rem(32) px-to-rem(64);
+             @include grid(repeat(2, 1fr), px-to-rem(38));
+            padding: px-to-rem(32) px-to-rem(64) 0 px-to-rem(64);
             row-gap: px-to-rem(32);
         }
     }

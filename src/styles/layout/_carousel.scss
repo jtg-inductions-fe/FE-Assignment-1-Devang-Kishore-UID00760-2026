@@ -1,0 +1,277 @@
+@use '../abstracts' as *;
+
+.carousel {
+    width: 100%;
+    position: relative;
+    padding: px-to-rem(120) px-to-rem(16);
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.2;
+        z-index: -1;          
+        background-image: url('/assets/images/testimonials/testimonials_background.png');
+        background-size: cover; 
+        background-position: center;
+        transform: translateY(80px) scale(1.5); 
+    }
+
+    .testimonial-swiper {
+        margin-top: px-to-rem(58);
+        padding-bottom: px-to-rem(72);
+        position: relative;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            @include flex(center, center);
+            width: px-to-rem(64);
+            height: px-to-rem(64);
+            top: px-to-rem(62);
+            border: none;
+            border-radius: $radius-lg;
+            cursor: pointer;
+
+            &::before{
+                    font-size: px-to-rem(10);
+            }
+
+            svg {
+                display: none;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+        
+        .swiper-button-prev {
+            background-color: $clr-white;
+            box-shadow: $shadow-elevated;
+            @include insert-icon(
+                'right-arrow',
+                before,
+                $clr-heading,
+                transparent,
+                px-to-rem(8)
+            );
+
+            &:hover {
+                background-color: $clr-button;
+
+                &::before {
+                    color: $clr-white;
+                }
+            }
+        }
+
+        .swiper-button-next {
+            background-color: $clr-white;
+            box-shadow: $shadow-elevated;
+            @include insert-icon(
+                'left-arrow',
+                before,
+                $clr-black,
+                transparent,
+                px-to-rem(8)
+            );
+
+            &:hover {
+                background-color: $clr-button;
+
+                &::before {
+                    color: $clr-white;
+                }
+            }
+        }
+
+        .swiper-pagination {
+            @include flex(center, center, row, px-to-rem(25));
+            margin-top: px-to-rem(90);
+
+            .swiper-pagination-bullet {
+                width: px-to-rem(24);
+                height: px-to-rem(24);
+                margin: 0;
+                opacity: 1;
+                background-color: $clr-gray;
+            }
+
+            .swiper-pagination-bullet-active {
+                background-color: $clr-primary;
+            }
+        }
+
+        .swiper-button-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    .testimonial {
+        @include flex(center, center, column);
+        text-align: center;
+
+        &__image {
+            width: px-to-rem(128);
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: $radius-lg;
+            flex-shrink: 0;
+        }
+
+        &__content {
+            @include flex(center, center, column);
+            width: 100%;
+            max-width: px-to-rem(720);
+            margin-top: px-to-rem(75);
+        }
+
+        &__name {
+            @include typography($fs-lg, $fw-bold, $lh-heading);
+            color: $clr-orange;
+        }
+
+        &__designation {
+            @include typography($fs-md, $fw-bold);
+            margin-left: px-to-rem(6);
+            color: $clr-heading;
+        }
+
+        &__rating {
+            @include flex(center, center, row, px-to-rem(20));
+            margin-top: px-to-rem(20);
+        }
+
+        &__star {
+            @include insert-icon(
+                'star',
+                before,
+                $clr-yellow,
+                transparent,
+                px-to-rem(25)
+            );
+        }
+
+        &__review {
+            max-width: px-to-rem(620);
+            font-size: $fs-sm;
+            margin-top: px-to-rem(65);
+            display: inline-block;
+            text-align: center;
+        }
+    }
+
+    @include breakpoint-up('tablet') {
+        margin-top:0;
+        padding: px-to-rem(35) px-to-rem(32);
+
+        .section-heading {
+            .carousel__subheading{
+                font-size: $fs-md;
+            }
+
+            .carousel__heading{
+                font-size: $fs-xl;
+            }
+        }
+
+        .testimonial-swiper {
+            margin-top: px-to-rem(56);
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: px-to-rem(100);
+                height: px-to-rem(100);
+
+                &::before{
+                    font-size: px-to-rem(10);
+                }
+            }
+
+            .swiper-button-prev {
+                left: px-to-rem(30);
+                top: px-to-rem(160);
+            }
+
+            .swiper-button-next {
+                right: px-to-rem(30);
+                top: px-to-rem(160);
+            }
+        }
+
+        .testimonial {
+            &__content {
+                margin-top: px-to-rem(60);
+            }
+
+            &__name {
+                @include typography($fs-lg, $fw-bold, $lh-heading);
+            }
+
+            &__designation {
+                @include typography($fs-md, $fw-bold);
+            }
+
+            &__review {
+                margin-top: px-to-rem(55);
+                font-size: $fs-md;
+                max-width: px-to-rem(580);
+            }
+        }
+    }
+
+    @include breakpoint-up('desktop') {
+        padding: px-to-rem(150) px-to-rem(64);
+
+        &__heading {
+            max-width: 100%;
+            text-align: center;
+        }
+        .section-heading {
+            .carousel__subheading{
+                font-size: $fs-md;
+            }
+
+            .carousel__heading{
+                max-width: 100%;
+                font-size: $fs-xl;
+                text-align: center;
+            }
+        }
+
+        .testimonial-swiper {
+            .swiper-button-prev {
+                left: px-to-rem(60);
+            }
+
+            .swiper-button-next {
+                right: px-to-rem(60);
+            }
+        }
+
+        .testimonial {
+            &__content {
+                max-width: px-to-rem(820);
+                margin-top: px-to-rem(48);
+            }
+
+            &__name {
+                @include typography($fs-lg, $fw-bold, $lh-heading);
+            }
+
+            &__designation {
+                @include typography(px-to-rem(28), $fw-bold);
+            }
+
+            &__review {
+                max-width: px-to-rem(820);
+            }
+        }
+    }
+}
