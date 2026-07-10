@@ -19,7 +19,7 @@ $fs-icons-sm: 1.5rem;
 // Line Heights
 $lh-body: 1.6;
 $lh-heading: 1.2;
-$lh-title: 1.8;
+$lh-title: 4;
 
 // Colors
 $clr-primary: #f85e9f;
@@ -80,3 +80,9 @@ $z-layers: (
     'dropdown': 100,
     'sticky': 900,
 );
+
+// box shadows
+$shadow-md: 0 10px 20px rgba(0, 0, 0, 0.25);
+$shadow-sm:
+    rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
