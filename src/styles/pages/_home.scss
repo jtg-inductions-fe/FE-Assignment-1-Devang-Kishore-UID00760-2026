@@ -1,16 +1,5 @@
 @use '../abstracts/' as *;
 
-/**
-*accessibility
-*/
-a:focus,
-button:focus,
-a:active,
-button:active {
-    outline: 0.15rem solid $clr-button;
-    outline-offset: 0.2rem;
-}
-
 .container {
     width: 100%;
     @include flex(center, center, column);

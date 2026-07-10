@@ -5,7 +5,7 @@
 * Converts px to rem
 * @param {number} $value - value in px.
 */
-@function rem($value) {
+@function px-to-rem($value) {
     @return math.div($value, 16) * 1rem;
 }
 
