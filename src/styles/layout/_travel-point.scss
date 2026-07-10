@@ -3,6 +3,7 @@
 .travel-point {
     padding-top: px-to-rem(128);
     width: 100%;
+
     &__content {
         @include flex($direction: column, $gap: px-to-rem(51));
     }
@@ -37,7 +38,21 @@
 
     @include breakpoint-up('tablet') {
         padding-top: px-to-rem(40);
+        position: relative;
+        overflow: hidden;
         width: 100%;
+
+        &::before{
+            content: "";
+            position: absolute;
+            width: px-to-rem(500);
+            height: px-to-rem(500);
+            border-radius: 50%;
+            right: 0;
+            top:0;
+            transform: translate(-20%);
+            background: $travel-point-gradient;
+        }
 
         &__stats {
             @include grid(repeat(2, 1fr), px-to-rem(38));
@@ -108,7 +123,7 @@
                 text-align: start;
                 padding: 0 px-to-rem(96) 0 0;
             }
-            
+
             .travel-point__subtitle{
                 text-align: left;
                 font-size: $fs-md;
