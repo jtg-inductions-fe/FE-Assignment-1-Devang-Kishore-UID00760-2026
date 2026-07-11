@@ -12,8 +12,8 @@
         <link rel="stylesheet" href="src/styles/main.scss" />
     </head>
     <body>
-        <header class="header">
-            <nav class="navbar" id="navbar-container">
+        <header class="header" id="navbar-container">
+            <nav class="navbar">
                 <div class="navbar__left">
                     <a
                         href="/"
@@ -55,6 +55,108 @@
                 </div>
             </nav>
         </header>
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="hero__content">
+                    <div class="hero__visuals">
+                        <div class="hero__images">
+                            <div class="hero__left">
+                                <div class="hero__seaview">
+                                    <img
+                                        src="/assets/images/hero_section/hero_image1.png"
+                                        alt="Sea view"
+                                        aria-label="Sea view"
+                                    />
+                                </div>
+                                <div class="hero__mountain">
+                                    <img
+                                        src="/assets/images/hero_section/hero_image2.png"
+                                        alt="Traveller sitting on a mountain"
+                                        aria-label="Traveller sitting on a mountain"
+                                    />
+                                    <div class="mountain__badge"></div>
+                                </div>
+                            </div>
+                            <div class="hero__city">
+                                <img
+                                    src="/assets/images/hero_section/hero_image3.png"
+                                    alt="Traveller exploring a city"
+                                    aria-label="Traveller exploring a city"
+                                />
+                                <div class="city__badge">Top Places</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero__headings">
+                        <div class="hero__badge">Explore the world!</div>
+
+                        <h1 class="hero__heading">
+                            Travel
+                            <span class="hero__highlight">
+                                top destination
+                            </span>
+                            of the world
+                        </h1>
+
+                        <p class="description hero__description">
+                            We always make our customer happy by
+                            <span class="break-line">providing</span> as many
+                            choices as possible.
+                        </p>
+
+                        <div class="hero__actions">
+                            <button
+                                type="button"
+                                class="button button--contained hero__action-start"
+                            >
+                                Get Started
+                            </button>
+
+                            <button
+                                type="button"
+                                class="button button--outlined hero__action-demo"
+                            >
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="partners">
+                <img
+                    src="/assets/images/partners_logos/tripadvisor.svg"
+                    alt="Tripadvisor"
+                    class="partners__logo"
+                    aria-label="Tripadvisor"
+                />
+                <img
+                    src="/assets/images/partners_logos/expedia.svg"
+                    alt="Expedia"
+                    class="partners__logo"
+                    aria-label="Expedia"
+                />
+                <img
+                    src="/assets/images/partners_logos/booking.svg"
+                    alt="Bookings.com"
+                    class="partners__logo"
+                    aria-label="Bookings.com"
+                />
+                <img
+                    src="/assets/images/partners_logos/airbnb.svg"
+                    alt="Airbnb"
+                    class="partners__logo"
+                    aria-label="Airbnb"
+                />
+                <img
+                    src="/assets/images/partners_logos/orbitz.svg"
+                    alt="orbitz"
+                    class="partners__logo"
+                    aria-label="orbitz"
+                />
+            </section>
+        </div>
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

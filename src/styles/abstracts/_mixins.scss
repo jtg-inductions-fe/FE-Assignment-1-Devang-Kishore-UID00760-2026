@@ -79,3 +79,21 @@
         content: map.get($icon-map, $name);
     }
 }
+
+/**
+* Mixin to truncate text with an ellipsis
+* @param {Number} $lines - Number of lines to show before truncating.
+*/
+@mixin ellipsis($lines: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @if $lines == 1 {
+        white-space: nowrap;
+    } @else {
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+}

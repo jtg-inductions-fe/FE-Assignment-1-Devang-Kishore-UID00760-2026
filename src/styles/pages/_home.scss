@@ -1,1 +1,8 @@
 @use '../abstracts/' as *;
+
+.container {
+    width: 100%;
+    @include flex(center, center, column);
+    margin: auto;
+    max-width: 1900px;
+}
