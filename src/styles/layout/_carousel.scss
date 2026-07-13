@@ -141,11 +141,10 @@
         }
 
         &__name {
-            @include typography($fs-lg, $fw-bold, $lh-heading, $clr-orange);
+            color:$clr-orange;
         }
 
         &__designation {
-            @include typography($fs-md, $fw-bold);
             margin-left: px-to-rem(6);
             color: $clr-heading;
         }
@@ -167,7 +166,7 @@
 
         &__review {
             max-width: px-to-rem(620);
-            font-size: $fs-sm;
+            color: $clr-heading;
             margin-top: px-to-rem(65);
             display: inline-block;
             text-align: center;
@@ -221,14 +220,6 @@
         .testimonial {
             &__content {
                 margin-top: px-to-rem(60);
-            }
-
-            &__name {
-                @include typography($fs-lg, $fw-bold, $lh-heading, $clr-orange);
-            }
-
-            &__designation {
-                @include typography($fs-md, $fw-bold);
             }
 
             &__review {
@@ -285,14 +276,6 @@
             &__content {
                 max-width: px-to-rem(820);
                 margin-top: px-to-rem(48);
-            }
-
-            &__name {
-                @include typography($fs-lg, $fw-bold, $lh-heading, $clr-orange);
-            }
-
-            &__designation {
-                @include typography(px-to-rem(28), $fw-bold);
             }
 
             &__review {

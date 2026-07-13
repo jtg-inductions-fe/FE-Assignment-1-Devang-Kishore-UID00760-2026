@@ -25,10 +25,10 @@ const renderCards = (stats, statsContainer) => {
         container.className = 'stat-card';
         let heading = document.createElement('h3');
         heading.textContent = `${formatNumber(statObject.number)}`;
-        heading.className = 'stat-card__number';
+        heading.classList = 'heading2 stat-card__number';
         let paragraph = document.createElement('p');
         paragraph.textContent = `${statObject.label}`;
-        paragraph.className = 'stat-card__label';
+        paragraph.classList = 'body1 stat-card__label';
         container.append(heading, paragraph);
         statsContainer.append(container);
     });

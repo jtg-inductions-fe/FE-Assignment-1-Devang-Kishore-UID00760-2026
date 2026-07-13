@@ -32,7 +32,7 @@ const createTestimonial = ({ name, designation, image, rating, review }) => {
     testimonialImage.height = IMAGE_SIZE;
     testimonialContent.className = 'testimonial__content';
     userName.innerText = name;
-    userName.className = 'testimonial__name';
+    userName.className = 'heading2 testimonial__name';
     userDesignation.innerText = ` / ${designation}`;
     userDesignation.className = 'testimonial__designation';
     userName.appendChild(userDesignation);
