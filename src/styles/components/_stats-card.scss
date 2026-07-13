@@ -12,12 +12,12 @@
     background-color: $clr-white;
 
     &__number {
-        @include typography($fs-lg, $fw-bold, $lh-heading, $clr-orange);
+        color: $clr-orange;
         margin-bottom: px-to-rem(19);
     }
 
     &__label {
-        @include typography($size: $fs-sm, $color: $clr-heading);
+        color: $clr-black;
         text-align: center;
     }
 }

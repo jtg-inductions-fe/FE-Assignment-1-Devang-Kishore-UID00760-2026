@@ -20,6 +20,10 @@ body {
     letter-spacing: px-to-rem(5);
 }
 
+.heading2 {
+    @include typography($fs-lg, $fw-bold, $lh-heading);
+}
+
 @include breakpoint-up('tablet') {
     .subtitle {
         font-size: $fs-md;
