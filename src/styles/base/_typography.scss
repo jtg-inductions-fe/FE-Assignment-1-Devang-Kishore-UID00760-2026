@@ -2,9 +2,51 @@
 
 body {
     font-family: $font-primary;
-    font-size: px-to-rem(16);
+    font-size: $fs-sm;
 }
 
-.description {
-    @include typography($fs-xs, $fw-normal, $lh-body);
+.body1 {
+    @include typography($fs-sm, $fw-normal, $lh-body, $clr-links);
+}
+
+.title {
+    @include typography(clamp(px-to-rem(32), 5vw, px-to-rem(64)), $fw-bold);
+    word-spacing: px-to-rem(8);
+}
+
+.subtitle {
+    @include typography(px-to-rem(16), $fw-bold, 0.1, $clr-primary);
+    text-transform: uppercase;
+    letter-spacing: px-to-rem(5);
+}
+
+@include breakpoint-up('tablet') {
+    .subtitle {
+        font-size: $fs-md;
+    }
+
+    .title {
+        font-size: $fs-xl;
+    }
+
+    .body1 {
+        font-size: $fs-sm;
+    }
+}
+
+@include breakpoint-up('desktop') {
+    .title,
+    .body1 {
+        max-width: px-to-rem(720);
+    }
+
+    .title {
+        font-size: $fs-xl;
+        text-align: start;
+    }
+
+    .subtitle {
+        text-align: left;
+        font-size: $fs-md;
+    }
 }

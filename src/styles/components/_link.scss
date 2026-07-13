@@ -5,16 +5,11 @@
  */
 .link {
     @include ellipsis();
+    @include typography($fs-sm, $fw-bold, $lh-body, $clr-links);
     display: inline-block;
     text-decoration: none;
-    color: $clr-links;
-    text-decoration: none;
-    font-size: $fs-md;
-    font-weight: $fw-bold;
     transition: color 0.3s ease;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 8rem;
+
     &:hover {
         color: $clr-button;
     }
