@@ -24,7 +24,8 @@ const setOpen = (navbarLinksMenu, navbarHamburgerButton, breakpoint) => {
         navbarLinksMenu.classList.contains('navbar__content--open')
     ) {
         navbarLinksMenu.classList.remove('navbar__content--open');
-        navbarHamburgerButton.classList.remove('button--sm--active');
+        navbarHamburgerButton.classList.remove('icon--cross');
+        navbarHamburgerButton.classList.add('icon--main');
         navbarHamburgerButton.setAttribute('aria-expanded', 'false');
     }
 };

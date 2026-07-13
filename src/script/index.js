@@ -1,16 +1,20 @@
 import data from '../data/content.json';
 import { toggle, setOpen, setScrolled } from './navbar';
-import renderCards from './travelpoint';
-import toggleAccordion from './accordion';
-import renderTestimonials from './carousel';
-
+import { renderCards } from './travelpoint';
+import {toggleAccordion } from './accordion';
+import { renderTestimonials } from './carousel';
 /**
- * QuerySelectors for navbar elements
+ * QuerySelectors
  */
 const navbar = document.querySelector('#navbar-container');
 const navbarHamburgerButton = document.querySelector('#hamburger');
 const navbarLinksMenu = document.querySelector('#menu');
-const statsContainer = document.querySelector('.travel-point__stats');
+const statsContainer = document.querySelector('#stats-container');
+const testimonialWrapper = document.querySelector('#testimonial-wrapper');
+
+/**
+ * Constant values
+ */
 const DESKTOP_BREAK_POINT = 1024;
 const Y_SCROLL = 10;
 const stats = data['travel-point'].stats;
@@ -20,7 +24,7 @@ const footerContainer = document.querySelector('#footer-lists');
  * Function calls
  */
 renderCards(stats, statsContainer);
-renderTestimonials(data.testimonials);
+renderTestimonials(testimonialWrapper, data.testimonials);
 
 /**
  * Event Listeners
