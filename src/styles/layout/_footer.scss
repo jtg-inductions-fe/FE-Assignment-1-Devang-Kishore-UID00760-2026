@@ -18,18 +18,16 @@
     }
 
     &__info &__logo {
-        align-items: flex-start;
+        align-items: center;
         gap: px-to-rem(20);
         text-decoration: none;
 
         .logo__title{
-            @include typography($fs-md, $fw-normal,$lh-body);
             color: $clr-black;
         }
     }
 
     &__description {
-        color: $clr-links;
         max-width: px-to-rem(800);
     }
 
@@ -91,7 +89,6 @@
 
     &__heading {
         @include flex(space-between, center);
-        @include typography($fs-md, $fw-bold, $lh-heading,$clr-heading);
         width: 100%;
         padding: px-to-rem(24) 0;
         background-color: transparent;
@@ -111,7 +108,7 @@
         display: none;
         padding: 0;
 
-        .footer__link,p {
+        .footer__location{
             font-size: $fs-sm;
             color: $clr-links;
             text-decoration: none;
@@ -231,10 +228,6 @@
 
             &__logo {
                 margin-bottom: px-to-rem(8);
-
-                &__title{
-                    @include typography($fs-md, $fw-normal,$lh-body);
-                }
             }
 
             &__description {
@@ -252,17 +245,16 @@
             }
 
             &__navigation {
-                flex: 1;
-                padding-left: px-to-rem(20);
                 @include grid(
                     repeat(3, minmax(px-to-rem(150), 1fr)),
                     px-to-rem(72)
                 );
+                flex: 1;
+                padding-left: px-to-rem(20);
                 gap:0;
             }
 
             &__heading {
-                @include typography($fs-md, $fw-bold, $lh-heading);
                 margin-bottom: px-to-rem(32);
             }
 
@@ -276,23 +268,11 @@
                 .footer__list-item {
                     list-style: none;
                 }
-
-                .footer__link {
-                    &:hover {
-                        color: $clr-heading;
-                    }
-                }
             }
 
             &__address {
                 font-style: normal;
-                max-width: px-to-rem(150);
-
-                .footer__link {
-                    &:hover {
-                        color: $clr-heading;
-                    }
-                }
+                max-width: px-to-rem(250);
             }
 
             &__pattern {
