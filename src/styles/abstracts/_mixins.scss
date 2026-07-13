@@ -47,7 +47,7 @@
 * @param {number} $size - value of font-size.
 * @param {number} $weight - value of font-weight.
 * @param {number} $line-height - value of line-height.
-* @param {number} $color - value of text color.
+* @param {string} $color - value of text color.
 */
 @mixin typography(
     $size,
