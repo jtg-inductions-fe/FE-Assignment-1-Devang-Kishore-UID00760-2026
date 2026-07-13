@@ -1,0 +1,139 @@
+@use '../abstracts' as *;
+
+.travel-point {
+    padding-top: px-to-rem(128);
+    width: 100%;
+
+    &__heading {
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: px-to-rem(29);
+    }
+
+    &__subtitle {
+        margin-bottom: px-to-rem(26);
+    }
+
+    &__content {
+        @include flex($direction: column, $gap: px-to-rem(51));
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    &__description {
+        max-width: 100%;
+        text-align: center;
+        padding: 0 px-to-rem(32);
+    }
+
+    &__info {
+        @include flex($direction: column, $gap: px-to-rem(32));
+    }
+
+    &__stats {
+        @include grid(1fr, px-to-rem(16));
+        padding: 0 px-to-rem(40);
+    }
+
+    @include breakpoint-up('tablet') {
+        padding-top: px-to-rem(40);
+        position: relative;
+        width: 100%;
+
+        &__heading {
+            padding: 0 px-to-rem(62);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: px-to-rem(400);
+            height: px-to-rem(1000);
+            right: 0;
+            top: 0;
+            filter: blur(px-to-rem(60));
+            border-radius: $radius-lg 0 0 $radius-lg;
+            transform: translateY(-40%);
+            background: $travel-point-gradient;
+        }
+
+        &__stats {
+            @include grid(repeat(2, 1fr), px-to-rem(38));
+            padding: 0;
+        }
+
+        &__info {
+            padding: px-to-rem(48) px-to-rem(32);
+        }
+
+        &__stats {
+            padding: px-to-rem(32) px-to-rem(64);
+            row-gap: px-to-rem(32);
+        }
+    }
+
+    @include breakpoint-up('desktop') {
+        padding-top: px-to-rem(108);
+
+        &__heading {
+            text-align: left;
+            padding: 0 px-to-rem(64) 0 0;
+        }
+
+        &__content {
+            @include flex($align: start);
+        }
+
+        &__info {
+            padding: px-to-rem(56) px-to-rem(32) 0 0;
+        }
+
+        &__image {
+            padding-top: px-to-rem(32);
+            flex: 0 0 60%;
+            max-width: px-to-rem(880);
+        }
+
+        &__info {
+            flex: 0 0 40%;
+        }
+
+        &__description {
+            text-align: left;
+            max-width: px-to-rem(450);
+            padding: 0;
+        }
+
+        &__heading {
+            .travel-point__title {
+                margin-bottom: px-to-rem(19) px-to-rem(19);
+                line-height: $lh-heading;
+            }
+        }
+
+        &__stats {
+            padding: px-to-rem(32) px-to-rem(80) 0 0;
+            position: relative;
+
+            .stat-card {
+                padding: px-to-rem(30) px-to-rem(16);
+            }
+        }
+
+        &__stats > :nth-child(2)::after {
+            content: '';
+            background: url('/assets/images/travelpoint_section/badge.png');
+            background-repeat: no-repeat;
+            width: px-to-rem(192);
+            height: px-to-rem(192);
+            position: absolute;
+            top: px-to-rem(-29);
+            right: px-to-rem(-40);
+        }
+    }
+}

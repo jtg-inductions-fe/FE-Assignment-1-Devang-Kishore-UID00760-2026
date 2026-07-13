@@ -1,1 +1,10 @@
-{}
+{
+    "travelPoint": {
+        "stats": [
+            { "number": 536, "label": "Holiday Package" },
+            { "number": 100, "label": "Luxury Hotel" },
+            { "number": 7, "label": "Premium Airlines" },
+            { "number": 2005, "label": "Happy Customer" }
+        ]
+    }
+}

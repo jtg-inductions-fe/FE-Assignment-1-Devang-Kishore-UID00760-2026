@@ -47,11 +47,18 @@
 * @param {number} $size - value of font-size.
 * @param {number} $weight - value of font-weight.
 * @param {number} $line-height - value of line-height.
+* @param {string} $color - value of text color.
 */
-@mixin typography($size, $weight: $fw-regular, $line-height: $lh-body) {
+@mixin typography(
+    $size,
+    $weight: $fw-normal,
+    $line-height: $lh-body,
+    $color: $clr-heading
+) {
     font-size: $size;
     font-weight: $weight;
     line-height: $line-height;
+    color: $color;
 }
 
 /**

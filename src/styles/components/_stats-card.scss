@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+/**
+ * Reusable Stats Card
+ */
+.stat-card {
+    @include flex(center, center, column);
+    min-height: px-to-rem(64);
+    padding: px-to-rem(32);
+    border: px-to-rem(2) solid rgba(25, 24, 37, 0.1);
+    border-radius: $radius-sm;
+    background-color: $clr-white;
+
+    &__number {
+        color: $clr-orange;
+        margin-bottom: px-to-rem(19);
+    }
+
+    &__label {
+        color: $clr-black;
+        text-align: center;
+    }
+}
