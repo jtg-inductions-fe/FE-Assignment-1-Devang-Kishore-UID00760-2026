@@ -91,11 +91,10 @@
 
     &__heading {
         @include flex(space-between, center);
-        @include typography($fs-md, $fw-bold, $lh-heading);
+        @include typography($fs-md, $fw-bold, $lh-heading,$clr-heading);
         width: 100%;
         padding: px-to-rem(24) 0;
         background-color: transparent;
-        color: $clr-heading;
         text-align: left;
         cursor: pointer;
         @include insert-icon(
@@ -291,7 +290,7 @@
 
                 .footer__link {
                     &:hover {
-                            color: $clr-heading;
+                        color: $clr-heading;
                     }
                 }
             }

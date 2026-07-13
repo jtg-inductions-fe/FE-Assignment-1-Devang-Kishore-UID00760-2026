@@ -10,4 +10,4 @@ const toggleAccordion=(targetButton,targetList)=>{
         targetButton.classList.toggle("footer__heading--active");
 };
 
-export default toggleAccordion;
+export {toggleAccordion};

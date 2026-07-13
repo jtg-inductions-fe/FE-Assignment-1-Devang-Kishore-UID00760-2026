@@ -33,7 +33,7 @@ const createTestimonial = ({ name, designation, image, rating, review }) => {
     testimonialContent.className = 'testimonial__content';
     userName.innerText = name;
     userName.className = 'testimonial__name';
-    userDesignation.innerText = designation;
+    userDesignation.innerText = ` / ${designation}`;
     userDesignation.className = 'testimonial__designation';
     userName.appendChild(userDesignation);
     testimonialRating.className = 'testimonial__rating';

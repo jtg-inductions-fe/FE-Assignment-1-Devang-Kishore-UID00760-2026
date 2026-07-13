@@ -11,14 +11,14 @@ const navbarHamburgerButton = document.querySelector('#hamburger');
 const navbarLinksMenu = document.querySelector('#menu');
 const statsContainer = document.querySelector('#stats-container');
 const testimonialWrapper = document.querySelector('#testimonial-wrapper');
+const footerContainer = document.querySelector('#footer-lists');
 
 /**
  * Constant values
  */
 const DESKTOP_BREAK_POINT = 1024;
 const Y_SCROLL = 10;
-const stats = data['travel-point'].stats;
-const footerContainer = document.querySelector('#footer-lists');
+const stats = data['travelPoint'].stats;
 
 /**
  * Function calls
