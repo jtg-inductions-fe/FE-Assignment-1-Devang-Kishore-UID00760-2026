@@ -4,6 +4,18 @@
     padding-top: px-to-rem(128);
     width: 100%;
 
+    &__heading {
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: px-to-rem(29);
+    }
+
+    &__subtitle {
+        margin-bottom: px-to-rem(26);
+    }
+
     &__content {
         @include flex($direction: column, $gap: px-to-rem(51));
     }
@@ -32,6 +44,10 @@
         padding-top: px-to-rem(40);
         position: relative;
         width: 100%;
+
+        &__heading {
+            padding: 0 px-to-rem(62);
+        }
 
         &::before {
             content: '';
@@ -66,6 +82,7 @@
 
         &__heading {
             text-align: left;
+            padding: 0 px-to-rem(64) 0 0;
         }
 
         &__content {
@@ -86,16 +103,16 @@
             flex: 0 0 40%;
         }
 
-        .section-heading &__description {
+        &__description {
             text-align: left;
             max-width: px-to-rem(450);
             padding: 0;
         }
 
-        .section-heading {
+        &__heading {
             .travel-point__title {
                 margin-bottom: px-to-rem(19) px-to-rem(19);
-                padding: 0 px-to-rem(96) 0 0;
+                line-height: $lh-heading;
             }
         }
 

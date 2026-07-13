@@ -9,12 +9,10 @@
     flex-shrink: 0;
 
     &--main {
-        background: transparent;
         @include insert-icon('hamburger', 'after', $clr-button, transparent);
     }
 
     &--cross {
-        background: transparent;
         @include insert-icon('cross', 'after', $clr-button, transparent);
     }
 }

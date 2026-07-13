@@ -5,24 +5,19 @@
  */
 .stat-card {
     @include flex(center, center, column);
-
-    min-height: 4rem;
-    padding: 2rem;
-
-    border: 0.1rem solid rgba(25, 24, 37, 0.1);
+    min-height: px-to-rem(64);
+    padding: px-to-rem(32);
+    border: px-to-rem(2) solid rgba(25, 24, 37, 0.1);
     border-radius: $radius-sm;
     background-color: $clr-white;
 
     &__number {
-        margin-bottom: 1.2rem;
-        color: $clr-orange;
-        @include typography(2rem, $fw-bold, 1.2);
+        @include typography($fs-lg, $fw-bold, $lh-heading, $clr-orange);
+        margin-bottom: px-to-rem(19);
     }
 
     &__label {
+        @include typography($size: $fs-sm, $color: $clr-heading);
         text-align: center;
-        color: $clr-heading;
-
-        @include typography(1.2rem);
     }
 }

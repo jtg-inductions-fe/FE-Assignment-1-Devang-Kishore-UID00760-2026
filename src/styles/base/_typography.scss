@@ -2,62 +2,51 @@
 
 body {
     font-family: $font-primary;
-    font-size: px-to-rem(16);
+    font-size: $fs-sm;
 }
 
-.description {
-    @include typography($fs-sm, $fw-normal, $lh-body);
+.body1 {
+    @include typography($fs-sm, $fw-normal, $lh-body, $clr-links);
 }
 
-/**
- * Reusable Heading component 
- */
-.section-heading {
-    text-align: center;
+.title {
+    @include typography(clamp(px-to-rem(32), 5vw, px-to-rem(64)), $fw-bold);
+    word-spacing: px-to-rem(8);
+}
 
-    &__subtitle {
-        margin-bottom: 1.6rem;
-        color: $clr-primary;
-        text-transform: uppercase;
-        letter-spacing: 0.28rem;
-        @include typography(0.9rem, $fw-bold, 0.1);
+.subtitle {
+    @include typography(px-to-rem(16), $fw-bold, 0.1, $clr-primary);
+    text-transform: uppercase;
+    letter-spacing: px-to-rem(5);
+}
+
+@include breakpoint-up('tablet') {
+    .subtitle {
+        font-size: $fs-md;
     }
 
-    &__title {
-        margin-bottom: 1.8rem;
-        color: $clr-heading;
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: $fw-bold;
-        line-height: 1.2;
-        word-spacing: 0.4rem;
+    .title {
+        font-size: $fs-xl;
     }
 
-    @include breakpoint-up('tablet'){
-        &__subtitle {
-            font-size: $fs-md;
-        }
-
-        &__title {
-            font-size: $fs-xl;
-        }
-
-        &__description {
-            font-size: $fs-sm;
-        }
+    .body1 {
+        font-size: $fs-sm;
     }
-    @include breakpoint-up('desktop') {
-        &__title,
-        &__description {
-            max-width: 45rem;
-        }
-        &__title {
-            font-size: $fs-xl;
-            text-align: start;
-        }
+}
 
-        &__subtitle {
-            text-align: left;
-            font-size: $fs-md;
-        }
+@include breakpoint-up('desktop') {
+    .title,
+    .body1 {
+        max-width: px-to-rem(720);
+    }
+
+    .title {
+        font-size: $fs-xl;
+        text-align: start;
+    }
+
+    .subtitle {
+        text-align: left;
+        font-size: $fs-md;
     }
 }

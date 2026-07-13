@@ -1,5 +1,5 @@
 {
-    "travel-point": {
+    "travelPoint": {
         "stats": [
             { "number": 536, "label": "Holiday Package" },
             { "number": 100, "label": "Luxury Hotel" },
