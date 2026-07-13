@@ -1,46 +1,50 @@
-const testimonialWrapper = document.querySelector('#testimonial-wrapper');
-
 /**
  * Generates rating stars.
- * @param {number} rating
- * @returns {string}
+ * @param {number} rating - Rating given by user.
+ * @returns {Array} -Array of span elements representing the rating stars.
  */
-const createRating = (rating) =>Array.from({ length: rating },
-        () => '<span class="testimonial__star"></span>',
-    ).join('');
+const createRating = (rating) =>
+    Array.from({ length: rating }, () => {
+        const ratingStar = document.createElement('span');
+        ratingStar.className = 'testimonial__star';
+        return ratingStar;
+    });
 
 /**
  * Generates testimonial slide.
  * @param {Object} testimonial
- * @returns {string}
+ * @returns {HTMLDivElement}
  */
-const createTestimonial = ({ name, designation, image, rating, review }) => `
-    <div class="swiper-slide testimonial">
-        <img
-            class="testimonial__image"
-            src="${image}"
-            alt="${name}"
-            width="128"
-            height="128"
-        >
-        <div class="testimonial__content">
-            <h3 class="testimonial__name">
-                ${name}
-                <span class="testimonial__designation">
-                    / ${designation}
-                </span>
-            </h3>
-            <div
-                class="testimonial__rating"
-                aria-label="${rating} out of 5 stars">
-                ${createRating(rating)}
-            </div>
-            <p class="description testimonial__review">
-                ${review}
-            </p>
-        </div>
-    </div>
-`;
+const createTestimonial = ({ name, designation, image, rating, review }) => {
+    const IMAGE_SIZE = 128;
+    const testimonialContainer = document.createElement('div');
+    const testimonialImage = document.createElement('img');
+    const testimonialContent = document.createElement('div');
+    const userName = document.createElement('h3');
+    const userDesignation = document.createElement('span');
+    const testimonialRating = document.createElement('div');
+    const testimonialReview = document.createElement('p');
+    testimonialContainer.className = 'swiper-slide testimonial';
+    testimonialImage.className = 'testimonial__image';
+    testimonialImage.src = image;
+    testimonialImage.alt = name;
+    testimonialImage.width = IMAGE_SIZE;
+    testimonialImage.height = IMAGE_SIZE;
+    testimonialContent.className = 'testimonial__content';
+    userName.innerText = name;
+    userName.className = 'testimonial__name';
+    userDesignation.innerText = designation;
+    userDesignation.className = 'testimonial__designation';
+    userName.appendChild(userDesignation);
+    testimonialRating.className = 'testimonial__rating';
+    testimonialRating.ariaLabel = `${rating} out of 5 stars`;
+    testimonialRating.append(...createRating(rating));
+    testimonialReview.classList = 'body1 testimonial__review';
+    testimonialReview.innerText = review;
+    testimonialContent.append(userName, testimonialRating, testimonialReview);
+    testimonialContainer.append(testimonialImage, testimonialContent);
+    return testimonialContainer;
+};
 
 /**
  * Initialise Swiper.
@@ -67,7 +71,7 @@ const initialiseSwiper = () => {
         keyboard: {
             enabled: true,
             onlyInViewport: false,
-        }
+        },
     });
 };
 
@@ -75,9 +79,12 @@ const initialiseSwiper = () => {
  * Render testimonials.
  * @param {Array} testimonials
  */
-const renderTestimonials = (testimonials) => {
-    testimonialWrapper.innerHTML = testimonials.map(createTestimonial).join('');
+const renderTestimonials = (testimonialWrapper, testimonials) => {
+    testimonials.forEach((testimonial) => {
+        testimonialWrapper.appendChild(createTestimonial(testimonial));
+    });
+
     initialiseSwiper();
 };
 
-export default renderTestimonials;
+export { renderTestimonials };

@@ -72,7 +72,7 @@
         }
 
         &__stats {
-             @include grid(repeat(2, 1fr), px-to-rem(38));
+            @include grid(repeat(2, 1fr), px-to-rem(38));
             padding: px-to-rem(32) px-to-rem(64) 0 px-to-rem(64);
             row-gap: px-to-rem(32);
         }
