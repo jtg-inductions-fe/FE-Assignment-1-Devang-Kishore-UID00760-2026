@@ -1,6 +1,7 @@
 import data from '../data/content.json';
 import { toggle, setOpen, setScrolled } from './navbar';
 import { renderCards } from './travelpoint';
+import {toggleAccordion } from './accordion';
 import { renderTestimonials } from './carousel';
 /**
  * QuerySelectors
@@ -10,6 +11,7 @@ const navbarHamburgerButton = document.querySelector('#hamburger');
 const navbarLinksMenu = document.querySelector('#menu');
 const statsContainer = document.querySelector('#stats-container');
 const testimonialWrapper = document.querySelector('#testimonial-wrapper');
+const footerContainer = document.querySelector('#footer-lists');
 
 /**
  * Constant values
@@ -27,6 +29,13 @@ renderTestimonials(testimonialWrapper, data.testimonials);
 /**
  * Event Listeners
  */
+footerContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('footer__heading')) {
+        const targetList=event.target.nextElementSibling;
+        toggleAccordion(event.target,targetList);
+    }
+});
+
 window.addEventListener('resize', () => {
     setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
 });
