@@ -6,5 +6,31 @@
             { "number": 7, "label": "Premium Airlines" },
             { "number": 2005, "label": "Happy Customer" }
         ]
-    }
+    },
+    "testimonials": [
+        {
+            "id": 1,
+            "name": "Mark Smith",
+            "designation": "Travel Enthusiast",
+            "image": "/assets/images/testimonials/testimonials.png",
+            "rating": 5,
+            "review": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC."
+        },
+        {
+            "id": 2,
+            "name": "Devang Kishore",
+            "designation": "Fronted Developer",
+            "image": "/assets/images/testimonials/testimonials.png",
+            "rating": 5,
+            "review": "The entire trip was perfectly planned from start to finish."
+        },
+        {
+            "id": 3,
+            "name": "Samarth Chawla",
+            "designation": "Backend Developer",
+            "image": "/assets/images/testimonials/testimonials.png",
+            "rating": 4,
+            "review": "Everything was smooth and hassle-free. The team was supportive throughout the journey."
+        }
+    ]
 }
