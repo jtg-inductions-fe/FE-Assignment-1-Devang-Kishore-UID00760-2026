@@ -12,6 +12,7 @@
     white-space: nowrap;
     padding: px-to-rem(14) px-to-rem(34);
     border-radius: $radius-md;
+    cursor: pointer;
 
     &--outlined {
         color: $clr-black;

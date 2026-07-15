@@ -1,0 +1,177 @@
+@use '../abstracts' as *;
+.special-deals {
+    @include flex(center, flex-end);
+    font-family: $font-secondary;
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    background-color: $clr-overlay;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    z-index: z('sticky');
+
+    &__badge {
+        @include flex($justify: center, $align: center, $gap: px-to-rem(6));
+    }
+
+    &__win {
+        display: none;
+
+        &--show {
+            @include flex(center, center, column);
+        }
+    }
+
+    &__offers {
+        display: none;
+    }
+
+    &__offers--show {
+        display: block;
+    }
+
+    &__spinner--hide {
+        display: none;
+    }
+
+    &__headings &__close {
+        position: absolute;
+        top: px-to-rem(18);
+        right: px-to-rem(18);
+
+        &::after {
+            font-size: $fs-xs;
+            color: $clr-black;
+        }
+    }
+
+    &__card {
+        @include flex(center, center, column);
+        position: relative;
+        width: px-to-rem(360);
+        padding: px-to-rem(24);
+        background-color: $clr-white;
+        border-radius: $radius-sm $radius-sm 0 0;
+        transform: translateY(100%);
+        transition: transform 0.3s ease 0.2s;
+
+        .special-deals__button {
+            @include flex($justify: center, $align: center, $gap: px-to-rem(8));
+            padding: px-to-rem(10) px-to-rem(32);
+            border: $clr-gray 1px solid;
+            width: px-to-rem(312);
+
+            .special-deals__number {
+                @include flex(center, center);
+                text-align: center;
+                width: px-to-rem(18);
+                height: px-to-rem(18);
+                color: $clr-white;
+                background-color: $clr-button;
+                border-radius: $radius-lg;
+            }
+        }
+
+        .coupons-container {
+            height: px-to-rem(300);
+            margin: px-to-rem(16) 0;
+            overflow: auto;
+
+            &__heading {
+                color: $clr-primary;
+            }
+        }
+
+        .spinner {
+            @include flex(center, center, column);
+            position: relative;
+            margin: px-to-rem(20) 0;
+
+            &__wheel {
+                border: px-to-rem(4) solid $clr-white;
+                box-shadow: $shadow-floated;
+                border-radius: $radius-lg;
+            }
+
+            &__pointer {
+                display: inline-block;
+                width: px-to-rem(20);
+                height: px-to-rem(20);
+                clip-path: polygon(50% 100%, 0 0, 100% 2%);
+                background-color: $clr-pink;
+            }
+
+            &__button {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -30%);
+                width: px-to-rem(44);
+                padding: 0;
+                aspect-ratio: 1;
+                border: $clr-pink solid px-to-rem(1);
+                border-radius: 50%;
+                background: $clr-white;
+                color: $clr-pink;
+                box-shadow: $shadow-floated;
+                z-index: z('dropdown');
+            }
+        }
+    }
+    
+    &__headings {
+        @include flex(center, center, column, px-to-rem(8));
+
+        .special-deals__subtitle {
+            color: $clr-pink;
+            letter-spacing: px-to-rem(0.1);
+        }
+
+        .special-deals__description {
+            color: $clr-links;
+            font-weight: $fw-normal;
+        }
+    }
+
+    &--show {
+        visibility: visible;
+
+        .special-deals__card {
+            transform: translateY(0%);
+        }
+    }
+
+    @include breakpoint-up('desktop') {
+        @include flex(center, center);
+        transform: translateY(0);
+
+        .coupons-container {
+            padding: 0 px-to-rem(20);
+        }
+
+        &__card {
+            width: px-to-rem(480);
+        }
+
+        .spinner__wheel {
+            width: 100%;
+            aspect-ratio: 1;
+        }
+
+        &__card {
+            border-radius: $radius-sm;
+            transform: scale(1);
+            transform: scale(0.2);
+        }
+
+        &__show {
+            visibility: visible;
+
+            .special-deals__card {
+                transform: scale(1);
+            }
+        }
+    }
+}

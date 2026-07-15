@@ -9,6 +9,14 @@ body {
     @include typography($fs-sm, $fw-normal, $lh-body, $clr-links);
 }
 
+.body2 {
+    @include typography($fs-xs, $fw-normal, $lh-body, $clr-black);
+}
+
+.body3 {
+    @include typography($fs-2xs, $fw-bold, $lh-body, $clr-black);
+}
+
 .title {
     @include typography(clamp(px-to-rem(32), 5vw, px-to-rem(64)), $fw-bold);
     word-spacing: px-to-rem(8);
@@ -22,6 +30,10 @@ body {
 
 .heading2 {
     @include typography($fs-lg, $fw-bold, $lh-heading);
+}
+
+.heading3 {
+    @include typography(px-to-rem(20), $fw-bold);
 }
 
 @include breakpoint-up('tablet') {
