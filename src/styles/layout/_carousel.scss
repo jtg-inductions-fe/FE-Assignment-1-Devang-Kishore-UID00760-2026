@@ -1,14 +1,17 @@
 @use '../abstracts' as *;
 
+/**
+ * Testimonials Section
+ */
 .carousel {
     width: 100%;
     position: relative;
-    padding: px-to-rem(120) px-to-rem(16);
+    padding: px-to-rem(140) px-to-rem(16) px-to-rem(120);
     overflow: hidden;
 
     &__subheading {
         text-align: center;
-        margin-bottom: px-to-rem(16);
+        margin-bottom: px-to-rem(20);
     }
 
     &__title {
@@ -30,7 +33,7 @@
     }
 
     .testimonial-swiper {
-        margin-top: px-to-rem(58);
+        margin-top: px-to-rem(55);
         padding-bottom: px-to-rem(72);
         position: relative;
 
@@ -111,6 +114,7 @@
 
             .swiper-pagination-bullet-active {
                 background-color: $clr-primary;
+                margin: 0;
             }
         }
 
@@ -137,7 +141,7 @@
             @include flex(center, center, column);
             width: 100%;
             max-width: px-to-rem(720);
-            margin-top: px-to-rem(75);
+            margin-top: px-to-rem(65);
         }
 
         &__name {
@@ -150,8 +154,8 @@
         }
 
         &__rating {
-            @include flex(center, center, row, px-to-rem(20));
-            margin-top: px-to-rem(20);
+            @include flex(center, center, row, px-to-rem(22));
+            margin-top: px-to-rem(30);
         }
 
         &__star {
@@ -167,18 +171,17 @@
         &__review {
             max-width: px-to-rem(620);
             color: $clr-heading;
-            margin-top: px-to-rem(65);
-            display: inline-block;
+            margin: px-to-rem(60) 0 px-to-rem(20);
             text-align: center;
         }
     }
-    
+
     /**
     * Tablet View 
     */
     @include breakpoint-up('tablet') {
-        margin-top: 0;
-        padding: px-to-rem(35) px-to-rem(32);
+        margin-top: px-to-rem(5);
+        padding: px-to-rem(33) px-to-rem(32);
 
         &::before {
             display: block;
@@ -186,16 +189,12 @@
             transform: translateY(50px) scale(1.5);
         }
 
-        .carousel__subheading {
-            font-size: $fs-md;
-        }
-
-        .carousel__title {
-            font-size: $fs-xl;
+        &__subheading {
+            margin-bottom: px-to-rem(26);
         }
 
         .testimonial-swiper {
-            margin-top: px-to-rem(36);
+            margin-top: px-to-rem(42);
 
             .swiper-button-prev,
             .swiper-button-next {
@@ -224,8 +223,7 @@
             }
 
             &__review {
-                margin-top: px-to-rem(56);
-                font-size: $fs-md;
+                margin-top: px-to-rem(52);
                 max-width: px-to-rem(580);
             }
         }
@@ -235,11 +233,16 @@
     * Desktop View 
     */
     @include breakpoint-up('desktop') {
-        padding: px-to-rem(150) px-to-rem(64);
+        margin-top: 0;
+        padding: px-to-rem(145) px-to-rem(68);
 
         &::before {
             top: px-to-rem(120);
             transform: translateY(0) scale(1);
+        }
+
+        &__subheading {
+            margin-bottom: px-to-rem(20);
         }
 
         &__title {
@@ -248,19 +251,14 @@
         }
 
         &__heading {
-            .carousel__subheading {
-                font-size: $fs-md;
-            }
-
             .carousel__title {
                 max-width: 100%;
-                font-size: $fs-xl;
                 text-align: center;
             }
         }
 
         .testimonial-swiper {
-            margin-top: px-to-rem(50);
+            margin-top: px-to-rem(45);
 
             .swiper-button-prev {
                 left: px-to-rem(60);
@@ -276,11 +274,17 @@
         .testimonial {
             &__content {
                 max-width: px-to-rem(820);
-                margin-top: px-to-rem(48);
+                margin-top: px-to-rem(53);
+                padding: px-to-rem(5) 0 0 px-to-rem(13);
+            }
+
+            &__image {
+                margin-left: px-to-rem(10);
             }
 
             &__review {
                 max-width: px-to-rem(820);
+                margin-bottom: px-to-rem(10);
             }
         }
     }

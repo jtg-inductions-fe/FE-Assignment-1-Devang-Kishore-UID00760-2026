@@ -7,6 +7,12 @@ body {
 
 .body1 {
     @include typography($fs-sm, $fw-normal, $lh-body, $clr-links);
+    @include ellipsis(3);
+
+    &--lg {
+        @include ellipsis(3);
+        font-size: $fs-base;
+    }
 }
 
 .body2 {
@@ -15,6 +21,11 @@ body {
 
 .body3 {
     @include typography($fs-2xs, $fw-bold, $lh-body, $clr-black);
+}
+
+.body4 {
+    @include ellipsis(3);
+    @include typography($fs-sm, $fw-bold, $lh-body, $clr-black);
 }
 
 .title {
@@ -28,6 +39,11 @@ body {
     letter-spacing: px-to-rem(5);
 }
 
+.heading-main {
+    @include typography(px-to-rem(40), $fw-bold, $lh-heading, $clr-heading);
+    letter-spacing: px-to-rem(1);
+}
+
 .heading2 {
     @include typography($fs-lg, $fw-bold, $lh-heading);
 }
@@ -36,17 +52,34 @@ body {
     @include typography(px-to-rem(20), $fw-bold);
 }
 
+.heading4 {
+    @include typography($fs-md, $fw-bold, $lh-heading);
+}
+
 @include breakpoint-up('tablet') {
     .subtitle {
         font-size: $fs-md;
     }
 
     .title {
-        font-size: $fs-xl;
+        font-size: $fs-enlarged;
     }
 
     .body1 {
-        font-size: $fs-sm;
+        font-size: $fs-base;
+
+        &--lg {
+            @include ellipsis(3);
+            font-size: $fs-md;
+        }
+    }
+
+    .body4 {
+        font-size: $fs-md;
+    }
+
+    .heading-main {
+        @include typography(px-to-rem(56), $fw-bold, $lh-heading, $clr-heading);
     }
 }
 
@@ -64,5 +97,9 @@ body {
     .subtitle {
         text-align: left;
         font-size: $fs-md;
+    }
+
+    .heading-main {
+        @include typography(px-to-rem(69), $fw-bold, $lh-heading, $clr-heading);
     }
 }

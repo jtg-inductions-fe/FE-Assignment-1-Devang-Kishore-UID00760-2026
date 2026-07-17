@@ -5,17 +5,9 @@
  */
 .hero {
     width: 100%;
-    max-width: px-to-rem(1920);
     padding: px-to-rem(16);
     overflow-x: hidden;
-    background: radial-gradient(
-            130% 120% at 10% 28%,
-            $clr-navbar-bg-start 0%,
-            $clr-navbar-bg-end 20%,
-            rgba($clr-navbar-bg-end, 0.35) 40%,
-            transparent 65%
-        ),
-        $clr-white;
+    background: $hero-gradient;
 
     &__content {
         @include flex($direction: column);
@@ -74,7 +66,7 @@
 
         &::after {
             position: absolute;
-            bottom: px-to-rem(-15);
+            bottom: px-to-rem(-8);
             left: px-to-rem(-18);
             padding: px-to-rem(5) px-to-rem(9);
             border-radius: $radius-lg;
@@ -118,6 +110,10 @@
         }
     }
 
+    &__description {
+        padding-top: px-to-rem(5);
+    }
+
     &__badge {
         @include flex(center, center);
         width: px-to-rem(224);
@@ -142,15 +138,6 @@
         }
     }
 
-    &__heading {
-        color: $clr-heading;
-        font-size: clamp(px-to-rem(40), 8vw, px-to-rem(48));
-        font-weight: $fw-bold;
-        line-height: $lh-heading;
-        letter-spacing: px-to-rem(1);
-        text-wrap: balance;
-    }
-
     &__highlight {
         color: $clr-primary;
     }
@@ -159,6 +146,7 @@
         @include flex($direction: column, $gap: px-to-rem(24));
         width: 100%;
         margin-top: px-to-rem(13);
+
         .start,
         .demo {
             width: 100%;
@@ -226,7 +214,7 @@
 
         &__seaview::after {
             @include flex(center, center);
-            bottom: -10%;
+            bottom: -8%;
             left: -12%;
             padding: min(2vw, px-to-rem(6)) min(px-to-rem(15), 2vw);
             font-size: $fs-icons-md;
@@ -251,29 +239,30 @@
         }
 
         &__heading {
-            padding-top: px-to-rem(8);
-            font-size: clamp(px-to-rem(48), 6vw, px-to-rem(64));
-            letter-spacing: 0;
+            padding-top: px-to-rem(14);
+            max-width: 65%;
+            letter-spacing: 1;
             word-spacing: 0;
         }
 
         &__actions {
             flex-direction: row;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-start;
+            justify-content: flex-start;
             width: 40%;
-            margin-top: 0;
-            margin-bottom: px-to-rem(51);
+            margin: px-to-rem(10) 0 px-to-rem(51) px-to-rem(20);
             gap: px-to-rem(18);
 
-            &-start {
-                width: clamp(px-to-rem(20), 22vw, px-to-rem(140));
+            .hero__action-start {
+                width: px-to-rem(141);
+                height: px-to-rem(49);
                 padding: min(px-to-rem(16), 2vw) min(px-to-rem(24), 2vw);
                 white-space: nowrap;
             }
 
-            &-done {
-                width: clamp(px-to-rem(20), 22vw, px-to-rem(180));
+            .hero__action-demo {
+                width: px-to-rem(181);
+                height: px-to-rem(55);
                 padding: min(px-to-rem(16), 2vw) min(px-to-rem(64), 40vw);
                 white-space: nowrap;
 
@@ -285,11 +274,12 @@
 
         .hero__description {
             max-width: px-to-rem(440);
-            font-size: $fs-sm;
+            padding-top: px-to-rem(10);
         }
     }
 
     @include breakpoint-up('desktop') {
+        @include flex(center, center);
         padding: px-to-rem(140) 0 px-to-rem(110);
         background:
             url('/assets/images/hero_section/triangle_design.svg') no-repeat,
@@ -303,14 +293,14 @@
             $clr-white;
         background-position: 2.9% 100%;
 
-        &__action-start {
-            width: clamp(px-to-rem(120), 11vw, px-to-rem(140));
+        &__headings &__action-start {
+            width: clamp(px-to-rem(10), 11vw, px-to-rem(140));
             padding: clamp(px-to-rem(12), 0.84vw, px-to-rem(16))
                 clamp(px-to-rem(18), 1.25vw, px-to-rem(24));
             white-space: nowrap;
         }
 
-        &__action-demo {
+        &__headings &__action-demo {
             width: clamp(px-to-rem(152), 13vw, px-to-rem(180));
             padding: clamp(px-to-rem(12), 0.84vw, px-to-rem(16))
                 clamp(px-to-rem(32), 3.33vw, px-to-rem(64));
@@ -328,10 +318,10 @@
         &__content {
             @include flex(
                 $justify: flex-start,
-                $align: center,
+                $align: flex-start,
                 $direction: row
             );
-
+            max-width: px-to-rem(1440);
             padding: 0;
             gap: 0;
             background: none;
@@ -342,24 +332,25 @@
             flex: 0 1 38%;
             min-width: px-to-rem(320);
             align-items: flex-start;
-            padding: clamp(px-to-rem(100), 5.42vw, px-to-rem(154)) 0 0
+            padding: clamp(px-to-rem(130), 5.42vw, px-to-rem(194)) 0 0
                 clamp(px-to-rem(96), 3.33vw, px-to-rem(108));
             gap: clamp(px-to-rem(12), 0.84vw, px-to-rem(16));
             text-align: left;
         }
 
         &__heading {
-            padding: px-to-rem(40) 0 0 px-to-rem(42);
+            padding: px-to-rem(40) 0 0 px-to-rem(32);
             margin-bottom: 0;
-            font-weight: $fw-bold;
-            line-height: clamp(px-to-rem(80), 4.58vw, px-to-rem(88));
-            letter-spacing: clamp(px-to-rem(01), 0.21vw, px-to-rem(4));
+            max-width: 100%;
+            line-height: clamp(px-to-rem(82), 4.58vw, px-to-rem(88));
+            letter-spacing: clamp(px-to-rem(1), 0.12vw, px-to-rem(4));
+            word-spacing: 0;
         }
 
         &__actions {
             width: 100%;
             justify-content: flex-start;
-            padding: px-to-rem(32) 0 0 px-to-rem(30);
+            padding: px-to-rem(22) 0 0 px-to-rem(15);
         }
 
         &__left {
@@ -392,6 +383,10 @@
         &__seaview,
         &__mountain {
             width: clamp(px-to-rem(272), 14.17vw, px-to-rem(272));
+        }
+
+        &__seaview::after {
+            bottom: -7%;
         }
 
         &__city {
@@ -430,8 +425,8 @@
 
     &::after {
         position: absolute;
-        right: px-to-rem(-88);
-        bottom: px-to-rem(-2);
+        right: px-to-rem(-86);
+        bottom: px-to-rem(8);
         padding: px-to-rem(5) px-to-rem(9);
         border-radius: $radius-lg;
         box-shadow: $shadow-elevated;
@@ -440,18 +435,21 @@
     @include breakpoint-up('tablet') {
         &::after {
             right: -65%;
-            bottom: px-to-rem(-8);
+            bottom: px-to-rem(8);
             padding: min(px-to-rem(13), 1.2vw) min(px-to-rem(21), 2vw);
             font-size: $fs-icons-sm;
         }
+    }
+    @include breakpoint-up('desktop') {
+        bottom: px-to-rem(2);
     }
 }
 
 .city__badge {
     @include flex(center, center, row, px-to-rem(6));
     position: absolute;
-    right: -30%;
-    bottom: 12%;
+    right: -28%;
+    bottom: 15%;
     padding: min(2vw, px-to-rem(4)) min(4vw, px-to-rem(16));
     border-radius: $radius-md;
     background: $clr-white;
@@ -467,17 +465,20 @@
     );
 
     @include breakpoint-up('tablet') {
-        right: -16%;
         padding: px-to-rem(8) min(px-to-rem(24), 2vw);
         gap: px-to-rem(5);
         font-size: clamp(px-to-rem(3), 2vw, px-to-rem(14));
-
+        width: px-to-rem(166);
+        height: px-to-rem(56);
+        right: -28%;
+        bottom: 12%;
         &::before {
             font-size: clamp(px-to-rem(3), 2vw, $fs-icons-sm);
         }
     }
 
     @include breakpoint-up('desktop') {
-        right: clamp(px-to-rem(-56), -2.92vw, px-to-rem(-32));
+        right: -38%;
+        bottom: 15%;
     }
 }

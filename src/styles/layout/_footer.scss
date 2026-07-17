@@ -1,14 +1,16 @@
 @use '../abstracts' as *;
 
+/**
+ * Footer Section
+ */
 .footer {
     position: relative;
     width: 100%;
-    margin-top: px-to-rem(16);
-    padding: 0 px-to-rem(32);
+    padding-left: px-to-rem(32);
     background-color: $clr-white;
 
     &__container {
-        @include flex($direction: column, $gap: px-to-rem(64));
+        @include flex($direction: column, $gap: px-to-rem(58));
         position: relative;
         z-index: z('base');
     }
@@ -28,7 +30,9 @@
     }
 
     &__description {
-        max-width: px-to-rem(800);
+        max-width: px-to-rem(900);
+        color: $clr-links;
+        font-weight: $fw-normal;
     }
 
     &__social {
@@ -80,7 +84,8 @@
     }
 
     &__navigation {
-        @include flex($direction: column, $gap: px-to-rem(30));
+        @include flex($direction: column, $gap: px-to-rem(32));
+        padding-right: px-to-rem(30);
     }
 
     &__column {
@@ -99,7 +104,7 @@
             after,
             $clr-heading,
             transparent,
-            px-to-rem(18)
+            px-to-rem(24)
         );
     }
 
@@ -109,7 +114,6 @@
         padding: 0;
 
         .footer__location {
-            font-size: $fs-sm;
             color: $clr-links;
             text-decoration: none;
         }
@@ -149,7 +153,7 @@
             opacity: 0.8;
             width: px-to-rem(260);
             height: px-to-rem(260);
-            background-image: url('/assets/images/footer/Background.svg');
+            background-image: url('/assets/images/footer/background.svg');
             background-position: 100% 20%;
         }
     }
@@ -158,12 +162,11 @@
         padding: px-to-rem(180) px-to-rem(68);
 
         &__container {
-            gap: px-to-rem(76);
+            gap: px-to-rem(63);
         }
 
         &__description {
             max-width: px-to-rem(900);
-            font-size: $fs-md;
         }
 
         &__social {
@@ -176,7 +179,7 @@
         }
 
         &__navigation {
-            @include grid(repeat(3, 1fr), px-to-rem(48));
+            @include grid(repeat(3, 1fr), px-to-rem(68));
             align-items: flex-start;
         }
 
@@ -195,8 +198,8 @@
 
         &__list,
         &__address {
-            @include flex($direction: column, $gap: px-to-rem(35));
-            padding-top: px-to-rem(32);
+            @include flex($direction: column, $gap: px-to-rem(28));
+            padding-top: px-to-rem(28);
         }
 
         &__pattern {
@@ -214,7 +217,7 @@
     }
 
     @include breakpoint-up('desktop') {
-        padding: px-to-rem(115) px-to-rem(68);
+        padding: px-to-rem(120) px-to-rem(68);
 
         &__container {
             @include flex(space-between, flex-start, row, px-to-rem(20));
@@ -272,7 +275,7 @@
 
         &__address {
             font-style: normal;
-            max-width: px-to-rem(250);
+            max-width: px-to-rem(150);
         }
 
         &__pattern {

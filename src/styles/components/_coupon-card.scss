@@ -1,4 +1,5 @@
 @use '../abstracts/' as *;
+
 .coupon {
     @include flex(space-between, center);
     font-family: $font-secondary;
@@ -31,7 +32,7 @@
             padding: px-to-rem(8);
         }
     }
-    
+
     &--disabled {
         background: $clr-gray;
 

@@ -39,7 +39,7 @@ const createTestimonial = ({ name, designation, image, rating, review }) => {
     testimonialRating.className = 'testimonial__rating';
     testimonialRating.ariaLabel = `${rating} out of 5 stars`;
     testimonialRating.append(...createRating(rating));
-    testimonialReview.classList = 'body1 testimonial__review';
+    testimonialReview.classList = 'body1 body1--lg testimonial__review';
     testimonialReview.innerText = review;
     testimonialContent.append(userName, testimonialRating, testimonialReview);
     testimonialContainer.append(testimonialImage, testimonialContent);

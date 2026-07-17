@@ -1,5 +1,5 @@
 /**
- * formats the number into shorthand form.
+ * Formats the number into shorthand form.
  * @param {number} statNumber - number which needs to be formatted
  */
 const formatNumber = (statNumber) => {
@@ -33,4 +33,5 @@ const renderCards = (stats, statsContainer) => {
         statsContainer.append(container);
     });
 };
+
 export { renderCards };

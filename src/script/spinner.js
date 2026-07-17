@@ -8,12 +8,13 @@ const winContainer = document.getElementById('win-container');
 const winCouponContainer = document.getElementById('win-container-coupons');
 const winNumber = document.getElementById('special-deals-number');
 const couponContainer = document.getElementById('coupons-container');
+const spinnerContainer = document.getElementById('spinner-container');
 
 /**
  * Constant values
  */
 const SIZE = 228;
-const radius = SIZE / 2;
+const RADIUS = SIZE / 2;
 const SLICE_STROKE = 4;
 const WORD_DISTANCE = 15;
 const EASING_FACTOR = 0.05;
@@ -33,25 +34,34 @@ const colors = ['#06B6D4', '#F4436C', '#7C3AED', '#FBBF24'];
 let sliceAngle = (2 * Math.PI) / selectedCoupons.length;
 let rotation = 0;
 let isSpinning = false;
+let isLoading = false;
 
 /**
- * fetches Data from api.
+ * Fetches Data from api.
  */
 const fetchData = async () => {
+    isLoading = true;
+    drawWheel();
+
     try {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
+
         couponData = await response.json();
     } catch (error) {
-        console.error(error.message);
+        spinnerContainer.innerHTML = `${error.message}`;
+    } finally {
+        isLoading = false;
+        spinButton.classList.remove('spinner__button--hide');
+        initialiseSpinner();
     }
 };
 
 /**
- * copies the coupon code.
+ * Copies the coupon code.
  * @param {ClickEvent} event -The click event on the copy button.
  */
 const copyCode = (event) => {
@@ -59,6 +69,10 @@ const copyCode = (event) => {
         const code = event.target.parentElement.id;
         navigator.clipboard.writeText(code);
         const originalSrc = event.target.src;
+
+        /**
+         * Temporarily changes the copy icon to a tick icon
+         */
         event.target.src = './assets/images/special_deals/tick.svg';
 
         setTimeout(() => {
@@ -74,12 +88,23 @@ const copyCode = (event) => {
 const selectRandomCoupons = (data) => {
     let shuffled = [...data];
     const storedCoupons = JSON.parse(localStorage.getItem('wonOffers'));
+
+    /**
+     * Stores the set of promoCodes which user has already won
+     */
+    const wonCouponCodes = new Set(
+        storedCoupons.map((coupon) => coupon.promoCode),
+    );
+
     shuffled = storedCoupons
-        ? shuffled.filter(
-              (c) => !storedCoupons.find((u) => u.label === c.label),
-          )
+        ? shuffled.filter((c) => !wonCouponCodes.has(c.promoCode))
         : shuffled;
 
+    /**
+     * It sorts the array in random order, to increase the randomness while selecting the offers.
+     * Iterate through the array from the last element to the first.
+     * Swaps each element with a randomly selected index from array.
+     */
     for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -90,10 +115,26 @@ const selectRandomCoupons = (data) => {
 /**
  * Draws the spinning wheel.
  */
+const drawText = (content) => {
+    spinButton.classList.add('spinner__button--hide');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = 'bold 12px Inter';
+    ctx.fillStyle = '#000';
+    ctx.fillText(content, RADIUS, RADIUS);
+};
+
 const drawWheel = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (isLoading) {
+        drawText('Loading...');
+        return;
+    }
+
     ctx.save();
-    ctx.translate(radius, radius);
+    ctx.translate(RADIUS, RADIUS);
     ctx.rotate(rotation);
     drawSlices();
     ctx.restore();
@@ -108,7 +149,7 @@ const drawSlices = () => {
         const endAngle = startAngle + sliceAngle;
         ctx.beginPath();
         ctx.moveTo(0, 0);
-        ctx.arc(0, 0, radius, startAngle, endAngle);
+        ctx.arc(0, 0, RADIUS, startAngle, endAngle);
         ctx.closePath();
         ctx.fillStyle = colors[index];
         ctx.fill();
@@ -128,7 +169,7 @@ const drawSlices = () => {
 const drawLabel = (text, angle, color) => {
     ctx.save();
     ctx.rotate(angle);
-    ctx.translate(radius * 0.5, 0);
+    ctx.translate(RADIUS * 0.5, 0);
     ctx.rotate(Math.PI / 2);
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -139,6 +180,9 @@ const drawLabel = (text, angle, color) => {
     let line = '';
     const lines = [];
 
+    /**
+     * Divides the text into different lines based on line width
+     */
     words.forEach((word) => {
         const tempLine = line + word + ' ';
 
@@ -164,7 +208,7 @@ const drawLabel = (text, angle, color) => {
 };
 
 /**
- * starts animation of the wheel and manages the spinning state.
+ * Starts animation of the wheel and manages the spinning state.
  * @param {number} targetRotation -Target angle at which spinner needs to be stopped.
  * @param {number} winner-Index of winner.
  */
@@ -176,13 +220,16 @@ const spinWheel = (targetRotation, winner) => {
     isSpinning = true;
     spinButton.disabled = true;
 
+    /**
+     * It calls the animate function when the frame is about to change (for 60fps screen it calls the function in every 16 milliseconds).
+     */
     requestAnimationFrame(() => {
         animate(targetRotation, winner);
     });
 };
 
 /**
- * animates the spinning motion.
+ * Animates the spinning motion.
  * @param {number} targetRotation -Target angle at which spinner needs to be stopped.
  * @param {number} winner-Index of winner.
  */
@@ -196,6 +243,10 @@ const animate = (targetRotation, winner) => {
         spinButton.disabled = false;
         showCouponWon(selectedCoupons[winner]);
         selectedCoupons = selectRandomCoupons(couponData);
+
+        /**
+         * Changes the number of won offers in view all deals button's bubble.
+         */
         winNumber.innerText = JSON.parse(localStorage.getItem('wonOffers'))
             ? JSON.parse(localStorage.getItem('wonOffers')).length
             : 0;
@@ -211,16 +262,29 @@ const animate = (targetRotation, winner) => {
 };
 
 /**
- * initialise the content for rendering the wheel.
+ * Initialises the content for rendering the wheel.
  */
-const initialise = () => {
+const initialiseSpinner = () => {
     winCouponContainer.innerHTML = '';
     winContainer.classList.remove('special-deals__win--show');
     winNumber.innerText = JSON.parse(localStorage.getItem('wonOffers'))
         ? JSON.parse(localStorage.getItem('wonOffers')).length
         : 0;
     selectedCoupons = selectRandomCoupons(couponData);
+
+    /**
+     * Calculates the angle that each slice will cover
+     */
     sliceAngle = (2 * Math.PI) / selectedCoupons.length;
+
+    /**
+     * Id don't have 4 coupons to show on wheel then it displays no more spin.
+     */
+    if (selectedCoupons.length < 4) {
+        drawText('No more spin');
+        return;
+    }
+
     drawWheel();
 };
 
@@ -234,6 +298,10 @@ const findValidity = (coupon) => {
     if (wonCoupons) {
         const currentCoupon = wonCoupons.find((u) => u.label === coupon.label);
         const storeDate = currentCoupon.Date;
+
+        /**
+         * Converts milliseconds into days
+         */
         const timePassed = Math.floor(
             (Date.now() - storeDate) / (24 * 60 * 60 * 1000),
         );
@@ -244,7 +312,7 @@ const findValidity = (coupon) => {
 };
 
 /**
- * renders the coupon.
+ * Renders the coupon.
  * @param {object} coupon - coupon which needs to be rendered.
  */
 const renderCoupon = (coupon) => {
@@ -269,31 +337,48 @@ const renderCoupon = (coupon) => {
     couponRight.className = 'coupon__right';
     couponRight.append(couponCode, copyButton);
     couponExpire.className = 'coupon__expires body3';
-    couponExpire.innerText = `Expires in ${findValidity(coupon)}d`;
+    couponExpire.innerText =
+        findValidity(coupon) >= 0
+            ? `Expires in ${findValidity(coupon)}d`
+            : 'Deal expired';
     couponLabel.className = 'coupon__label body2';
     couponLabel.innerText = coupon.label;
     couponLeft.className = 'coupon__left';
     couponLeft.append(couponLabel, couponExpire);
     couponContainer.append(couponLeft, couponRight);
+    couponContainer.className = 'coupon';
 
+    /**
+     * If coupon is expired then we adds coupon--disabled class.
+     */
     if (findValidity(coupon) < 0) {
-        couponContainer.className = 'coupon--disabled';
+        couponContainer.classList.add('coupon--disabled');
         copyButton.disabled = true;
-    } else {
-        couponContainer.className = 'coupon';
     }
+
     return couponContainer;
 };
 
 /**
- * renders the all the coupons won by user.
+ * Renders the all the coupons won by user.
  */
 const showAllCoupons = () => {
     const allCoupons = JSON.parse(localStorage.getItem('wonOffers'));
     couponContainer.innerHTML = '';
 
+    /**
+     * Sorts the coupons based on the validity.
+     * If one of the coupon is expired and another is valid then the valid coupon is shown first.
+     * If both coupons are valid then the coupon with less days left will we displayed.
+     */
     allCoupons.sort((a, b) => {
-        findValidity(a) - findValidity(b);
+        const isaExpired = findValidity(a) < 0;
+        const isbExpired = findValidity(b) < 0;
+        if (isaExpired !== isbExpired) {
+            return isaExpired - isbExpired;
+        }
+
+        return findValidity(a) - findValidity(b);
     });
 
     if (!allCoupons) {
@@ -319,9 +404,21 @@ const showCouponWon = (coupon) => {
     const wonCoupons = localStorage.getItem('wonOffers')
         ? JSON.parse(localStorage.getItem('wonOffers'))
         : [];
+
+    /**
+     * Adds the time at which coupon is won
+     */
     const currentCoupon = { ...coupon, Date: Date.now() };
     const userCoupons = [...wonCoupons, currentCoupon];
+
+    /**
+     * Stores the coupon in local storage.
+     */
     localStorage.setItem('wonOffers', JSON.stringify(userCoupons));
+
+    /**
+     * Renders the coupon won.
+     */
     const couponWon = renderCoupon(currentCoupon);
     winCouponContainer.innerHTML = '';
     winCouponContainer.append(couponWon);
@@ -337,6 +434,20 @@ const rotateSpinner = () => {
     const currentAngle = rotation % (Math.PI * 2);
     winContainer.classList.remove('special-deals__win--show');
     winCouponContainer.innerHTML = '';
+
+    if (selectedCoupons.length < 4) {
+        spinButton.disabled = true;
+        drawText('No more spin');
+        return;
+    }
+
+    /**
+     * TargetRotation is the rotation after which our wheel needs to be stopped.
+     * It is sum of current rotation and extraSpins that we want our spinner to complete.
+     * Then  we subtract the currentAngle from the sum such that the rotation will start from the 0deg.
+     * And for stopping the wheel on the desired offer we need to subtract the winner*sliceAngle.
+     * To ensure that the pointer always point at the center of the won offer we have subtracted the sliceAngle/2.
+     */
     const targetRotation =
         rotation +
         extraSpins -
@@ -346,4 +457,10 @@ const rotateSpinner = () => {
     spinWheel(targetRotation, winner);
 };
 
-export { fetchData, rotateSpinner, initialise, showAllCoupons, copyCode };
+export {
+    fetchData,
+    rotateSpinner,
+    initialiseSpinner,
+    showAllCoupons,
+    copyCode,
+};
