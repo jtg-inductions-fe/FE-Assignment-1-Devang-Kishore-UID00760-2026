@@ -1,4 +1,4 @@
-import { toggle} from './navbar';
+import { toggle } from './navbar';
 import { toggleAccordion } from './accordion';
 import {
     fetchData,
@@ -43,8 +43,9 @@ footerContainer.addEventListener('click', (event) => {
 
 specialDealsButton.addEventListener('click', async (e) => {
     e.preventDefault();
+    specialDealsContainer.showModal();
     specialDealsContainer.classList.add('special-deals--show');
-    fetchData();
+    await fetchData();
     initialiseSpinner();
 });
 
@@ -70,5 +71,6 @@ winContainer.addEventListener('click', () => {
 });
 
 close.addEventListener('click', () => {
+    specialDealsContainer.close();
     specialDealsContainer.classList.remove('special-deals--show');
 });

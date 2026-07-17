@@ -234,7 +234,7 @@
     */
     @include breakpoint-up('desktop') {
         margin-top: 0;
-        padding: px-to-rem(145) px-to-rem(68);
+        padding: px-to-rem(140) px-to-rem(68);
 
         &::before {
             top: px-to-rem(120);
@@ -242,7 +242,7 @@
         }
 
         &__subheading {
-            margin-bottom: px-to-rem(20);
+            margin-bottom: px-to-rem(22);
         }
 
         &__title {

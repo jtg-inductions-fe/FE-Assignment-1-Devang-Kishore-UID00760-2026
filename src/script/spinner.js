@@ -92,9 +92,13 @@ const selectRandomCoupons = (data) => {
     /**
      * Stores the set of promoCodes which user has already won
      */
-    const wonCouponCodes = new Set(
-        storedCoupons.map((coupon) => coupon.promoCode),
-    );
+    let wonCouponCodes = {};
+
+    if (storedCoupons) {
+        wonCouponCodes = new Set(
+            storedCoupons.map((coupon) => coupon.promoCode),
+        );
+    }
 
     shuffled = storedCoupons
         ? shuffled.filter((c) => !wonCouponCodes.has(c.promoCode))
@@ -317,34 +321,66 @@ const findValidity = (coupon) => {
  */
 const renderCoupon = (coupon) => {
     const couponContainer = document.createElement('div');
-    const couponLeft = document.createElement('div');
-    const couponRight = document.createElement('div');
-    const couponLabel = document.createElement('h2');
-    const couponExpire = document.createElement('p');
-    const couponCode = document.createElement('p');
-    const copyButton = document.createElement('button');
+
+    /**
+     * Image element for displaying copy icon
+     */
     const copyIcon = document.createElement('img');
     copyIcon.src = '/assets/images/special_deals/copy.svg';
     copyIcon.alt = 'copy icon';
     copyIcon.className = 'copy-icon';
+
+    /**
+     * Button for coping the coupon code.
+     */
+    const copyButton = document.createElement('button');
     copyButton.type = 'button';
     copyButton.className = 'button button--sm copy-button';
     copyButton.id = coupon.promoCode;
     copyButton.ariaLabel = 'Copy coupon code';
     copyButton.append(copyIcon);
+
+    /**
+     * Paragraph for showing the coupon code.
+     */
+    const couponCode = document.createElement('p');
     couponCode.className = 'coupon__code body3';
     couponCode.innerText = coupon.promoCode;
+
+    /**
+     * Right section div.
+     */
+    const couponRight = document.createElement('div');
     couponRight.className = 'coupon__right';
     couponRight.append(couponCode, copyButton);
+
+    /**
+     * Paragraph for showing in how many days the coupon will expire.
+     */
+    const couponExpire = document.createElement('p');
     couponExpire.className = 'coupon__expires body3';
     couponExpire.innerText =
         findValidity(coupon) >= 0
             ? `Expires in ${findValidity(coupon)}d`
             : 'Deal expired';
+
+    /**
+     * Heading for showing the label of the coupon.
+     */
+    const couponLabel = document.createElement('h2');
     couponLabel.className = 'coupon__label body2';
     couponLabel.innerText = coupon.label;
+
+    /**
+     * Left section div.
+     */
+    const couponLeft = document.createElement('div');
     couponLeft.className = 'coupon__left';
     couponLeft.append(couponLabel, couponExpire);
+
+    /**
+     * Appending the left and right section divs in coupon container.
+     */
     couponContainer.append(couponLeft, couponRight);
     couponContainer.className = 'coupon';
 

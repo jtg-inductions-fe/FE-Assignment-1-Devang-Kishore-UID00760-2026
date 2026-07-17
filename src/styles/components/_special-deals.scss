@@ -4,14 +4,26 @@
     @include flex(center, flex-end);
     font-family: $font-secondary;
     position: fixed;
-    visibility: hidden;
     width: 100%;
     height: 100%;
     inset: 0;
-    background-color: $clr-overlay;
+    margin: 0;
+    overflow: visible;
     overflow-y: auto;
     overscroll-behavior: contain;
     z-index: z('sticky');
+    max-width: none;
+    max-height: none;
+    border: none;
+    background: transparent;
+
+    &::backdrop {
+        background-color: $clr-overlay;
+    }
+
+    &:not([open]) {
+        display: none;
+    }
 
     &__title {
         margin-bottom: px-to-rem(10);
@@ -155,8 +167,6 @@
     }
 
     &--show {
-        visibility: visible;
-
         .special-deals__card {
             transform: translateY(0%);
         }
@@ -181,13 +191,10 @@
 
         &__card {
             border-radius: $radius-sm;
-            transform: scale(1);
             transform: scale(0.2);
         }
 
         &__show {
-            visibility: visible;
-
             .special-deals__card {
                 transform: scale(1);
             }

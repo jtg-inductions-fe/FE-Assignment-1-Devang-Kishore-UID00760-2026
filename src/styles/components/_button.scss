@@ -30,6 +30,11 @@
         &:hover {
             opacity: 0.9;
         }
+
+        &:focus {
+            outline: px-to-rem(2) solid $clr-primary;
+            outline-offset: px-to-rem(2);
+        }
     }
 
     &--sm {

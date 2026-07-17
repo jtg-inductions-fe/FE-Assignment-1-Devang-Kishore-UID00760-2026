@@ -181,11 +181,12 @@
             <!-- Travel Point Section -->
             <section class="travel-point" id="discover">
                 <div class="travel-point__content">
-                    <img
-                        src="/assets/images/travelpoint_section/main.png"
-                        alt="Traveller sitting on luggage"
-                        class="travel-point__image"
-                    />
+                    <div class="travel-point__image">
+                        <img
+                            src="/assets/images/travelpoint_section/main.png"
+                            alt="Traveller sitting on luggage"
+                        />
+                    </div>
                     <div class="travel-point__info">
                         <div class="travel-point__heading">
                             <p class="subtitle travel-point__subtitle">
@@ -345,11 +346,14 @@
                                 >
                                     info@travlog.com
                                 </a>
-                                <p class="footer__location">
+                                <a
+                                    href="https://maps.app.goo.gl/Uea9sn5pVEfh2QDv7"
+                                    class="footer__location"
+                                >
                                     205, R Street, New York
                                     <br />
                                     BD23200
-                                </p>
+                                </a>
                             </address>
                         </section>
                     </div>
@@ -358,7 +362,7 @@
                 <div class="footer__pattern footer__pattern--right"></div>
             </footer>
             <!-- Special Deals Section -->
-            <section class="special-deals" id="special-deals-container">
+            <dialog class="special-deals" id="special-deals-container">
                 <div class="special-deals__card">
                     <div class="special-deals__headings">
                         <div class="special-deals__badge">
@@ -370,7 +374,10 @@
                                 SPECIAL DEALS
                             </p>
                         </div>
-                        <h2 class="heading3 special-deals__title">
+                        <h2
+                            class="heading3 special-deals__title"
+                            id="special-deals-title"
+                        >
                             Spin & Win!
                         </h2>
                         <p class="body3 special-deals__description">
@@ -432,7 +439,7 @@
                         </button>
                     </div>
                 </div>
-            </section>
+            </dialog>
         </main>
         <script type="module" src="./src/script/index.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>

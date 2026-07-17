@@ -29,6 +29,10 @@
         }
     }
 
+    &__logo {
+        width: px-to-rem(20);
+    }
+
     &__description {
         max-width: px-to-rem(900);
         color: $clr-links;
@@ -217,7 +221,7 @@
     }
 
     @include breakpoint-up('desktop') {
-        padding: px-to-rem(120) px-to-rem(68);
+        padding: px-to-rem(126) px-to-rem(68);
 
         &__container {
             @include flex(space-between, flex-start, row, px-to-rem(20));
@@ -259,6 +263,7 @@
 
         &__heading {
             margin-bottom: px-to-rem(32);
+            width: 50%;
         }
 
         &__list,

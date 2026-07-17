@@ -2,6 +2,7 @@ import data from '../data/content.json';
 import './events';
 import { toggle, setOpen, setScrolled } from './navbar';
 import { renderCards } from './travelpoint';
+import { updateFooterButtonTabIndex } from './accordion';
 import { renderTestimonials } from './carousel';
 
 /**
@@ -28,12 +29,14 @@ const stats = data['travelPoint'].stats;
  */
 renderCards(stats, statsContainer);
 renderTestimonials(testimonialWrapper, data.testimonials);
+updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
 
 /**
  * Event Listeners
  */
 window.addEventListener('resize', () => {
     setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
+    updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
 });
 
 window.addEventListener('scroll', () => {
