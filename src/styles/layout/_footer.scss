@@ -1,14 +1,16 @@
 @use '../abstracts' as *;
 
+/**
+ * Footer Section
+ */
 .footer {
     position: relative;
     width: 100%;
-    margin-top: px-to-rem(16);
-    padding: 0 px-to-rem(32);
+    padding-left: px-to-rem(32);
     background-color: $clr-white;
 
     &__container {
-        @include flex($direction: column, $gap: px-to-rem(64));
+        @include flex($direction: column, $gap: px-to-rem(58));
         position: relative;
         z-index: z('base');
     }
@@ -22,13 +24,19 @@
         gap: px-to-rem(20);
         text-decoration: none;
 
-        .logo__title{
+        .logo__title {
             color: $clr-black;
         }
     }
 
+    &__logo {
+        width: px-to-rem(20);
+    }
+
     &__description {
-        max-width: px-to-rem(800);
+        max-width: px-to-rem(900);
+        color: $clr-links;
+        font-weight: $fw-normal;
     }
 
     &__social {
@@ -80,7 +88,8 @@
     }
 
     &__navigation {
-        @include flex($direction: column, $gap: px-to-rem(30));
+        @include flex($direction: column, $gap: px-to-rem(32));
+        padding-right: px-to-rem(30);
     }
 
     &__column {
@@ -99,7 +108,7 @@
             after,
             $clr-heading,
             transparent,
-            px-to-rem(18)
+            px-to-rem(24)
         );
     }
 
@@ -108,20 +117,19 @@
         display: none;
         padding: 0;
 
-        .footer__location{
-            font-size: $fs-sm;
+        .footer__location {
             color: $clr-links;
             text-decoration: none;
         }
     }
 
     &__column {
-        .footer__list--active{
+        .footer__list--active {
             @include flex($direction: column, $gap: px-to-rem(16));
         }
 
-        .footer__heading--active{
-            &::after{
+        .footer__heading--active {
+            &::after {
                 transform: rotate(180deg);
             }
         }
@@ -149,146 +157,146 @@
             opacity: 0.8;
             width: px-to-rem(260);
             height: px-to-rem(260);
-            background-image: url('/assets/images/footer/Background.svg');
+            background-image: url('/assets/images/footer/background.svg');
             background-position: 100% 20%;
         }
     }
 
     @include breakpoint-up('tablet') {
-            padding: px-to-rem(180) px-to-rem(68);
+        padding: px-to-rem(180) px-to-rem(68);
 
-            &__container {
-                gap: px-to-rem(76);
+        &__container {
+            gap: px-to-rem(63);
+        }
+
+        &__description {
+            max-width: px-to-rem(900);
+        }
+
+        &__social {
+            gap: px-to-rem(32);
+
+            &-link {
+                width: px-to-rem(28);
+                height: px-to-rem(28);
+            }
+        }
+
+        &__navigation {
+            @include grid(repeat(3, 1fr), px-to-rem(68));
+            align-items: flex-start;
+        }
+
+        &__column {
+            border-bottom: none;
+        }
+
+        &__heading {
+            padding: 0;
+            pointer-events: none;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &__list,
+        &__address {
+            @include flex($direction: column, $gap: px-to-rem(28));
+            padding-top: px-to-rem(28);
+        }
+
+        &__pattern {
+            &--left {
+                display: none;
             }
 
-            &__description {
-                max-width: px-to-rem(900);
-                font-size: $fs-md;
+            &--right {
+                display: block;
+                top: px-to-rem(350);
+                width: px-to-rem(320);
+                height: px-to-rem(320);
             }
-
-            &__social {
-                gap: px-to-rem(32);
-
-                &-link {
-                    width: px-to-rem(28);
-                    height: px-to-rem(28);
-                }
-            }
-
-            &__navigation {
-                @include grid(repeat(3, 1fr), px-to-rem(48));
-                align-items: flex-start;
-            }
-
-            &__column {
-                border-bottom: none;
-            }
-
-            &__heading {
-                padding: 0;
-                pointer-events: none;
-
-                &::after {
-                    display: none;
-                }
-            }
-
-            &__list,
-            &__address {
-                @include flex($direction: column, $gap: px-to-rem(35));
-                padding-top: px-to-rem(32);
-            }
-
-            &__pattern {
-                &--left {
-                    display: none;
-                }
-
-                &--right {
-                    display: block;
-                    top:px-to-rem(350);
-                    width: px-to-rem(320);
-                    height: px-to-rem(320);
-                }
-            }
+        }
     }
 
     @include breakpoint-up('desktop') {
-            padding: px-to-rem(115) px-to-rem(68);
+        padding: px-to-rem(126) px-to-rem(68);
 
-            &__container {
-                @include flex(space-between, flex-start, row, px-to-rem(20));
+        &__container {
+            @include flex(space-between, flex-start, row, px-to-rem(20));
+        }
+
+        &__info {
+            flex: 0 0 50%;
+            gap: px-to-rem(28);
+            padding-left: px-to-rem(60);
+        }
+
+        &__logo {
+            margin-bottom: px-to-rem(8);
+        }
+
+        &__description {
+            max-width: px-to-rem(700);
+        }
+
+        &__social {
+            padding-top: px-to-rem(38);
+            gap: px-to-rem(36);
+
+            &-link {
+                width: px-to-rem(30);
+                height: px-to-rem(30);
+            }
+        }
+
+        &__navigation {
+            @include grid(
+                repeat(3, minmax(px-to-rem(150), 1fr)),
+                px-to-rem(72)
+            );
+            flex: 1;
+            padding-left: px-to-rem(20);
+            gap: 0;
+        }
+
+        &__heading {
+            margin-bottom: px-to-rem(32);
+            width: 50%;
+        }
+
+        &__list,
+        &__address {
+            @include flex($direction: column, $gap: px-to-rem(32));
+            padding-top: 0;
+        }
+
+        &__list {
+            .footer__list-item {
+                list-style: none;
+            }
+        }
+
+        &__address {
+            font-style: normal;
+            max-width: px-to-rem(150);
+        }
+
+        &__pattern {
+            &--left {
+                display: block;
+                left: px-to-rem(100);
+                bottom: px-to-rem(360);
+                width: px-to-rem(185);
+                height: px-to-rem(175);
             }
 
-            &__info {
-                flex: 0 0 50%;
-                gap: px-to-rem(28);
-                padding-left: px-to-rem(60);
+            &--right {
+                top: px-to-rem(120);
+                right: 0;
+                width: px-to-rem(217);
             }
-
-            &__logo {
-                margin-bottom: px-to-rem(8);
-            }
-
-            &__description {
-                max-width: px-to-rem(700);
-            }
-
-            &__social {
-                padding-top: px-to-rem(38);
-                gap: px-to-rem(36);
-
-                &-link {
-                    width: px-to-rem(30);
-                    height: px-to-rem(30);
-                }
-            }
-
-            &__navigation {
-                @include grid(
-                    repeat(3, minmax(px-to-rem(150), 1fr)),
-                    px-to-rem(72)
-                );
-                flex: 1;
-                padding-left: px-to-rem(20);
-                gap:0;
-            }
-
-            &__heading {
-                margin-bottom: px-to-rem(32);
-            }
-
-            &__list,
-            &__address {
-                @include flex($direction: column, $gap: px-to-rem(32));
-                padding-top: 0;
-            }
-
-            &__list {
-                .footer__list-item {
-                    list-style: none;
-                }
-            }
-
-            &__address {
-                font-style: normal;
-                max-width: px-to-rem(250);
-            }
-
-            &__pattern {
-                &--left {
-                    display: block;
-                    left: px-to-rem(100);
-                    bottom: px-to-rem(360);
-                    width: px-to-rem(185);
-                    height: px-to-rem(175);
-                }
-
-                &--right {
-                    top: px-to-rem(120);
-                    right: 0;
-                    width: px-to-rem(217);
-                }
-            }
+        }
     }
 }

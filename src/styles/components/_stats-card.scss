@@ -5,7 +5,7 @@
  */
 .stat-card {
     @include flex(center, center, column);
-    min-height: px-to-rem(64);
+    height: px-to-rem(151);
     padding: px-to-rem(32);
     border: px-to-rem(2) solid rgba(25, 24, 37, 0.1);
     border-radius: $radius-sm;
@@ -19,5 +19,13 @@
     &__label {
         color: $clr-black;
         text-align: center;
+    }
+
+    @include breakpoint-up('tablet') {
+        width: px-to-rem(431);
+    }
+
+    @include breakpoint-up('desktop') {
+        width: px-to-rem(212);
     }
 }

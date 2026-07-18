@@ -9,19 +9,27 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: px-to-rem(35) px-to-rem(16);
+    padding: px-to-rem(28) px-to-rem(16);
     z-index: z('sticky');
     background: transparent;
 
     &--scrolled {
         background: $clr-navbar-bg-start;
+        padding: px-to-rem(10) px-to-rem(15);
+        .navbar__content .navbar__actions {
+            gap: px-to-rem(20);
+        }
     }
 
     /**
     *Tablet view
     */
     @include breakpoint-up('tablet') {
-        padding: px-to-rem(32) px-to-rem(64);
+        padding: px-to-rem(25) px-to-rem(64);
+
+        &--scrolled {
+            padding: px-to-rem(10) px-to-rem(64);
+        }
     }
 
     /**
@@ -29,6 +37,10 @@
     */
     @include breakpoint-up('desktop') {
         padding: px-to-rem(66) px-to-rem(116) px-to-rem(66) px-to-rem(130);
+
+        &--scrolled {
+            padding: px-to-rem(28) px-to-rem(88);
+        }
     }
 }
 
@@ -44,7 +56,7 @@
 
     &__content {
         position: fixed;
-        top: px-to-rem(119);
+        top: px-to-rem(84);
         left: 0;
         width: 100%;
         height: auto;
@@ -91,7 +103,7 @@
         }
 
         .navbar__login {
-            font-size: $fs-md;
+            background-color: $clr-white;
         }
     }
 
@@ -107,6 +119,10 @@
             @include flex(space-between, center, row-reverse);
             flex: 1;
             height: 100%;
+        }
+
+        .logo--navbar {
+            margin-left: px-to-rem(390);
         }
 
         &__content {
@@ -129,7 +145,7 @@
                         column,
                         px-to-rem(64)
                     );
-                    top: px-to-rem(119);
+                    top: px-to-rem(84);
                     font-size: $fs-md;
                     position: fixed;
                     padding: px-to-rem(112) px-to-rem(64) px-to-rem(32)
@@ -147,8 +163,9 @@
                     transform: translateY(-80%);
                 }
             }
+
             .navbar__actions {
-                @include flex($align: center, $gap: px-to-rem(35));
+                @include flex($align: center, $gap: px-to-rem(2));
 
                 .navbar__login {
                     font-size: $fs-xs;
@@ -169,13 +186,13 @@
         &__content {
             @include flex(space-between, center, row);
             position: static;
-            flex: 3;
+            flex: 3.1;
             padding: 0;
             gap: px-to-rem(32);
         }
 
         &__content .navbar__list {
-            width: 50%;
+            width: 52%;
             @include flex($justify: space-between, $align: center);
         }
 
@@ -196,8 +213,8 @@
             }
         }
 
-        &__actions {
-            @include flex($align: center, $gap: px-to-rem(33));
+        &__content &__actions {
+            @include flex($align: center, $gap: px-to-rem(0));
             padding-right: px-to-rem(1);
         }
 
@@ -206,6 +223,7 @@
         }
 
         .logo--navbar {
+            margin-left: 0;
             position: static;
             transform: none;
         }

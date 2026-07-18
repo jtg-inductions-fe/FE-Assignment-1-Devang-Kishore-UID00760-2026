@@ -17,31 +17,52 @@ const createRating = (rating) =>
  */
 const createTestimonial = ({ name, designation, image, rating, review }) => {
     const IMAGE_SIZE = 128;
-    const testimonialContainer = document.createElement('div');
+
+    /**
+     * Image for displaying user profile picture.
+     */
     const testimonialImage = document.createElement('img');
-    const testimonialContent = document.createElement('div');
-    const userName = document.createElement('h3');
-    const userDesignation = document.createElement('span');
-    const testimonialRating = document.createElement('div');
-    const testimonialReview = document.createElement('p');
-    testimonialContainer.className = 'swiper-slide testimonial';
     testimonialImage.className = 'testimonial__image';
     testimonialImage.src = image;
     testimonialImage.alt = name;
     testimonialImage.width = IMAGE_SIZE;
     testimonialImage.height = IMAGE_SIZE;
-    testimonialContent.className = 'testimonial__content';
+
+    /**
+     * Heading3 for displaying user name.
+     * Span tag for displaying user designation.
+     */
+    const userName = document.createElement('h3');
+    const userDesignation = document.createElement('span');
     userName.innerText = name;
     userName.className = 'heading2 testimonial__name';
     userDesignation.innerText = ` / ${designation}`;
     userDesignation.className = 'testimonial__designation';
     userName.appendChild(userDesignation);
+
+    /**
+     * Div for showing the rating given by user.
+     * Paragraph for showing the review of user.
+     */
+    const testimonialRating = document.createElement('div');
+    const testimonialReview = document.createElement('p');
     testimonialRating.className = 'testimonial__rating';
-    testimonialRating.ariaLabel = `${rating} out of 5 stars`;
     testimonialRating.append(...createRating(rating));
-    testimonialReview.classList = 'body1 testimonial__review';
+    testimonialReview.classList = 'body1 body1--lg testimonial__review';
     testimonialReview.innerText = review;
+
+    /**
+     * Div for showing the testimonials text content.
+     */
+    const testimonialContent = document.createElement('div');
+    testimonialContent.className = 'testimonial__content';
     testimonialContent.append(userName, testimonialRating, testimonialReview);
+
+    /**
+     * Div for showing the image and text content.
+     */
+    const testimonialContainer = document.createElement('div');
+    testimonialContainer.className = 'swiper-slide testimonial';
     testimonialContainer.append(testimonialImage, testimonialContent);
     return testimonialContainer;
 };

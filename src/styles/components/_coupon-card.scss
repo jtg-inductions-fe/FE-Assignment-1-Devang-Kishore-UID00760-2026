@@ -1,0 +1,47 @@
+@use '../abstracts/' as *;
+
+.coupon {
+    @include flex(space-between, center);
+    font-family: $font-secondary;
+    border: $clr-pink-light solid px-to-rem(1);
+    width: px-to-rem(312);
+    background: $coupon-card-gradient;
+    border-radius: px-to-rem(16);
+    padding: px-to-rem(16);
+    margin-bottom: px-to-rem(16);
+
+    &__expires {
+        color: $clr-purple;
+    }
+
+    &__label {
+        max-width: px-to-rem(150);
+    }
+
+    &__code {
+        background-color: $clr-white;
+        border: px-to-rem(1) solid $clr-gray;
+        border-radius: $radius-sm;
+        padding: px-to-rem(4) px-to-rem(10);
+    }
+
+    &__right {
+        @include flex(center, center, row, px-to-rem(8));
+
+        .copy-button {
+            padding: px-to-rem(8);
+        }
+    }
+
+    &--disabled {
+        background: $clr-gray;
+
+        .copy-icon {
+            filter: invert(60%);
+        }
+
+        .coupon__expires {
+            color: $clr-links;
+        }
+    }
+}

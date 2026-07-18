@@ -1,5 +1,8 @@
 @use '../abstracts' as *;
 
+/**
+ * Travel Point Section
+ */
 .travel-point {
     padding-top: px-to-rem(128);
     width: 100%;
@@ -9,7 +12,8 @@
     }
 
     &__title {
-        margin-bottom: px-to-rem(29);
+        margin-bottom: px-to-rem(28);
+        line-height: $lh-heading;
     }
 
     &__subtitle {
@@ -17,12 +21,16 @@
     }
 
     &__content {
-        @include flex($direction: column, $gap: px-to-rem(51));
+        @include flex($direction: column, $gap: px-to-rem(43));
     }
 
     &__image {
         display: block;
         width: 100%;
+
+        img {
+            width: 100%;
+        }
     }
 
     &__description {
@@ -32,7 +40,7 @@
     }
 
     &__info {
-        @include flex($direction: column, $gap: px-to-rem(32));
+        @include flex($direction: column, $gap: px-to-rem(30));
     }
 
     &__stats {
@@ -41,9 +49,13 @@
     }
 
     @include breakpoint-up('tablet') {
-        padding-top: px-to-rem(40);
+        padding-top: px-to-rem(55);
         position: relative;
         width: 100%;
+
+        &__description {
+            padding: 0;
+        }
 
         &__heading {
             padding: 0 px-to-rem(62);
@@ -62,19 +74,19 @@
             background: $travel-point-gradient;
         }
 
-        &__stats {
-            @include grid(repeat(2, 1fr), px-to-rem(38));
-            padding: 0;
-        }
-
         &__info {
             padding: px-to-rem(48) px-to-rem(32) 0 px-to-rem(32);
+            gap: px-to-rem(45);
         }
 
         &__stats {
-            @include grid(repeat(2, 1fr), px-to-rem(38));
-            padding: px-to-rem(32) px-to-rem(64) 0 px-to-rem(64);
+            @include grid(repeat(2, 1fr), px-to-rem(30));
+            padding: px-to-rem(24) px-to-rem(64) 0 px-to-rem(36);
             row-gap: px-to-rem(32);
+        }
+
+        &__content {
+            gap: px-to-rem(40);
         }
     }
 
@@ -87,7 +99,8 @@
         }
 
         &__content {
-            @include flex($align: start);
+            @include flex($align: center);
+            justify-content: center;
         }
 
         &__info {
@@ -96,18 +109,23 @@
 
         &__image {
             padding-top: px-to-rem(32);
-            flex: 0 0 60%;
+            width: clamp(10rem, 60vw, 55rem);
             max-width: px-to-rem(880);
+
+            img {
+                width: 100%;
+            }
         }
 
         &__info {
             flex: 0 0 40%;
+            max-width: px-to-rem(600);
         }
 
         &__description {
             text-align: left;
             max-width: px-to-rem(450);
-            padding: 0;
+            padding-top: px-to-rem(5);
         }
 
         &__heading {
@@ -118,7 +136,7 @@
         }
 
         &__stats {
-            padding: px-to-rem(32) px-to-rem(80) 0 0;
+            padding: px-to-rem(20) px-to-rem(80) 0 0;
             position: relative;
 
             .stat-card {
@@ -133,7 +151,7 @@
             width: px-to-rem(192);
             height: px-to-rem(192);
             position: absolute;
-            top: px-to-rem(-29);
+            top: px-to-rem(-40);
             right: px-to-rem(-40);
         }
     }

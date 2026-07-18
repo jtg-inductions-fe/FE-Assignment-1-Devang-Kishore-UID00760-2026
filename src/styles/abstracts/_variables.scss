@@ -1,5 +1,6 @@
 // Fonts
 $font-primary: 'Roboto', sans-serif;
+$font-secondary: 'Inter', sans-serif;
 
 // Font Weights
 $fw-normal: 500;
@@ -7,15 +8,18 @@ $fw-medium: 600;
 $fw-bold: 700;
 
 // Font Size
+$fs-2xs: 0.75rem;
 $fs-xs: 0.875rem;
-$fs-sm: 1.125rem;
+$fs-sm: 1rem;
+$fs-base: 1.125rem;
 $fs-md: 1.4375rem;
 $fs-lg: 1.75rem;
+$fs-enlarged: 2.5rem;
 $fs-xl: 2.75rem;
 $fs-2xl: 4.3125rem;
 $fs-icons-md: 2rem;
 $fs-icons-sm: 1.5rem;
-$fs-icons-xs:1rem;
+$fs-icons-xs: 1rem;
 
 // Line Heights
 $lh-body: 1.6;
@@ -36,6 +40,11 @@ $clr-gray: #eeeeee;
 $clr-navbar-bg-start: #f6cfc2;
 $clr-navbar-bg-end: #fff2ed;
 $clr-yellow: #fccc49;
+$clr-overlay: #00000080;
+$clr-border: #eeeeee;
+$clr-pink: #f4436c;
+$clr-pink-light: #f4436c33;
+$clr-purple: #7c3aed;
 
 // Border Radius
 $radius-md: 6.25rem;
@@ -86,6 +95,11 @@ $travel-point-gradient: radial-gradient(
     rgba($clr-yellow, 0.25) 0%,
     rgba($clr-yellow, 0) 70%
 );
+$coupon-card-gradient: linear-gradient(
+    90deg,
+    rgba(244, 67, 108, 0.05) 0%,
+    rgba(124, 58, 237, 0.05) 100%
+);
 
 // z-index
 $z-layers: (
@@ -99,3 +113,4 @@ $shadow-elevated: 0 10px 20px rgba(0, 0, 0, 0.25);
 $shadow-subtle:
     rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
     rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+$shadow-floated: 0px 0px 50px 7px #00000040;

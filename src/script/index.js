@@ -1,17 +1,21 @@
 import data from '../data/content.json';
+import './events';
 import { toggle, setOpen, setScrolled } from './navbar';
 import { renderCards } from './travelpoint';
-import {toggleAccordion } from './accordion';
+import { updateFooterButtonTabIndex } from './accordion';
 import { renderTestimonials } from './carousel';
+
 /**
  * QuerySelectors
  */
-const navbar = document.querySelector('#navbar-container');
-const navbarHamburgerButton = document.querySelector('#hamburger');
-const navbarLinksMenu = document.querySelector('#menu');
-const statsContainer = document.querySelector('#stats-container');
-const testimonialWrapper = document.querySelector('#testimonial-wrapper');
-const footerContainer = document.querySelector('#footer-lists');
+const navbar = document.getElementById('navbar-container');
+const navbarHamburgerButton = document.getElementById('hamburger');
+const navbarLinksMenu = document.getElementById('menu');
+const statsContainer = document.getElementById('stats-container');
+const testimonialWrapper = document.getElementById('testimonial-wrapper');
+const specialDealsContainer = document.getElementById(
+    'special-deals-container',
+);
 
 /**
  * Constant values
@@ -25,25 +29,32 @@ const stats = data['travelPoint'].stats;
  */
 renderCards(stats, statsContainer);
 renderTestimonials(testimonialWrapper, data.testimonials);
+updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
 
 /**
  * Event Listeners
  */
-footerContainer.addEventListener('click', (event) => {
-    if (event.target.classList.contains('footer__heading')) {
-        const targetList=event.target.nextElementSibling;
-        toggleAccordion(event.target,targetList);
-    }
-});
-
 window.addEventListener('resize', () => {
     setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
+    updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
 });
 
 window.addEventListener('scroll', () => {
     setScrolled(navbar, Y_SCROLL);
 });
 
-navbarHamburgerButton.addEventListener('click', () => {
-    toggle(navbarHamburgerButton, navbarLinksMenu);
+window.addEventListener('keydown', (event) => {
+    if (
+        event.key === 'Escape' &&
+        navbarLinksMenu.classList.contains('navbar__content--open')
+    ) {
+        toggle(navbarHamburgerButton, navbarLinksMenu);
+    }
+
+    if (
+        event.key === 'Escape' &&
+        specialDealsContainer.classList.contains('special-deals--show')
+    ) {
+        specialDealsContainer.classList.remove('special-deals--show');
+    }
 });

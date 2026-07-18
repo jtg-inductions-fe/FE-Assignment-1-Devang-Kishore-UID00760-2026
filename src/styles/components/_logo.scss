@@ -6,6 +6,7 @@
 .logo {
     @include flex($align: center);
     flex-shrink: 0;
+    font-size: $fs-md;
 
     img {
         display: block;
