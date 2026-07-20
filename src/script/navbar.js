@@ -52,30 +52,36 @@ const setScrolled = (navbar, scrollValue) => {
  * @param {number} desktopSize- break point for desktop screen.
  * @param {number} tabletSize- break point for tablet screen.
  */
-const trapFocus=(e,focusableElements,navbarHamburgerButton,desktopSize,tabletSize)=>{
-  const isTabPressed = (e.key === 'Tab');
-  const firstFocusableEl = navbarHamburgerButton;
-  let lastFocusableEl = focusableElements[focusableElements.length - 1];
+const trapFocus = (
+    e,
+    focusableElements,
+    navbarHamburgerButton,
+    desktopSize,
+    tabletSize,
+) => {
+    const isTabPressed = e.key === 'Tab';
+    const firstFocusableEl = navbarHamburgerButton;
+    let lastFocusableEl = focusableElements[focusableElements.length - 1];
 
-  if (!isTabPressed||window.innerWidth>desktopSize) {
-    return; 
-  }
-
-  if(window.innerWidth>tabletSize){
-    lastFocusableEl = focusableElements[focusableElements.length - 3];
-  }
-
-  if (e.shiftKey) { 
-    if (document.activeElement === firstFocusableEl) {
-      lastFocusableEl.focus();
-      e.preventDefault();
+    if (!isTabPressed || window.innerWidth > desktopSize) {
+        return;
     }
-  } else { 
-    if (document.activeElement === lastFocusableEl) {
-      firstFocusableEl.focus();
-      e.preventDefault();
-    }
-  }
-}
 
-export { toggle, setOpen, setScrolled,trapFocus };
+    if (window.innerWidth > tabletSize) {
+        lastFocusableEl = focusableElements[focusableElements.length - 3];
+    }
+
+    if (e.shiftKey) {
+        if (document.activeElement === firstFocusableEl) {
+            lastFocusableEl.focus();
+            e.preventDefault();
+        }
+    } else {
+        if (document.activeElement === lastFocusableEl) {
+            firstFocusableEl.focus();
+            e.preventDefault();
+        }
+    }
+};
+
+export { toggle, setOpen, setScrolled, trapFocus };

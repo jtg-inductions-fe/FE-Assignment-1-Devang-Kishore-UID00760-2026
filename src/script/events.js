@@ -37,7 +37,15 @@ navbarHamburgerButton.addEventListener('click', () => {
     toggle(navbarHamburgerButton, navbarLinksMenu);
 });
 
-navbarLinksMenu.addEventListener('keydown',(e)=>trapFocus(e,focusableElements,navbarHamburgerButton,DESKTOP_BREAK_POINT,TABLET_BREAK_POINT));
+navbarLinksMenu.addEventListener('keydown', (e) =>
+    trapFocus(
+        e,
+        focusableElements,
+        navbarHamburgerButton,
+        DESKTOP_BREAK_POINT,
+        TABLET_BREAK_POINT,
+    ),
+);
 
 footerContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('footer__heading')) {
