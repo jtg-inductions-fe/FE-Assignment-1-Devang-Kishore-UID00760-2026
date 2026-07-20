@@ -49,7 +49,7 @@ const setScrolled = (navbar, scrollValue) => {
  * @param {Event} e- Tab key down event.
  * @param {HTMLElements} focusableElements- Elements which can be focused using tab.
  * @param {HTMLElement}  navbarHamburgerButton - Hamburger button.
- * @param {number} desktopSize- break point for desktop screen.
+ * @param {number} desktopSize- break point for desktop screen .
  * @param {number} tabletSize- break point for tablet screen.
  */
 const trapFocus = (
