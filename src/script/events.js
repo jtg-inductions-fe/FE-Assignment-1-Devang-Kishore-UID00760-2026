@@ -1,4 +1,4 @@
-import { toggle } from './navbar';
+import { toggle, trapFocus } from './navbar';
 import { toggleAccordion } from './accordion';
 import {
     fetchData,
@@ -26,6 +26,9 @@ const offersContainer = document.getElementById('offers-container');
 const couponContainer = document.getElementById('coupons-container');
 const goBackButton = document.getElementById('go-back-button');
 const winContainer = document.getElementById('win-container');
+const focusableElements = navbarLinksMenu.querySelectorAll('a');
+const DESKTOP_BREAK_POINT = 1024;
+const TABLET_BREAK_POINT = 768;
 
 /**
  * Event Listeners
@@ -33,6 +36,16 @@ const winContainer = document.getElementById('win-container');
 navbarHamburgerButton.addEventListener('click', () => {
     toggle(navbarHamburgerButton, navbarLinksMenu);
 });
+
+navbarLinksMenu.addEventListener('keydown', (e) =>
+    trapFocus(
+        e,
+        focusableElements,
+        navbarHamburgerButton,
+        DESKTOP_BREAK_POINT,
+        TABLET_BREAK_POINT,
+    ),
+);
 
 footerContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('footer__heading')) {

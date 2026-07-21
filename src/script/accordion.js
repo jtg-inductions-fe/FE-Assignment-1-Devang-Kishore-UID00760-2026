@@ -17,7 +17,7 @@ const toggleAccordion = (targetButton, targetList) => {
  * @param {Number} breakPoint -Desktop break point
  */
 const updateFooterButtonTabIndex = (breakPoint) => {
-    const index = window.innerHeight >= breakPoint ? -1 : 0;
+    const index = window.innerWidth >= breakPoint ? -1 : 0;
 
     for (const button of footerButtons) {
         button.tabIndex = index;

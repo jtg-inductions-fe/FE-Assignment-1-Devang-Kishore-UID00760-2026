@@ -21,6 +21,7 @@ const specialDealsContainer = document.getElementById(
  * Constant values
  */
 const DESKTOP_BREAK_POINT = 1024;
+const TABLET_BREAK_POINT = 768;
 const Y_SCROLL = 10;
 const stats = data['travelPoint'].stats;
 
@@ -29,14 +30,14 @@ const stats = data['travelPoint'].stats;
  */
 renderCards(stats, statsContainer);
 renderTestimonials(testimonialWrapper, data.testimonials);
-updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
+updateFooterButtonTabIndex(TABLET_BREAK_POINT);
 
 /**
  * Event Listeners
  */
 window.addEventListener('resize', () => {
     setOpen(navbarLinksMenu, navbarHamburgerButton, DESKTOP_BREAK_POINT);
-    updateFooterButtonTabIndex(DESKTOP_BREAK_POINT);
+    updateFooterButtonTabIndex(TABLET_BREAK_POINT);
 });
 
 window.addEventListener('scroll', () => {
